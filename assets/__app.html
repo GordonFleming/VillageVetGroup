@@ -4,7 +4,7 @@
 	<meta charset='utf-8'>
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
 
-	<title>Svelte app</title>
+	<title>Village Vet Group</title>
 
 	<meta name="theme-color" content="#E938C2">
 	<link rel="apple-touch-icon" href="images/touch-icons/logo-192.png">
@@ -16,10 +16,17 @@
     <link rel='stylesheet' href='/build/bundle.css'>
 	<link rel="modulepreload" href="/build/main.js" />
 
-	<script type="module" src="/build/main.js"></script>
+    <script type="module" src="/build/main.js"></script>
+
+    <!-- SnipCart -->
+    <link rel="preconnect" href="https://app.snipcart.com">
+    <link rel="preconnect" href="https://cdn.snipcart.com">
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.css" />
 </head>
 
 <body>
-	<noscript>Please enable Javascript for best experience.</noscript>
+    <noscript>Please enable Javascript for best experience.</noscript>
+    <script async src="https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.js"></script>
+    <div hidden id="snipcart" data-api-key="YmMxOTQzNjAtZDYyYS00MzgxLTk2OTYtMDkxMTU5NmZiZmQxNjM3NDY3NTg2MzI5NzAyNDQx" data-config-add-product-behavior="none"  data-config-modal-style="side"></div>
 </body>
 </html>

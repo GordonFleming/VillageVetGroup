@@ -1,6 +1,6 @@
 # Svelte + Routify frontend & Strapi backend
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2adcd0c6-6bd9-4b8f-8b6a-b5bde9dd8400/deploy-status)](https://app.netlify.com/sites/villagevet/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cfc0e683-1c12-4a82-a36f-08022a9e7eae/deploy-status)](https://app.netlify.com/sites/villagevet/deploys)
 
 ### Get started
 

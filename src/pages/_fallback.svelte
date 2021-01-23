@@ -7,17 +7,14 @@
     font-size: 12rem;
   }
   .e404 {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     text-align: center;
   }
 </style>
 
 <div class="e404">
   <div class="huge">404</div>
-  <div class="big">Page not found. 
+  <div class="big">Page not found. Sorry, broken link!
   <!-- link to the parent folder of _fallback.svelte -->
   <a href={$url('../')}>Go back</a>
   </div>
