@@ -1,64 +1,47 @@
+html{
+    height: 100%;
+}
 body {
-	color: #333;
+    color: #333;
+    position: relative;
     margin: 0;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar-nav > li{
+    padding-left:30px;
+    padding-right:30px;
 }
 
 footer{
     margin-top: auto;
 }
 
-/* a {
-	color: rgb(0,100,200);
-	text-decoration: none;
+
+#slot{
+    height: 60vh;
 }
 
-a:hover {
-	text-decoration: underline;
+button h6{
+    padding-top: 10px;
+    padding-left: 5px;
 }
 
-a:visited {
-	color: rgb(0,80,160);
-}
+/* Bootstrap mods */
 
-label {
-	display: block;
+.btn-link {
+    color: #333;
+    text-decoration: none;
 }
-
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+.btn-link:hover {
+    color: rgb(82, 71, 71);
 }
-
-input:disabled {
-	color: #ccc;
+.btn-link:focus{
+    border-color: rgb(73, 71, 71);
+    box-shadow: none;
 }
-
-input[type="range"] {
-	height: 0;
+.btn-link:active{
+    box-shadow: 0;
 }
-
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
-} */

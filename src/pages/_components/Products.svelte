@@ -1,8 +1,6 @@
 <script>
-    export let user = "Gordon";
-
     import { onMount } from 'svelte';
-
+    import { url } from '@roxi/routify'
     let petfoods = [];
     let error = null
 
@@ -33,26 +31,42 @@
             error = e
         }
     });
+    console.log($url())
 </script>
 
-<main class="container">
-	<h1>Hello {user}!</h1>
-
+<main>
     {#if error !== null}
         {error}
     {:else}
-        {#each petfoods as petfood}
-            <div class="tile is-2">
-                <ul>
-                    <li>{petfood.name}</li>
-                    <li>R{petfood.price}</li>
-                    <li>{petfood.pictures[0].url}</li>
-                    <li>{petfood.rating}</li>
-                    <li>{petfood.description}</li>
-                    <li></li>
-                </ul>
-                <img src="http://localhost:1337{petfood.pictures[0].url}" alt="">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                {#each petfoods as petfood}
+                    <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
+                        <div class="card" style="width: auto;">
+                            <img src="http://localhost:1337{petfood.pictures[0].url}" class="card-img-top" alt="product_image">
+                            <div class="card-body">
+                                <h5 class="card-title">{petfood.name}</h5>
+                                <p class="card-text">R{petfood.price}</p>
+                                <p class="card-text">{petfood.rating}</p>
+                                <p class="card-text">{petfood.description}</p> 
+                                <p class="card-text">{$url()}</p> 
+                                <!-- SnipCart buy btn --> <!-- $url() -->
+                                <a href="/" class="btn btn-secondary snipcart-add-item"
+                                    data-item-id="{petfood.id}"
+                                    data-item-price="{petfood.price}"
+                                    data-item-url="/"   
+                                    data-item-name="{petfood.name}"
+                                    data-item-description="{petfood.description}"
+                                    data-item-image="https://villagevet.herokuapp.com/petfoods{petfood.pictures[0].url}"
+                                    data-item-custom1-name="Weight"
+                                    data-item-custom1-options="3KG|6KG|12KG[+50.00]">
+                                    Add to bowl
+                                </a>
+                            </div>
+                          </div>
+                    </div>
+                {/each}
             </div>
-        {/each}
+        </div>
     {/if}
 </main>

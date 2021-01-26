@@ -1,8 +1,8 @@
 <script>
   import { url, route } from "@roxi/routify";
-
   $: match = $route.path.match(/\/modal\/([^\/]+)\//);
   $: active = match && match[1];
+  console.log($url())
 </script>
 
 <style>
