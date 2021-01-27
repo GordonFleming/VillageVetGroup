@@ -19,7 +19,6 @@ footer{
     margin-top: auto;
 }
 
-
 #slot{
     height: 60vh;
 }
@@ -27,6 +26,10 @@ footer{
 button h6{
     padding-top: 10px;
     padding-left: 5px;
+}
+
+div span{
+    padding-right: 20px;
 }
 
 /* Bootstrap mods */
@@ -42,6 +45,8 @@ button h6{
     border-color: rgb(73, 71, 71);
     box-shadow: none;
 }
-.btn-link:active{
-    box-shadow: 0;
+.form-control:focus{
+    border-color: rgb(73, 71, 71);
+    box-shadow: 2px 5px 2px;
+    color: rgb(73, 71, 71)
 }

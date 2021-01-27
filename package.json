@@ -54,5 +54,9 @@
     "blacklist": [
       "/example/modal/basic/4"
     ]
+  },
+  "dependencies": {
+    "algoliasearch": "^4.8.4",
+    "svelte-algolia": "^0.1.6"
   }
 }
