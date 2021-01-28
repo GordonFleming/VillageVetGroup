@@ -21,7 +21,7 @@
     };
 
         try {
-            const res = await fetch("https://villagevet.herokuapp.com/product-types", { //https://villagevet.herokuapp.com/producttypes
+            const res = await fetch("https://villagevet.herokuapp.com/product-types", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'

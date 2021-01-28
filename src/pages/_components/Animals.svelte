@@ -20,7 +20,7 @@
     };
 
         try {
-            const res = await fetch("https://villagevet.herokuapp.com/animals", { //https://villagevet.herokuapp.com/animals
+            const res = await fetch("https://villagevet.herokuapp.com/animals", {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
