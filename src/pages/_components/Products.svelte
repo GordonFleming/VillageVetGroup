@@ -19,7 +19,7 @@
     };
 
         try {
-            const res = await fetch("http://localhost:1337/products", { //https://villagevet.herokuapp.com/products
+            const res = await fetch("https://villagevet.herokuapp.com/products", { //https://villagevet.herokuapp.com/products
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -43,7 +43,7 @@
                 {#each products as product}
                     <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
                         <div class="card" style="width: auto;">
-                            <a href="/products/{product.id}"><img src="http://localhost:1337{product.img[0].url}" class="card-img-top" alt="product_image"></a>
+                            <a href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>
                             <div class="card-body">
                                 <h5 class="card-title">{product.name}</h5>
                                 <p class="card-text">R{product.price}</p>

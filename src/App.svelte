@@ -22,6 +22,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://villagevetgroup.co.za/about-us/">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://villagevetgroup.co.za/about/">Services</a>
+                    </li>
                     <form class="d-flex">
                         <Search val={val}/>
                     </form>

@@ -24,8 +24,8 @@ body {
 }
 
 #product{
-    width: 20vw;
-    height: 15vw;
+    width: 55vw;
+    height: 25vw;
 }
 
 footer{
@@ -44,6 +44,7 @@ div span{
 }
 
 i{
+    color: #212529;
     padding: 1rem;
 }
 
@@ -51,6 +52,20 @@ i{
 
 .navbar{
     border-bottom: 3px solid #fcd077;
+}
+.card-img-top{
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.card-img-top:hover{
+    -moz-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    -o-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    transition: 1s;
 }
 .btn-link {
     color: #333;
