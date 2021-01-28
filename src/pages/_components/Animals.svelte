@@ -37,14 +37,14 @@
 
 <style>
     .sidenav {
-        height: 50vh;
+        height: 40vh;
         width: 160px;
         position: fixed;
         z-index: 1;
         top: 0;
         left: 0;
         overflow-x: hidden;
-        margin-top: 30vh;
+        margin-top: 46vh;
         margin-left: 5vh;
     }
     li{

@@ -1,3 +1,3 @@
-<div class="container mt-5" id="slot">
+<div class="container mt-5">
     <slot />
 </div>
