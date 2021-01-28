@@ -34,12 +34,10 @@
                 </ul>
                 <form class="row row-cols-lg-auto g-3 align-items-center">
                     <div class="col-12">
-                        <span>Quantity:</span>
-                        <span class="snipcart-items-count"></span>
+                        <span class="snipcart-total-price"></span>
                     </div>
                     <div class="col-12">
-                        <span>Total:</span>
-                        <span class="snipcart-total-price"></span>
+                        <span class="snipcart-items-count"></span>
                     </div>
                 </form>
                 <button class="snipcart-checkout btn btn-link  nav-item d-flex">

@@ -47,7 +47,6 @@
                             <div class="card-body">
                                 <h5 class="card-title">{product.name}</h5>
                                 <p class="card-text">R{product.price}</p>
-                                <p class="card-text">{product.description}</p>
                                 {#if product.options === true}
                                     <div class="row"> 
                                         {#each product.additional as add}
@@ -75,7 +74,7 @@
                                     data-item-url="/"   
                                     data-item-name="{product.name}"
                                     data-item-description="{product.description}"
-                                    data-item-image="https://villagevet.herokuapp.com/products{product.img[0].url}"
+                                    data-item-image="{product.img[0].name}"
                                     data-item-custom1-name="Weight"
                                     data-item-custom1-options="3KG|6KG|12KG[+50.00]">
                                     Add to bowl

@@ -15,8 +15,14 @@ body {
     padding-right:30px;
 }
 
+span{
+    margin: 0;
+    padding: 0;
+}
+
 #search input{
     padding-right: 4rem;
+    margin-left: 2rem;
 }
 
 #product{
@@ -48,6 +54,13 @@ i{
 
 .navbar{
     border-bottom: 3px solid #fcd077;
+}
+@media (min-width: 992px){
+    .navbar li {
+        margin-left : 0em;
+        margin-right : 0em;
+        padding: 0;
+    }
 }
 .card-img-top{
     -webkit-transition: all .3s ease-out;

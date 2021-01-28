@@ -1,17 +1,17 @@
 <script>
-  import { ready, url, params } from "@roxi/routify";
-  let product = {};
+    import { ready, url, params } from "@roxi/routify";
+    let product = {};
 
-  $: updateShow($params.showId);
+    $: updateShow($params.showId);
 
-  function updateShow(id) {
-    fetch(`https://villagevet.herokuapp.com/products/${id}`)
-      .then(response => response.json())
-      .then(json => {
-        product = json;
-        $ready();
-      });
-  }
+    function updateShow(id) {
+        fetch(`https://villagevet.herokuapp.com/products/${id}`)
+        .then(response => response.json())
+        .then(json => {
+            product = json;
+            $ready();
+        });
+    }
 </script>
 <a href={$url('./')}><i class="fas fa-arrow-left fa-2x"></i></a>
 <nav aria-label="breadcrumb">
@@ -45,7 +45,7 @@
                                         data-item-url="/"   
                                         data-item-name="{product.name}"
                                         data-item-description="{product.description}"
-                                        data-item-image="https://villagevet.herokuapp.com/products{product.img[0].url}"
+                                        data-item-image="{product.img[0].name}"
                                         data-item-custom1-name="Weight"
                                         data-item-custom1-options="3KG|6KG|12KG[+50.00]">
                                         Add to bowl
