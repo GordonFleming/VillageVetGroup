@@ -1,7 +1,7 @@
 <script>
     import { Router } from "@roxi/routify";
     import { routes } from "../.routify/routes";
-    import Search from 'pages/_components/Search.svelte';
+    import Search from './pages/_components/Search.svelte';
     let val;
 </script>
 
