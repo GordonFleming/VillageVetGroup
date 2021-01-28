@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
     import { url } from '@roxi/routify'
-    import ProductTypes from 'ProductTypes.svelte'
+    import ProductTypes from './ProductTypes.svelte'
     let animals = [];
     let error = null
 
