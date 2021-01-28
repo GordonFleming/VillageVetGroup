@@ -39,36 +39,27 @@
         {error}
     {:else}
         <div class="container">
-            <div class="row align-items-center justify-content-center">
+            <div class="row align-items-center justify-content-center mb-5">
                 {#each products as product}
                     <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
                         <div class="card" style="width: auto;">
                             <a href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>
                             <div class="card-body">
-                                <h5 class="card-title">{product.name}</h5>
+                                <h5 class="card-title">{product.name.toLowerCase()}</h5>
                                 <p class="card-text">R{product.price}</p>
                                 {#if product.options === true}
-                                    <div class="row"> 
+                                    <ul id="weights">
                                         {#each product.additional as add}
-                                        <div class="col">
-                                            {add.weight}KG
-                                        </div>
+                                            <li>{add.weight}KG</li>
                                         {/each}
-                                    </div>
-                                    <div class="row"> 
-                                        {#each product.additional as add}
-                                        <div class="col">
-                                            R{add.price}.00
-                                        </div>
-                                        {/each}
-                                    </div>
+                                    </ul>
                                 {:else}
                                     <p class="card-text">{product.name}</p>
                                 {/if}
                                     
                                 <!-- SnipCart buy btn --> <!-- $url()  <p class="card-text">{$url()}</p> -->
 
-                                <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
+                                <a href="/" class="btn btn-secondary snipcart-add-item mt-4 mb-3"
                                     data-item-id="{product.id}"
                                     data-item-price="{product.price}"
                                     data-item-url="/"   

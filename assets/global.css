@@ -9,6 +9,12 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+h2{
+    text-transform: capitalize;
+}
+.card-title{
+    text-transform: capitalize;
+}
 
 .navbar-nav > li{
     padding-left:30px;
@@ -28,6 +34,11 @@ span{
 #product{
     width: 55vw;
     height: 25vw;
+}
+
+#weights li{
+    display: inline;
+    padding-right: 0.8rem;
 }
 
 footer{
@@ -52,6 +63,10 @@ i{
 
 /* Bootstrap mods */
 
+.container-fluid{
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
 .navbar{
     border-bottom: 3px solid #fcd077;
 }

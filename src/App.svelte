@@ -9,7 +9,7 @@
   @import "../assets/global.css";
 </style>
 
-<div class="container">
+<div class="container-fluid">
     <img src="https://res.cloudinary.com/splyce/image/upload/v1611420203/logos/cropped-new-banner12_wfnaip.png" alt="" class="text-center img-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-2">
         <div class="container-fluid">

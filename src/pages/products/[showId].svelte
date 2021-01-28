@@ -21,7 +21,7 @@
         <li class="breadcrumb-item active" aria-current="page">{product.name}</li>
     </ol>
 </nav>
-<div class="container" id="product">
+<div class="container mt-5 pt-2" id="product">
     {#await fetch("https://villagevet.herokuapp.com/products/")}
         <div class="d-flex justify-content-center">
             <div class="spinner-border" role="status">
@@ -31,14 +31,28 @@
     {:then} 
         {#if product.id}
             <div class="row">
-                <div class="col">
+                <div class="col p-3">
                     <img src="{product.img[0].name}" class="img-fluid" alt="product_image">
                 </div>
                 <div class="col">
-                    <h1>{product.name}</h1>
+                    <h2>{product.name.toLowerCase()}</h2>
                     <h5>{product.description}</h5>
-                    <h4>R{product.price}</h4>
-                    <p>Shipping calculated at checkout.</p>
+                    <h4 class="mt-4 mb-4">R{product.price}</h4>
+                    <div class="row"> 
+                        {#each product.additional as add}
+                        <div class="col">
+                            {add.weight}KG
+                        </div>
+                        {/each}
+                    </div>
+                    <div class="row"> 
+                        {#each product.additional as add}
+                        <div class="col">
+                            R{add.price}.00
+                        </div>
+                        {/each}
+                    </div>
+                    <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                     <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                                         data-item-id="{product.id}"
                                         data-item-price="{product.price}"

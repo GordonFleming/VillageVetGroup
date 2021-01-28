@@ -37,15 +37,11 @@
 
 <style>
     .sidenav {
-        height: 40vh;
-        width: 160px;
-        position: fixed;
+        width: 156px;
+        position: relative;
         z-index: 1;
-        top: 0;
-        left: 0;
         overflow-x: hidden;
-        margin-top: 46vh;
-        margin-left: 5vh;
+        margin-top: 10vh;
     }
     li{
         font-size: 1.2rem;
