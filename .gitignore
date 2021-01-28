@@ -4,6 +4,8 @@
 **/.history
 src/tmp/
 .routify
+.netlify
 assets/build
 .vercel
-src/pages/example/
+/src/pages/example/
+**/example/
