@@ -7,5 +7,6 @@ src/tmp/
 .netlify
 assets/build
 .vercel
+vercel.json
 /src/pages/example/
-**/example/
+api/vercel-ssr
