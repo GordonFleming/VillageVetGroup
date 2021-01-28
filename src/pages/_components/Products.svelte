@@ -4,8 +4,6 @@
     let products = [];
     let error = null
 
-    let testweight;
-
     onMount(async () => {
         const parseJSON = (resp) => (resp.json ? resp.json() : resp);
         const checkStatus = (resp) => {
@@ -45,7 +43,7 @@
                 {#each products as product}
                     <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
                         <div class="card" style="width: auto;">
-                            <img src="http://localhost:1337{product.img[0].url}" class="card-img-top" alt="product_image">
+                            <a href="/products/{product.id}"><img src="http://localhost:1337{product.img[0].url}" class="card-img-top" alt="product_image"></a>
                             <div class="card-body">
                                 <h5 class="card-title">{product.name}</h5>
                                 <p class="card-text">R{product.price}</p>
@@ -54,14 +52,14 @@
                                     <div class="row"> 
                                         {#each product.additional as add}
                                         <div class="col">
-                                            {add.weight}
+                                            {add.weight}KG
                                         </div>
                                         {/each}
                                     </div>
                                     <div class="row"> 
                                         {#each product.additional as add}
                                         <div class="col">
-                                            {add.price}
+                                            R{add.price}.00
                                         </div>
                                         {/each}
                                     </div>
@@ -83,7 +81,7 @@
                                     Add to bowl
                                 </a>
                             </div>
-                          </div>
+                        </div>
                     </div>
                 {/each}
             </div>

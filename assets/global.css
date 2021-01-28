@@ -15,12 +15,23 @@ body {
     padding-right:30px;
 }
 
-footer{
-    margin-top: auto;
-}
-
 #slot{
     height: 60vh;
+}
+
+#search input{
+    padding-right: 4rem;
+}
+
+#product{
+    width: 20vw;
+    height: 15vw;
+}
+
+footer{
+    border-top: 3px solid #fcd077;
+    background-color: #fcd0776b;
+    margin-top: auto;
 }
 
 button h6{
@@ -32,8 +43,15 @@ div span{
     padding-right: 20px;
 }
 
+i{
+    padding: 1rem;
+}
+
 /* Bootstrap mods */
 
+.navbar{
+    border-bottom: 3px solid #fcd077;
+}
 .btn-link {
     color: #333;
     text-decoration: none;
@@ -48,5 +66,5 @@ div span{
 .form-control:focus{
     border-color: rgb(73, 71, 71);
     box-shadow: 2px 5px 2px;
-    color: rgb(73, 71, 71)
+    color: rgb(73, 71, 71);
 }

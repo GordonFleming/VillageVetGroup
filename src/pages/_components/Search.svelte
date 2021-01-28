@@ -30,7 +30,7 @@
     }
 </script>
 
-<div>
+<div id="search">
 	<input type="text" placeholder="Instant search" class="form-control me-2" bind:value={val} on:keyup={search}>
 </div>
 
