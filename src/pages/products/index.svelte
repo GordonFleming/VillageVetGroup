@@ -3,6 +3,10 @@
   import Products from '../_components/Products.svelte'
   export let scoped;
   const { products } = scoped;
+  const options = {
+    validFor: 200 * 24, // don't refresh assets on the page for a month
+    writeHeaders: true // useful for debugging
+  };
   // console.log(products)
 </script>
 <nav aria-label="breadcrumb">

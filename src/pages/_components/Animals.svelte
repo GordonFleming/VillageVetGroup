@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     import { url } from '@roxi/routify'
-    import ProductTypes from './ProductTypes.svelte'
     let animals = [];
     let error = null
 
@@ -44,12 +43,19 @@
         margin-top: 10vh;
     }
     li{
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        /* font-family: 'Hachi Maru Pop', cursive; */
+        font-family: 'Indie Flower', cursive;
+        color: #636870;
         /* border-bottom: solid 1px black; */
     }
     li:hover{
         cursor: pointer;
     }
+    p{
+        color: #7587A3;
+    }
+
 </style>
 
 <main>
@@ -61,7 +67,9 @@
                 <li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#{animal.type}" aria-expanded="false" aria-controls="{animal.type}">{animal.type}</li>
                 <div class="collapse" id="{animal.type}">
                     <div class="card card-body">
-                        <ProductTypes {animal} />
+                        {#each animal.product_types as type}
+                            <p>{type.name}</p>
+                        {/each}
                     </div>
                 </div>
             {/each}

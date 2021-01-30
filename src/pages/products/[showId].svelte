@@ -5,7 +5,7 @@
     $: updateShow($params.showId);
 
     function updateShow(id) {
-        fetch(`https://villagevet.herokuapp.com/products/${id}`)
+        fetch(`https://villagevet.herokuapp.com/products/${id}`, { 'x-routify-valid-for': 3600})
         .then(response => response.json())
         .then(json => {
             product = json;
@@ -13,14 +13,28 @@
         });
     }
 </script>
+
+<style>
+    p{
+        font-size: 1.05rem;
+    }
+    .breadcrumb-item{
+        text-transform: capitalize;
+    }
+</style>
+
 <a href={$url('./')}><i class="fas fa-arrow-left fa-2x"></i></a>
+{#await fetch("https://villagevet.herokuapp.com/products/")}
+<p>loading...</p>
+{:then} 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/products">Products</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{product.name}</li>
+        <li class="breadcrumb-item active" aria-current="page">{product.name.toLowerCase()}</li>
     </ol>
 </nav>
+{/await}
 <div class="container mt-5 pt-2" id="product">
     {#await fetch("https://villagevet.herokuapp.com/products/")}
         <div class="d-flex justify-content-center">
@@ -36,22 +50,30 @@
                 </div>
                 <div class="col">
                     <h2>{product.name.toLowerCase()}</h2>
-                    <h5>{product.description}</h5>
+                    {#if product.description !== null}
+                        <p>{product.description}</p>
+                    {/if}
                     <h4 class="mt-4 mb-4">R{product.price}</h4>
-                    <div class="row"> 
-                        {#each product.additional as add}
-                        <div class="col">
-                            {add.weight}KG
+                    {#if product.options === true}
+                        <div class="row"> 
+                            {#each product.additional as add, i}
+                            <div class="col">
+                                {add.weight}{product.additional[i].symbol}
+                            </div>
+                            {/each}
                         </div>
-                        {/each}
-                    </div>
-                    <div class="row"> 
-                        {#each product.additional as add}
-                        <div class="col">
-                            R{add.price}.00
+                        <div class="row"> 
+                            {#each product.additional as add}
+                            <div class="col">
+                                R{add.price}.00
+                            </div>
+                            {/each}
                         </div>
-                        {/each}
-                    </div>
+                    {:else}
+                        {#if product.singleweight !== null}
+                            <p class="card-text">{product.singleweight} {product.symbol}</p>
+                        {/if}
+                    {/if}
                     <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                     <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                                         data-item-id="{product.id}"

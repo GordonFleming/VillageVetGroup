@@ -1,3 +1,10 @@
+/* Google fonts */
+/* 
+font-family: 'Hachi Maru Pop', cursive;
+font-family: 'Indie Flower', cursive;
+font-family: 'Maven Pro', sans-serif;
+*/
+
 html{
     height: 100%;
 }
@@ -10,9 +17,6 @@ body {
     min-height: 100vh;
 }
 h2{
-    text-transform: capitalize;
-}
-.card-title{
     text-transform: capitalize;
 }
 
@@ -61,8 +65,28 @@ i{
     padding: 1rem;
 }
 
+.card-price{
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: 'Maven Pro', sans-serif;
+}
+
 /* Bootstrap mods */
 
+.card{
+    border: none;
+}
+.card-title{
+    text-transform: capitalize;
+    text-align: center;
+    /* font-family: 'Indie Flower', cursive; */
+    font-family: 'Hachi Maru Pop', cursive;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+.card-text{
+    text-align: center;
+}
 .container-fluid{
     padding-left: 5vw;
     padding-right: 5vw;
