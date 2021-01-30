@@ -1,5 +1,6 @@
 <script>
     import { ready, url, params } from "@roxi/routify";
+    import { SyncLoader } from 'svelte-loading-spinners';
     let product = {};
 
     $: updateShow($params.showId);
@@ -43,26 +44,24 @@
     </ol>
 </nav>
 
-<div class="container mt-5 pt-2" id="product">
+<div class="container-fluid mt-5 pt-2" id="product">
     {#await fetch("https://villagevet.herokuapp.com/products/")}
         <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+            <SyncLoader size="300" color="#FDD177" unit="px" duration="0.6s" />
         </div>
     {:then} 
         {#if product.id}
             <div class="row">
-                <div class="col p-3">
+                <div class="col-lg-6 col-md-6 col-sm-12 p-md-3">
                     <img src="{product.img[0].name}" class="img-fluid" alt="product_image">
                 </div>
-                <div class="col">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <h2>{product.name.toLowerCase()}</h2>
                     {#if product.description !== null}
                         <p>{product.description}</p>
                     {/if}
-                    <h4 class="mt-4 mb-4">R{product.price}</h4>
                     {#if product.options === true}
+                        <h4 class="mt-4 mb-4">R{product.additional[0].price}</h4>
                         <div class="row"> 
                             {#each product.additional as add, i}
                             <div class="col">
@@ -78,6 +77,7 @@
                             {/each}
                         </div>
                     {:else}
+                        <h4 class="mt-4 mb-4">R{product.price}</h4>
                         {#if product.singleweight !== null}
                             <p class="card-text">{product.singleweight} {product.symbol}</p>
                         {/if}

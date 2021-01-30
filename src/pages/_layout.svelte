@@ -1,7 +1,5 @@
 <script>
     import Animals from './_components/Animals.svelte'
-    import { isChangingPage } from '@roxi/routify'
-    import { Jumper } from 'svelte-loading-spinners'
 </script>
 
 <div class="container-fluid mt-5">
@@ -14,7 +12,3 @@
         </div>
     </div>
 </div>
-
-{#if $isChangingPage}
-  <Jumper />
-{/if}

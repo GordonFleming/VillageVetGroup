@@ -9,12 +9,12 @@ html{
     height: 100%;
 }
 body {
+    height: 100%;
     color: #333;
     position: relative;
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 h2{
     text-transform: capitalize;
@@ -35,11 +35,9 @@ span{
     margin-left: 2rem;
 }
 
-#product{
-    width: 55vw;
-    height: 25vw;
+#weights {
+    text-align: center;
 }
-
 #weights li{
     display: inline;
     padding-right: 0.8rem;
@@ -48,7 +46,6 @@ span{
 footer{
     border-top: 3px solid #fcd077;
     background-color: #fcd0776b;
-    margin-top: auto;
 }
 
 button h6{
