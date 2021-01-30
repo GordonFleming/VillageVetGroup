@@ -79,10 +79,9 @@ i{
 .card-title{
     text-transform: capitalize;
     text-align: center;
-    /* font-family: 'Indie Flower', cursive; */
-    font-family: 'Hachi Maru Pop', cursive;
+    font-family: 'Indie Flower', cursive;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 .card-text{
     text-align: center;

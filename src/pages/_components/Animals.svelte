@@ -44,10 +44,8 @@
     }
     li{
         font-size: 1.4rem;
-        /* font-family: 'Hachi Maru Pop', cursive; */
         font-family: 'Indie Flower', cursive;
         color: #636870;
-        /* border-bottom: solid 1px black; */
     }
     li:hover{
         cursor: pointer;

@@ -21,20 +21,28 @@
     .breadcrumb-item{
         text-transform: capitalize;
     }
+    .card-text{
+        text-align: left;
+        font-size: 1.3rem;
+    }
 </style>
 
 <a href={$url('./')}><i class="fas fa-arrow-left fa-2x"></i></a>
-{#await fetch("https://villagevet.herokuapp.com/products/")}
-<p>loading...</p>
-{:then} 
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="/products">Products</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{product.name.toLowerCase()}</li>
+        <li class="breadcrumb-item active" aria-current="page">
+            {#await fetch("https://villagevet.herokuapp.com/products/")}
+                loading...
+            {:then} 
+                {product.name.toLowerCase()}
+            {/await}
+        </li>
     </ol>
 </nav>
-{/await}
+
 <div class="container mt-5 pt-2" id="product">
     {#await fetch("https://villagevet.herokuapp.com/products/")}
         <div class="d-flex justify-content-center">

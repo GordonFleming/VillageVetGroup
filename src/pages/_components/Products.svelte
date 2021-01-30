@@ -54,7 +54,7 @@
                                     <a href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>
                                     <div class="card-body">
                                         <!-- <a href="use:prefetch={options} href={$url('./:showId', { showId })"></a> -->
-                                        <h5 class="card-title">{product.name.toLowerCase()}</h5> 
+                                        <h5 class="card-title">{product.name.toLowerCase().replace("and", "&")}</h5> 
                                         {#if product.options === true}
                                             <p class="card-price pt-2">R {product.additional[0].price}.00</p>
                                             <ul id="weights">
