@@ -10,7 +10,7 @@
 </style>
 
 <div class="container-fluid">
-    <img src="https://res.cloudinary.com/splyce/image/upload/v1611420203/logos/cropped-new-banner12_wfnaip.png" alt="" class="text-center img-fluid">
+    <div class="text-center"><img src="https://res.cloudinary.com/splyce/image/upload/v1612031206/logos/cropped-new-banner12_latest_evsfwj.png" alt="Banner" class="img-fluid"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-2">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Village Vet Group</a>

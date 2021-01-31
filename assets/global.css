@@ -61,6 +61,9 @@ i{
     color: #212529;
     padding: 1rem;
 }
+i:hover{
+    color: #979e5b;
+}
 
 .card-price{
     font-size: 1.2rem;

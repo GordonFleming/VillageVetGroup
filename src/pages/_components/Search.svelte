@@ -1,12 +1,12 @@
 <script>
     import { onMount } from 'svelte';
     import algoliasearch from 'algoliasearch/lite';
-    
+
     let searchClient;
     let index;
     
-    export let val;
-    let hits = "";
+    let val;
+    export let hits = [];
     
     onMount(() => {
     
@@ -19,7 +19,7 @@
     
         // Warm up search
         index.search(val).then(console.log)
-    
+
     });
     
     // Fires on each keyup in form
@@ -33,10 +33,3 @@
 <div id="search">
 	<input type="text" placeholder="Instant search" class="form-control me-2" bind:value={val} on:keyup={search}>
 </div>
-
-{#each hits as hit}
-	<img src={hit.name} alt={hit.name}>
-	<section>
-		<h3>{hit.name} {hit.description}</h3>
-	</section>
-{/each}

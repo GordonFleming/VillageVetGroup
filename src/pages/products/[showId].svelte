@@ -2,6 +2,7 @@
     import { ready, url, params } from "@roxi/routify";
     import { SyncLoader } from 'svelte-loading-spinners';
     let product = {};
+    let selected;
 
     $: updateShow($params.showId);
 
@@ -16,6 +17,13 @@
 </script>
 
 <style>
+    h2{
+        font-family: 'Indie Flower', cursive;
+        font-size: 2.5rem;
+    }
+    select{
+        width: 8rem;
+    }
     p{
         font-size: 1.05rem;
     }
@@ -25,6 +33,22 @@
     .card-text{
         text-align: left;
         font-size: 1.3rem;
+    }
+    @media only screen and (max-width: 600px) {
+        .product_block{
+            width: 30vw;
+            height: auto;
+            display:block;
+            margin:auto;
+        }
+    }
+    @media only screen and (min-width: 600px) {
+        .product_block{
+            width: 15vw;
+            height: auto;
+            display:block;
+            margin:auto;
+        }
     }
 </style>
 
@@ -38,7 +62,9 @@
             {#await fetch("https://villagevet.herokuapp.com/products/")}
                 loading...
             {:then} 
-                {product.name.toLowerCase()}
+                {#if product.name}
+                    {product.name.toLowerCase()}
+                {/if}
             {/await}
         </li>
     </ol>
@@ -53,7 +79,9 @@
         {#if product.id}
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 p-md-3">
-                    <img src="{product.img[0].name}" class="img-fluid" alt="product_image">
+                    <div class="product_block">
+                        <img src="{product.img[0].name}" class="img-fluid" alt="product_image">
+                    </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h2>{product.name.toLowerCase()}</h2>
@@ -61,7 +89,7 @@
                         <p>{product.description}</p>
                     {/if}
                     {#if product.options === true}
-                        <h4 class="mt-4 mb-4">R{product.additional[0].price}</h4>
+                        <!-- <h4 class="mt-4 mb-4">R{product.additional[0].price}</h4> -->
                         <div class="row"> 
                             {#each product.additional as add, i}
                             <div class="col">
@@ -76,24 +104,57 @@
                             </div>
                             {/each}
                         </div>
+
+                        <div class="input-group mt-4">
+                            <select class="custom-select" id="selected" bind:value={selected}>
+                                {#each product.additional as add, i}
+                                <option value={add}>
+                                    {add.weight}{product.additional[i].symbol}
+                                </option>
+                                {/each}
+                            </select>
+                            <div class="input-group-append">
+                                <label class="input-group-text" for="inputGroupSelect02">Options</label>
+                              </div>
+                        </div>
+                            {#if selected}
+                                <h1 class="mt-4">R{selected.price}</h1>
+                            {/if}
                     {:else}
                         <h4 class="mt-4 mb-4">R{product.price}</h4>
                         {#if product.singleweight !== null}
                             <p class="card-text">{product.singleweight} {product.symbol}</p>
                         {/if}
                     {/if}
-                    <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
+                    {#if selected && product.options === true}
                     <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                                         data-item-id="{product.id}"
-                                        data-item-price="{product.price}"
+                                        data-item-price="{selected.price}"
                                         data-item-url="/"   
                                         data-item-name="{product.name}"
                                         data-item-description="{product.description}"
                                         data-item-image="{product.img[0].name}"
                                         data-item-custom1-name="Weight"
-                                        data-item-custom1-options="3KG|6KG|12KG[+50.00]">
-                                        Add to bowl
+                                        data-item-custom1-type="readonly"
+                                        data-item-custom1-value="{selected.weight}{selected.symbol}">
+                                        Add to bowl: {selected.weight}{selected.symbol} option
                     </a>
+                    {:else}
+                        <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
+                        data-item-id="{product.id}"
+                        data-item-price="{product.price}"
+                        data-item-url="/"   
+                        data-item-name="{product.name}"
+                        data-item-description="{product.description}"
+                        data-item-image="{product.img[0].name}"
+                        data-item-custom1-name="Weight:"
+                        data-item-custom1-type="readonly"
+                        data-item-custom1-value="{product.singleweight}{product.symbol}">
+                        Add to bowl:
+                        </a>
+                    {/if}
+
+                    <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                 </div>
             </div>
         {:else}
