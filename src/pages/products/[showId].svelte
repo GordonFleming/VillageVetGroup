@@ -36,7 +36,7 @@
     }
     @media only screen and (max-width: 600px) {
         .product_block{
-            width: 30vw;
+            width: 90vw;
             height: auto;
             display:block;
             margin:auto;
@@ -44,7 +44,7 @@
     }
     @media only screen and (min-width: 600px) {
         .product_block{
-            width: 15vw;
+            width: 25vw;
             height: auto;
             display:block;
             margin:auto;

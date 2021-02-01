@@ -2,7 +2,6 @@
     import { onMount } from 'svelte';
     import { url } from '@roxi/routify'
     import { SyncLoader } from 'svelte-loading-spinners';
-    import { fade} from 'svelte/transition'
 
     // Pagination
 
@@ -58,7 +57,7 @@
                 <div class="row align-items-center justify-content-center mb-5">
                     {#each paginatedItems as product}
                         {#if product.img !== null}
-                            <div class="col-lg-3 col-md-3 col-sm-12 align-self-center" out:fade="{{duration: 200}}" in:fade="{{ delay: 200}}">
+                            <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
                                 <div class="card" style="width: auto;">
                                     <div class="product_block align-self-center">
                                         <a href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>

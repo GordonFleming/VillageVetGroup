@@ -1,8 +1,9 @@
 <script>
     import { Router } from "@roxi/routify";
     import { routes } from "../.routify/routes";
-    import Search from './pages/_components/Search.svelte';
-    let val;
+    import SimpleSearch from './pages/_components/Search.svelte';
+
+    let search;
 </script>
 
 <style  global>
@@ -29,7 +30,7 @@
                         <a class="nav-link active" aria-current="page" href="https://villagevetgroup.co.za/about/">Services</a>
                     </li>
                     <form class="d-flex">
-                        <Search val={val}/>
+                        <SimpleSearch {search}/>
                     </form>
                 </ul>
                 <form class="row row-cols-lg-auto g-3 align-items-center">
