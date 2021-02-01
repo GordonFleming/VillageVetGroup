@@ -57,6 +57,18 @@ div span{
     padding-right: 20px;
 }
 
+ul li{
+    margin-top: 0.3rem;
+}
+
+li a{
+    color: #000000;
+}
+
+i strong{
+    font-size: 1.8rem;
+}
+
 i{
     color: #212529;
     padding: 1rem;

@@ -53,6 +53,9 @@
     p{
         color: #7587A3;
     }
+    ul li{
+        border: none;
+    }
 
 </style>
 
@@ -61,6 +64,7 @@
         {error}
     {:else}
         <ul class="list-group-flush flex-column sidenav text-center">
+                <a href={$url('../products')}><li class="list-group-item" data-bs-toggle="collapse">All</li></a>
             {#each animals as animal}
                 <li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#{animal.type}" aria-expanded="false" aria-controls="{animal.type}">{animal.type}</li>
                 <div class="collapse" id="{animal.type}">

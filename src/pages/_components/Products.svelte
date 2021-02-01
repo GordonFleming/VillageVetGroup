@@ -140,12 +140,15 @@
     }
     @media only screen and (max-width: 600px) {
         .pagination :global(.option.number){
-        padding: 0;
-        margin: 0;
+            padding: 0;
+            margin-left: 0;
         }
         .product_block{
-        width: 30vw;
-        height: auto;
+            width: 30vw;
+            height: auto;
+        }
+        .pagination :global(.pagination-nav){
+            margin-left: 1rem;
         }
     }
     @media only screen and (min-width: 600px) {

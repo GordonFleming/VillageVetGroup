@@ -1,6 +1,5 @@
 <script>
     //import RoutifyIntro from './example/_components/RoutifyIntro.svelte'
-    import Products from './_components/Products.svelte'
     import Search from './_components/Search.svelte'
     import { metatags } from '@roxi/routify'
     metatags.title = 'Village Vet Group'
