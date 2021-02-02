@@ -24,6 +24,7 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center mb-5">
                     {#each paginatedItems as product}
+                        {paginatedItems=[]}
                         {#if product.name}
                             {#if product.img !== null}
                                 <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">

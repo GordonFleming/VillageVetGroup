@@ -43,13 +43,12 @@
 	async function formSubmitted(event) {
         event.preventDefault();
         loading = true;
-		items = [];
         const url = `${API_URL}${search}`;
 		const response = await fetch(url);
         const json = await response.json();
         console.log(json);
         items = json.map(product => product);
-        items = items; // Needed to complete one last refresh on the search's latest request
+        //items = items; // Needed to complete one last refresh on the search's latest request
         loading = false;
     }
     
@@ -74,7 +73,7 @@
 {/if}
 
 {#if items && items.length > 0}
-    <Products items={items} />
+    <Products {items} />
 {:else}
     <h2>Sorry, nothing matches your search for: "{search}" - no results found.</h2>
 {/if}
