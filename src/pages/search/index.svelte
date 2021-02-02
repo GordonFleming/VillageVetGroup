@@ -2,8 +2,10 @@
     import { onMount } from 'svelte';
     import Products from '../_components/Products.svelte'
 
-    let urlApi = "https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=600";
+    export let search = '';
 
+	let loading = false;
+    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=600&name_contains=';
     let items = [];
 
     onMount(async () => {
@@ -21,7 +23,7 @@
     };
         //{ 'x-routify-valid-for': 3600},
         try {
-            const res = await fetch(urlApi, {
+            const res = await fetch(API_URL, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
@@ -33,13 +35,31 @@
             error = e
         }
     });
+
+	async function formSubmitted(event) {
+		event.preventDefault();
+		loading = true;
+		items = [];
+        const url = `${API_URL}${search}`;
+		const response = await fetch(url);
+        const json = await response.json();
+        console.log(json);
+        items = json.map(product => product);
+        loading = false;
+    }
 </script>
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page">Products</li>
+        <li class="breadcrumb-item" aria-current="page">Search</li>
     </ol>
 </nav>
 
-<Products items={items}/>
+<div class="container mt-4 mb-5">
+    <div id="search">
+        <input type="text" placeholder="Instant search" class="form-control me-2" bind:value={search} on:keyup={formSubmitted}>
+    </div>
+</div>
+
+<Products items={items} />

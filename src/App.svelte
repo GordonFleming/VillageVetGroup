@@ -1,7 +1,6 @@
 <script>
     import { Router } from "@roxi/routify";
     import { routes } from "../.routify/routes";
-    import SimpleSearch from './pages/_components/Search.svelte';
 
     let search;
 </script>
@@ -29,10 +28,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="https://villagevetgroup.co.za/about/">Services</a>
                     </li>
-                    <form class="d-flex">
-                        <SimpleSearch {search}/>
-                    </form>
                 </ul>
+                <form class="form-inline my-2 my-lg-0" action="/search">
+                    <label for="search">Search</label>
+                    <input class="form-control mr-sm-2" type="search" name=search placeholder="Instant search" bind:value={search}>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                </form>
                 <form class="row row-cols-lg-auto g-3 align-items-center">
                     <div class="col-12">
                         <span class="snipcart-total-price"></span>
