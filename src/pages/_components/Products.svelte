@@ -1,13 +1,7 @@
 <script>
-    import { onMount } from 'svelte';
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fly } from 'svelte/transition';
     
-    // let  urlApi = "https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=400";
-    // urlApi 
-
-    // Pagination
-
     import { paginate, LightPaginationNav } from 'svelte-paginate'
     export let items = [];
 
@@ -16,34 +10,6 @@
     $: paginatedItems = paginate({ items, pageSize, currentPage })
 
     let error = null
-
-    // onMount(async () => {
-    //     const parseJSON = (resp) => (resp.json ? resp.json() : resp);
-    //     const checkStatus = (resp) => {
-    //     if (resp.status >= 200 && resp.status < 300) {
-    //     return resp;
-    //     }
-    //     return parseJSON(resp).then((resp) => {
-    //     throw resp;
-    //     });
-    // };
-    // const headers = {
-    //     'Content-Type': 'application/json',
-    // };
-    //     //{ 'x-routify-valid-for': 3600},
-    //     try {
-    //         const res = await fetch(urlApi, {
-    //         method: "GET",
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         }).then(checkStatus)
-    //     .then(parseJSON);
-    //         items = res
-    //     } catch (e) {
-    //         error = e
-    //     }
-    // });
 </script>
 
 <main>
