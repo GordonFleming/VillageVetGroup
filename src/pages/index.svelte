@@ -18,7 +18,7 @@
                 <ChevronLeftIcon size="3x" />
             </span>
             <div class="slide-content">
-                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363937/Brands/Ultrum_Range_jwg8mc.webp" alt="banner_img"/>
+                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363937/Brands/Banners/Ultrum_Range_jwg8mc.webp" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363936/Brands/Banners/dog1_n0yarw.webp" alt="banner_img"/>
@@ -27,10 +27,10 @@
                 <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363936/Brands/Banners/Canine_Perfect_Weight_Small___Mini_604255_604257_BUTT_szmpio.webp" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363937/Brands/frontline_combination_all_BI_nnalok.webp" alt="banner_img"/>
+                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363937/Brands/Banners/frontline_combination_all_BI_nnalok.webp" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363936/Brands/004_packshot_cjxebz.webp" alt="banner_img"/>
+                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363936/Brands/Banners/004_packshot_cjxebz.webp" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363936/Brands/Banners/cat1_loyurj.webp" alt="banner_img"/>
@@ -93,6 +93,6 @@
         margin-bottom: 3rem;
     }
     h2{
-        font-family: 'Maven Pro', sans-serif;
+        font-family: 'Indie Flower', cursive;
     }
 </style>
