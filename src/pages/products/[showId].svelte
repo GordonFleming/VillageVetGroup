@@ -24,6 +24,9 @@
     select{
         width: 8rem;
     }
+    i{
+        padding: 1rem;
+    }
     p{
         font-size: 1.05rem;
     }

@@ -3,8 +3,8 @@
     import Products from '../_components/Products.svelte';
     import { SyncLoader } from 'svelte-loading-spinners';
 
-    let current = window.location.href;
-    let search = current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim(); //search = console.log(current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim());
+    //let current = window.location.href;
+    let search = ""; //current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim(); //search = console.log(current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim());
     let loading = false;
 
     console.log();
