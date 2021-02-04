@@ -57,6 +57,10 @@ span{
     color: #979e5b;
 }
 
+.contact-footer{
+    padding: 1rem;
+}
+
 svg:hover{
     color: #979e5b;
 }

@@ -49,7 +49,7 @@
 
     <!-- Brands -->
     <div class="row mt-5">
-        <Carousel autoplay={3600} perPage={{ 800: 4, 500: 2 }}>
+        <Carousel autoplay={3600} perPage={{1300:4, 1000: 3, 500: 2 }}>
             <div class="slide-content">
                 <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1612364565/Brands/Brands%20logo%27s/vetschoice_shur9o.webp" alt="vets choice"/>
             </div>
@@ -73,6 +73,15 @@
             </div>
             <div class="slide-content">
                 <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1612364564/Brands/Brands%20logo%27s/hills_cjzyug.webp" alt="hills"/>
+            </div>
+            <div class="slide-content">
+                <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1612431649/Brands/Brands%20logo%27s/Orijen_logo_bvxkqf.webp" alt="Orijen"/>
+            </div>
+            <div class="slide-content">
+                <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1612431539/Brands/Brands%20logo%27s/ultra_pet_uwt7mc.webp" alt="UltraPet"/>
+            </div>
+            <div class="slide-content">
+                <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1612431585/Brands/Brands%20logo%27s/Iams_yizhpc.webp" alt="IAMS"/>
             </div>
         </Carousel>
     </div>
