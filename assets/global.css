@@ -39,6 +39,11 @@ span{
 #weights {
     text-align: center;
 }
+
+#snipcart{
+    z-index: 9999;
+}
+
 #weights li{
     display: inline;
     padding-right: 0.8rem;

@@ -1,11 +1,9 @@
 <script>
     import { ready, url, params } from "@roxi/routify";
     import { SyncLoader } from 'svelte-loading-spinners';
-    let product = {};
-    let selected;
-
     import { metatags } from '@roxi/routify'
-metatags.title = 'Routify'
+    let product = {};
+    let selected
 
     $: updateShow($params.showId);
 
@@ -14,6 +12,8 @@ metatags.title = 'Routify'
         .then(response => response.json())
         .then(json => {
             product = json;
+            metatags.title = product.name;
+            metatags.description = product.description;
             $ready();
         });
     }

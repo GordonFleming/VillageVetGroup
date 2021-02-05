@@ -107,4 +107,7 @@
     h2{
         font-family: 'Indie Flower', cursive;
     }
+    .control :global(svg){
+        z-index: -999;
+    }
 </style>
