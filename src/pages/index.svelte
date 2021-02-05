@@ -35,6 +35,9 @@
             <div class="slide-content">
                 <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612363936/Brands/Banners/cat1_loyurj.webp" alt="banner_img"/>
             </div>
+            <div class="slide-content">
+                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612432540/Brands/Banners/Screenshot_59_y8qdzo.webp" alt="banner_img"/>
+            </div>
             <span class="control" slot="right-control">
                 <ChevronRightIcon size="3x" />
             </span>
