@@ -153,7 +153,7 @@
                         data-item-custom1-name="Weight:"
                         data-item-custom1-type="readonly"
                         data-item-custom1-value="{product.singleweight}{product.symbol}">
-                        Add to bowl:
+                        Add to bowl
                         </a>
                     {/if}
 
