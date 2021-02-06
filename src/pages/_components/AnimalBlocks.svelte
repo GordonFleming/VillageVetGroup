@@ -31,7 +31,7 @@
     }
     i:hover{
         transform: scale(0.95);
-        transition: 1s;
+        transition: 0.5s;
     }
 </style>
 
@@ -79,7 +79,7 @@
         </a>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/dog">
+        <a href="/animals/fish">
             <h1>Fishy Fin</h1>
             <i class="fas fa-fish fa-8x"></i>
         </a>
@@ -87,13 +87,13 @@
 </div>
 <div class="row justify-content-center mb-5">
     <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/dog">
+        <a href="/animals/bird">
             <h1>Birds of a Feather</h1>
             <i class="fas fa-feather fa-8x"></i>
         </a>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/dog">
+        <a href="/animals/hairy-critters">
             <h1>Hairy Critters</h1>
             <i class="fas fa-carrot fa-8x"></i>
         </a>

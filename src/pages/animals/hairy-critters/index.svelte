@@ -1,1 +1,1 @@
-<h1>hairy critters</h1>
+<h1>Hairy critters</h1>

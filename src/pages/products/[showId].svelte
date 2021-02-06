@@ -138,7 +138,7 @@
                     <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                                         data-item-id="{product.id}"
                                         data-item-price="{selected.price}"
-                                        data-item-url="/products/{product.id}"   
+                                        data-item-url='https://villagevet.herokuapp.com/products?id={product.id}' 
                                         data-item-name="{product.name}"
                                         data-item-description="{product.description}"
                                         data-item-image="{product.img[0].name}"
@@ -151,7 +151,7 @@
                         <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                         data-item-id="{product.id}"
                         data-item-price="{product.price}"
-                        data-item-url="/products/{product.id}"   
+                        data-item-url='https://villagevet.herokuapp.com/products?id={product.id}'
                         data-item-name="{product.name}"
                         data-item-description="{product.description}"
                         data-item-image="{product.img[0].name}"
