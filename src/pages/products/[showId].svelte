@@ -1,10 +1,8 @@
 <script>
     import { ready, url, params } from "@roxi/routify";
     import { SyncLoader } from 'svelte-loading-spinners';
-    import { metatags } from '@roxi/routify'
     let product = {};
     let selected;
-    let jsonCrawl = [];
 
     $: updateShow($params.showId);
 
@@ -13,9 +11,6 @@
         .then(response => response.json())
         .then(json => {
             product = json;
-            jsonCrawl = product;
-            metatags.title = product.name;
-            metatags.description = product.description;
             $ready()
         });
     }
@@ -138,7 +133,7 @@
                     <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                                         data-item-id="{product.id}"
                                         data-item-price="{selected.price}"
-                                        data-item-url='https://villagevet.herokuapp.com/products?id={product.id}' 
+                                        data-item-url="/products/{product.id}"   
                                         data-item-name="{product.name}"
                                         data-item-description="{product.description}"
                                         data-item-image="{product.img[0].name}"
@@ -151,7 +146,7 @@
                         <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                         data-item-id="{product.id}"
                         data-item-price="{product.price}"
-                        data-item-url='https://villagevet.herokuapp.com/products?id={product.id}'
+                        data-item-url="/products/{product.id}"   
                         data-item-name="{product.name}"
                         data-item-description="{product.description}"
                         data-item-image="{product.img[0].name}"

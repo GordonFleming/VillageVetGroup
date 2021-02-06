@@ -4,8 +4,8 @@
     import Carousel from '@beyonk/svelte-carousel'
     import AnimalBlocks from './_components/AnimalBlocks.svelte'
     import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
-    metatags.title = 'Village Vet Group'
-    metatags.description = 'e-commerce store for the Village Vet Group'
+    metatags.title = 'Village Vet Shop'
+    metatags.description = 'e-commerce store for the Village Vet Shop'
 </script>
 
 <div class="container text-center mt-5">
