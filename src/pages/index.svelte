@@ -2,18 +2,18 @@
     //import RoutifyIntro from './example/_components/RoutifyIntro.svelte'
     import { metatags } from '@roxi/routify'
     import Carousel from '@beyonk/svelte-carousel'
+    import AnimalBlocks from './_components/AnimalBlocks.svelte'
     import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
     metatags.title = 'Village Vet Group'
     metatags.description = 'e-commerce store for the Village Vet Group'
 </script>
 
-<!-- Dogs Busniz, Cats Whiskers, Fishy Fin, Birds of a Feather and then we need to think of something clever for the mice, rats, rabbits, hamsters, guinea pigs etc (small animals). -->
 <div class="container text-center mt-5">
     <!-- Product's Banners -->
     <div class="row mb-5">
         <h2>Let us provide your pet with</h2>
         <h1>‘Total care, for life’</h1>
-        <Carousel autoplay={3000} perPage={{ 800: 1 }}>
+        <Carousel dots={false} autoplay={3000} perPage={{ 800: 1 }}>
             <span class="control" slot="left-control">
                 <ChevronLeftIcon size="3x" />
             </span>
@@ -38,11 +38,19 @@
             <div class="slide-content">
                 <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612432540/Brands/Banners/Screenshot_59_y8qdzo.webp" alt="banner_img"/>
             </div>
+            <div class="slide-content">
+                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612604395/Brands/Banners/Petdent_Range_dentabio_jwsbfe.webp" alt="banner_img"/>
+            </div>
+            <div class="slide-content">
+                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612603590/Brands/Banners/Purl_Range_gmacm5.webp" alt="banner_img"/>
+            </div>
             <span class="control" slot="right-control">
                 <ChevronRightIcon size="3x" />
             </span>
         </Carousel>
     </div>
+
+    <AnimalBlocks />
 
     <div class="row">
         <h5>We aim to exceed your expectations. This friendly, well-trained, experienced team will attend to your every need. We provide first class veterinary services along with a well stocked shop where premium, veterinary pet products and accessories are available in a wide assortment.</h5>
@@ -96,7 +104,7 @@
         height: auto;
     }
     #brand{
-        width: 250px;
+        width: 200px;
         height: auto;
     }
     h1{
@@ -110,4 +118,5 @@
     .control :global(svg){
         z-index: -999;
     }
+
 </style>

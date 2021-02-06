@@ -3,7 +3,8 @@
     import { SyncLoader } from 'svelte-loading-spinners';
     import { metatags } from '@roxi/routify'
     let product = {};
-    let selected
+    let selected;
+    let jsonCrawl = [];
 
     $: updateShow($params.showId);
 
@@ -12,9 +13,10 @@
         .then(response => response.json())
         .then(json => {
             product = json;
+            jsonCrawl = product;
             metatags.title = product.name;
             metatags.description = product.description;
-            $ready();
+            $ready()
         });
     }
 </script>
@@ -166,5 +168,7 @@
         {:else}
             <h2 class="mt-5 text-center">No matching product. Go <a href={$url('./')}>back</a></h2>
         {/if}
+    {:catch error}
+        <p>Please reload page, or go back to the <a href="/">home page</a></p>
     {/await}
 </div>

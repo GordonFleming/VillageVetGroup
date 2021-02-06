@@ -80,4 +80,6 @@
     {:else if loading === false & search !== ""}
         <h2 transition:fade="{{ duration: 1000 }}">Sorry, nothing matches your search for: "{search}" - no results found.</h2>
     {/if}
+{:catch error}
+    <p>Please reload page, or go back to the <a href="/">home page</a></p>
 {/await}
