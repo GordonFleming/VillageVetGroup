@@ -1,7 +1,7 @@
 <script>
     import { ready, url, params } from "@roxi/routify";
     import { SyncLoader } from 'svelte-loading-spinners';
-    //import { tick } from 'svelte';
+    import { tick } from 'svelte';
     let product = {};
     let selected;
 
@@ -12,8 +12,8 @@
         .then(response => response.json())
         .then(json => {
             product = json;
-            //tick.then($ready)
-            $ready()
+            tick.then($ready)
+            //$ready()
         });
     }
 </script>
