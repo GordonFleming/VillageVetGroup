@@ -8,8 +8,6 @@
     let search = ""; //current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim(); //search = console.log(current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim());
     let loading = false;
 
-    console.log();
-
     const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=600&name_contains=';
     let items = [];
 
