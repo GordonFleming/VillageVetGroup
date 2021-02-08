@@ -101,7 +101,7 @@
                         </div>
                         <div class="row"> 
                             {#each product.additional as add}
-                            <div class="col mt-3" data-item-name="{product.name}" data-item-id="{product.id+add.price}" data-item-price="{add.price}" data-item-url="/products/{product.id}">
+                            <div class="col mt-3 snipcart-add-item" data-item-name="{product.name}" data-item-id="{product.id+add.price}" data-item-price="{add.price}" data-item-url="/products/{product.id}">
                                 R{add.price}.00
                             </div>
                             {/each}
