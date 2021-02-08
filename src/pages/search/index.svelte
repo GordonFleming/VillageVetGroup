@@ -4,11 +4,10 @@
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
 
-    //let current = window.location.href;
-    let search = ""; //current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim(); //search = console.log(current.substr(current.indexOf("?")+1).replaceAll("%20"," ").trim());
+    let search = "";
     let loading = false;
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=600&name_contains=';
+    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=700&name_contains=';
     let items = [];
 
     onMount(async () => {
@@ -79,5 +78,5 @@
         <h2 transition:fade="{{ duration: 1000 }}">Sorry, nothing matches your search for: "{search}" - no results found.</h2>
     {/if}
 {:catch error}
-    <p>Please reload page, or go back to the <a href="/">home page</a></p>
+    <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
 {/await}

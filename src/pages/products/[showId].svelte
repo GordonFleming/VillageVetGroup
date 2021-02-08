@@ -1,18 +1,16 @@
 <script>
     import { ready, url, params } from "@roxi/routify";
     import { SyncLoader } from 'svelte-loading-spinners';
-    //import { tick } from 'svelte';
+    import { fade } from 'svelte/transition';
     let product = {};
     let selected;
 
     $: updateShow($params.showId);
-
-    function updateShow(id) {
+    async function updateShow(id) {
         fetch(`https://villagevet.herokuapp.com/products/${id}`, { 'x-routify-valid-for': 3600})
         .then(response => response.json())
         .then(json => {
             product = json;
-            //tick.then($ready)
             setTimeout($ready, 500)
         });
     }
@@ -94,8 +92,7 @@
                         <p>{product.description}</p>
                     {/if}
                     {#if product.options === true}
-                        <!-- <h4 class="mt-4 mb-4">R{product.additional[0].price}</h4> -->
-                        <div class="row"> 
+                        <div class="row mt-4"> 
                             {#each product.additional as add, i}
                             <div class="col">
                                 {add.weight}{product.additional[i].symbol}
@@ -104,7 +101,7 @@
                         </div>
                         <div class="row"> 
                             {#each product.additional as add}
-                            <div class="col">
+                            <div class="col mt-3" data-item-id="{product.id+add.price}" data-item-price="{add.price}" data-item-url="/products/{product.id}">
                                 R{add.price}.00
                             </div>
                             {/each}
@@ -120,30 +117,35 @@
                             </select>
                             <div class="input-group-append">
                                 <label class="input-group-text" for="inputGroupSelect02">Options</label>
-                              </div>
+                            </div>
                         </div>
-                            {#if selected}
-                                <h1 class="mt-4">R{selected.price}</h1>
-                            {/if}
+                    {#if selected}
+                        <h1 class="mt-4">R{selected.price}</h1>
+                    {/if}
                     {:else}
                         <h4 class="mt-4 mb-4">R{product.price}</h4>
                         {#if product.singleweight !== null}
                             <p class="card-text">{product.singleweight} {product.symbol}</p>
                         {/if}
                     {/if}
+                    <!-- data-item-custom1-type="readonly"
+                    data-item-custom1-value=" -->
+                    <!-- {product.additional[0].weight}{product.additional[0].symbol}|{product.additional[1].weight}{product.additional[1].symbol}[+{product.additional[1].price-product.additional[0].price}] -->
                     {#if selected && product.options === true}
-                    <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
-                                        data-item-id="{product.id}"
-                                        data-item-price="{selected.price}"
-                                        data-item-url="/products/{product.id}"   
-                                        data-item-name="{product.name}"
-                                        data-item-description="{product.description}"
-                                        data-item-image="{product.img[0].name}"
-                                        data-item-custom1-name="Weight"
-                                        data-item-custom1-type="readonly"
-                                        data-item-custom1-value="{selected.weight}{selected.symbol}">
-                                        Add to bowl: {selected.weight}{selected.symbol} option
-                    </a>
+                        {#key selected}
+                        <a in:fade href="/" class="btn btn-secondary snipcart-add-item mt-4"
+                            data-item-id="{product.id+selected.price}"
+                            data-item-price="{selected.price}"
+                            data-item-url="/products/{product.id}"   
+                            data-item-name="{product.name}"
+                            data-item-description="{product.description}"
+                            data-item-image="{product.img[0].name}"
+                            data-item-custom1-name="Weight"
+                            data-item-custom1-type="readonly"
+                            data-item-custom1-value="{selected.weight+selected.symbol}"> 
+                            Add to bowl: {selected.weight}{selected.symbol} option
+                        </a>
+                        {/key}
                     {:else}
                         <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
                         data-item-id="{product.id}"
@@ -158,7 +160,6 @@
                         Add to bowl
                         </a>
                     {/if}
-
                     <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                 </div>
             </div>
@@ -166,6 +167,6 @@
             <h2 class="mt-5 text-center">No matching product. Go <a href={$url('./')}>back</a></h2>
         {/if}
     {:catch error}
-        <p>Please reload page, or go back to the <a href="/">home page</a></p>
+        <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
     {/await}
 </div>

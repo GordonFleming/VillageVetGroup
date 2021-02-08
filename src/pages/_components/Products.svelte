@@ -24,11 +24,11 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center mb-5">
                     {#each paginatedItems as product}
-                        {paginatedItems=[]}
+                    <!-- {paginatedItems=[]} -->
                         {#if product.name}
                             {#if product.img !== null}
                                 <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
-                                    <div class="card" style="width: auto;" transition:fly="{{ y: 200, duration: 1000 }}">
+                                    <div class="card" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
                                         <div class="product_block align-self-center">
                                             <a href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>
                                         </div>
@@ -69,6 +69,8 @@
                 </div>
                 
             </div>
+        {:catch error}
+            <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
         {/await}
     {/if}
 </main>

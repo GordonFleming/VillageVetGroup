@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import Products from '../_components/Products.svelte'
 
-    let urlApi = "https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=600";
+    let urlApi = "https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=700";
 
     let items = [];
 
