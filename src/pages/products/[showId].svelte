@@ -5,6 +5,8 @@
     let product = {};
     let selected;
 
+    let visible = false;
+
     $: updateShow($params.showId);
     async function updateShow(id) {
         fetch(`https://villagevet.herokuapp.com/products/${id}`, { 'x-routify-valid-for': 3600})
@@ -13,6 +15,13 @@
             product = json;
             setTimeout($ready, 500)
         });
+    }
+    function backFalse(){
+        visible = false;
+    }
+    function handleClick(){
+        visible = true;
+        setTimeout(backFalse, 2000)
     }
 </script>
 
@@ -37,6 +46,10 @@
         text-align: left;
         font-size: 1.3rem;
     }
+    .btn-secondary{
+        background-color: #FDD277;
+        color: black;
+    }    
     @media only screen and (max-width: 600px) {
         .product_block{
             width: 90vw;
@@ -133,7 +146,7 @@
                     <!-- {product.additional[0].weight}{product.additional[0].symbol}|{product.additional[1].weight}{product.additional[1].symbol}[+{product.additional[1].price-product.additional[0].price}] -->
                     {#if selected && product.options === true}
                         {#key selected}
-                        <a in:fade href="/" class="btn btn-secondary snipcart-add-item mt-4"
+                        <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
                             data-item-id="{product.id+selected.price}"
                             data-item-price="{selected.price}"
                             data-item-url="/products/{product.id}"   
@@ -144,10 +157,13 @@
                             data-item-custom1-type="readonly"
                             data-item-custom1-value="{selected.weight+selected.symbol}"> 
                             Add to bowl: {selected.weight}{selected.symbol} option
-                        </a>
+                        </button>
                         {/key}
+                        {#if visible}
+                            <p transition:fade={{duration:1000}} style="color:green;">Added <i class="fas fa-check"></i></p>
+                        {/if}
                     {:else}
-                        <a href="/" class="btn btn-secondary snipcart-add-item mt-4"
+                        <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
                         data-item-id="{product.id}"
                         data-item-price="{product.price}"
                         data-item-url="/products/{product.id}"   
@@ -158,7 +174,10 @@
                         data-item-custom1-type="readonly"
                         data-item-custom1-value="{product.singleweight}{product.symbol}">
                         Add to bowl
-                        </a>
+                        </button>
+                        {#if visible}
+                            <p transition:fade={{duration:1000}} style="color:green;">success</p>
+                        {/if}
                     {/if}
                     <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                 </div>

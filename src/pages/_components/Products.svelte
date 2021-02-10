@@ -16,7 +16,7 @@
     {#if error !== null}
         {error}
     {:else}
-        {#await fetch("https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=600")}
+        {#await fetch("https://villagevet.herokuapp.com/products?_limit=700")}
             <div class="d-flex justify-content-center mt-5">
                 <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
             </div>

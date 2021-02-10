@@ -42,4 +42,4 @@
     </ol>
 </nav>
 
-<Products items={items}/>
+<Products {items}/>
