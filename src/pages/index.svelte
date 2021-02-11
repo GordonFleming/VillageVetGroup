@@ -8,11 +8,16 @@
     metatags.description = 'e-commerce store for the Village Vet Shop'
 </script>
 
+<div class="container mt-5 text-center">
+    <h1 style="color:red;">Website in development, watch this space!</h1><br><br>
+    <h2>Let us provide your pet with</h2>
+    <h1>‘Total care, for life’</h1>
+    <AnimalBlocks />
+</div>
+
 <div class="container text-center mt-5">
     <!-- Product's Banners -->
     <div class="row mb-5">
-        <h2>Let us provide your pet with</h2>
-        <h1>‘Total care, for life’</h1>
         <Carousel dots={false} autoplay={3000} perPage={{ 800: 1 }}>
             <span class="control" slot="left-control">
                 <ChevronLeftIcon size="3x" />
@@ -49,8 +54,6 @@
             </span>
         </Carousel>
     </div>
-
-    <AnimalBlocks />
 
     <div class="row">
         <h5>We aim to exceed your expectations. This friendly, well-trained, experienced team will attend to your every need. We provide first class veterinary services along with a well stocked shop where premium, veterinary pet products and accessories are available in a wide assortment.</h5>

@@ -1,4 +1,20 @@
+<style>
+    @media only screen and (min-width: 600px) {
+        .bg-covid{
+            width: 50%;        
+        }
+    }
+    .bg-covid{
+        background-color: #FDD277;
+
+    }
+
+</style>
+
 <div class="container-fluid mt-3">
+    <div class="card bg-covid text-black text-center d-block mx-auto">
+        <a href="https://sacoronavirus.co.za" target="_blank" style="color:inherit;">Stay informed! Visit the SA Department of Health's website for COVID-19 updates: www.sacoronavirus.co.za</a>
+    </div>
     <div class="text-center"><img src="https://res.cloudinary.com/splyce/image/upload/v1612031206/logos/cropped-new-banner12_latest_evsfwj.png" alt="Banner" class="img-fluid"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent mt-2">
         <div class="container-fluid">
@@ -24,15 +40,6 @@
                 <div class="ml-5 align-items-center d-md-flex d-block flex-row mx-md-auto">
                     <a id="search-nav" class="nav-link" aria-current="page" href="/search"><i class="fas fa-search"></i> Seach</a>
                 </div>
-
-                <!-- <form class="row row-cols-lg-auto g-3 align-items-center d-md-flex d-block flex-row mx-md-auto mx-0" on:submit|preventDefault={$goto('./search?'+search)}>
-                    <div class="col-12">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" bind:value={search}>
-                    </div>
-                    <div class="col-12">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </div>
-                </form> -->
 
                 <form class="row row-cols-lg-auto g-3 align-items-center">
                     <div class="col-12">

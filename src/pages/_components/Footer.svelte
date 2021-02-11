@@ -2,7 +2,7 @@
     <div class="container p-4">
         <div class="row text-center">
             <div class="col-lg-3 col-md-3 mb-4 mb-md-0">
-                <h5 class="text-uppercase mb-4">Contact us</h5>
+                <h5 class="text-uppercase mb-5">Contact us</h5>
 
                 <a href="https://www.facebook.com/The-Village-Vetshop-Village-Vet-Group-217533161649727/" class="text-dark contact-footer"><i class="fab fa-facebook-square fa-3x"></i></a>
                 <a href="tel:0118830004" class="text-dark contact-footer"><i class="fas fa-phone-alt fa-3x"></i></a>
