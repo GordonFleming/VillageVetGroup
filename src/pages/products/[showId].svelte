@@ -160,7 +160,7 @@
                         </button>
                         {/key}
                         {#if visible}
-                            <p transition:fade={{duration:1000}} style="color:green;">Added <i class="fas fa-check"></i></p>
+                            <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
                         {/if}
                     {:else}
                         <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
@@ -176,7 +176,7 @@
                         Add to bowl
                         </button>
                         {#if visible}
-                            <p transition:fade={{duration:1000}} style="color:green;">success</p>
+                            <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
                         {/if}
                     {/if}
                     <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>

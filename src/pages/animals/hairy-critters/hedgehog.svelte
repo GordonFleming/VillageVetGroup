@@ -1,9 +1,9 @@
 <script>
     import { onMount } from 'svelte';
-    import Products from '../_components/Products.svelte';
+    import Products from './src/pages/_components/Products.svelte';
     import { SyncLoader } from 'svelte-loading-spinners';
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?animals_in=3&_sort=name:ASC&_limit=200';
+    const API_URL = 'https://villagevet.herokuapp.com/products?animals_in=13&_sort=name:ASC&_limit=200';
     let items = [];
 
     onMount(async () => {
@@ -38,7 +38,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page">Bird</li>
+        <li class="breadcrumb-item" aria-current="page">Hedgehog</li>
     </ol>
 </nav>
 
