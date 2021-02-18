@@ -37,9 +37,9 @@
         } catch (e) {
             error = e
         }
-        // if((items.length / 16) < currentPage){
-        //     currentNumPage.set(1);
-        // }
+        if((items.length / 16) < currentPage){
+            currentNumPage.set(1);
+        }
     });
 </script>
 
