@@ -3,6 +3,11 @@
     import Products from '../_components/Products.svelte';
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
+    import { currentNumPage } from '../store.js';
+    let currentPage;
+    currentNumPage.subscribe(value => {
+        currentPage = value;
+    }) 
 
     let search = "";
     let loading = false;
@@ -36,6 +41,8 @@
         } catch (e) {
             error = e
         }
+        
+        currentNumPage.set(1);
     });
 
 	async function formSubmitted(event) {
@@ -73,7 +80,7 @@
     {/if}
 {:then}
     {#if items && items.length > 0}
-        <Products {items} />
+        <Products {items} {currentPage} />
     {:else if loading === false & search !== ""}
         <h2 transition:fade="{{ duration: 1000 }}">Sorry, nothing matches your search for: "{search}" - no results found.</h2>
     {/if}
