@@ -1,6 +1,12 @@
 <script>
     import { onMount } from 'svelte';
-    import Products from '../_components/Products.svelte'
+    import Products from '../_components/Products.svelte';
+    import { currentNumPage } from '../store.js';
+
+    let currentPage;
+    currentNumPage.subscribe(value => {
+        currentPage = value;
+    })
 
     let urlApi = "https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=700";
 
@@ -19,7 +25,6 @@
     const headers = {
         'Content-Type': 'application/json',
     };
-        //{ 'x-routify-valid-for': 3600},
         try {
             const res = await fetch(urlApi, {
             method: "GET",
@@ -42,4 +47,4 @@
     </ol>
 </nav>
 
-<Products {items}/>
+<Products {items} {currentPage} />

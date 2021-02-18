@@ -1,15 +1,24 @@
 <script>
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fly } from 'svelte/transition';
-    
-    import { paginate, LightPaginationNav } from 'svelte-paginate'
+    import { paginate, LightPaginationNav } from 'svelte-paginate';
+    import { currentNumPage } from '../store.js';
+    // currentNumPage.subscribe(value => {
+    //     currentPage = value;
+    // })
+    export let currentPage;
+
     export let items = [];
+    let pageSize = 16;
+    $: paginatedItems = paginate({ items, pageSize, currentPage });
 
-    let currentPage = 1
-    let pageSize = 12
-    $: paginatedItems = paginate({ items, pageSize, currentPage })
+    $: console.log(items.length/pageSize + "   " + currentPage);
 
-    let error = null
+    function updatePageNum(){
+        currentNumPage.set(currentPage);
+    }
+
+    let error = null;
 </script>
 
 <main>
@@ -24,7 +33,6 @@
             <div class="container">
                 <div class="row align-items-center justify-content-center mb-5">
                     {#each paginatedItems as product}
-                    <!-- {paginatedItems=[]} -->
                         {#if product.name}
                             {#if product.img !== null}
                                 <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
@@ -65,6 +73,7 @@
                     limit="{1}"
                     showStepOptions="{true}"
                     on:setPage="{(e) => currentPage = e.detail.page}"
+                    on:setPage="{updatePageNum}"
                     />
                 </div>
                 

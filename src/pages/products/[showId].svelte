@@ -2,6 +2,7 @@
     import { ready, url, params } from "@roxi/routify";
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
+
     let product = {};
     let selected;
 
@@ -35,6 +36,7 @@
     }
     i{
         padding: 1rem;
+        cursor: pointer;
     }
     p{
         font-size: 1.05rem;
@@ -68,7 +70,7 @@
     }
 </style>
 
-<a href={$url('./')}><i class="fas fa-arrow-left fa-2x"></i></a>
+<i on:click={() => window.history.back()} class="fas fa-arrow-left fa-2x" ></i>
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
