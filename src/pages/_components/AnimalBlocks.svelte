@@ -4,13 +4,12 @@
 
 <style>
     img{
-        padding: 10px; 
         transition: all .3s ease-out;
     }
     img:hover{
         opacity: 0.7;
-        transform: scale(0.95);
-        transition: 1s;
+        transform: scale(1.1);
+        transition: 0.6s;
     }
     a{
         color: black;
@@ -18,35 +17,33 @@
     }
 </style>
 
-<div class="row justify-content-center mb-5 mt-4">
-    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/dog">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 justify-content-center mt-3">
+    <div class="col d-flex justify-content-center">
+        <a href="/dog">
             <!-- <h1>Dogs Busniz</h1> -->
             <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Dogs_Busniz_wlof3z.webp" alt="">
         </a>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/cat">
+    <div class="col d-flex justify-content-center">
+        <a href="/cat">
             <!-- <h1>Cats Whiskers</h1> -->
             <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Cats_Whiskas_rpqavv.webp" alt="">
         </a>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/fish">
+    <div class="col d-flex justify-content-center">
+        <a href="/fish">
             <!-- <h1>Fishy Fin</h1> -->
             <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Fishy_Fin_hoqcyq.webp" alt="">
         </a>
     </div>
-</div>
-<div class="row justify-content-center mb-5">
-    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/bird">
+    <div class="col d-flex justify-content-center">
+        <a href="/bird">
             <!-- <h1>Birds of a Feather</h1> -->
             <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Birds_of_a_Feather_uatkin.webp" alt="">
         </a>
     </div>
-    <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-        <a href="/animals/furry-critters">
+    <div class="col d-flex justify-content-center">
+        <a href="/furry-critters">
             <!-- <h1>Hairy Critters</h1> -->
             <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591590/logos/Revised_Furry_Critters_hhblsm.webp" alt="">
         </a>

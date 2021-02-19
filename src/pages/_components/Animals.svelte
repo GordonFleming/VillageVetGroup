@@ -67,9 +67,9 @@
                 <a href={$url('../products')}><li class="list-group-item" data-bs-toggle="collapse">All</li></a>
             {#each animals as animal}
                 {#if animal.id == 6 || animal.id == 14 || animal.id == 12 || animal.id == 4 || animal.id == 7 || animal.id == 13 || animal.id == 8}
-                    <a href="/animals/furry-critters/"><li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#{animal.type}" aria-expanded="false" aria-controls="{animal.type}">{animal.type}</li></a>
+                    <a href="/furry-critters/{animal.type.toLowerCase()}"><li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#{animal.type}" aria-expanded="false" aria-controls="{animal.type}">{animal.type}</li></a>
                 {:else}
-                    <a href="/animals/{animal.type.toLowerCase()}"><li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#{animal.type}" aria-expanded="false" aria-controls="{animal.type}">{animal.type}</li></a>
+                    <a href="/{animal.type.toLowerCase()}"><li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#{animal.type}" aria-expanded="false" aria-controls="{animal.type}">{animal.type}</li></a>
                 {/if}
                 <div class="collapse" id="{animal.type}">
                     <div class="card card-body">

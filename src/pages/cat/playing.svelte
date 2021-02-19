@@ -6,9 +6,9 @@
     let currentPage;
     currentNumPage.subscribe(value => {
         currentPage = value;
-    })
+    }) 
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?animals_in=2&_sort=name:ASC&_limit=200';
+    const API_URL = 'https://villagevet.herokuapp.com/products?product_types_in=38&animals_in=2&_sort=name:ASC&_limit=200';
     let items = [];
 
     onMount(async () => {
@@ -43,20 +43,14 @@
     });
 </script>
 
-<h1>Cats Whiskas</h1>
-
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page">Cat</li>
-    </ol>
-</nav>
-
 {#await fetch(API_URL)}
     <div class="d-flex justify-content-center mt-5">
         <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
     </div>
 {:then}
+    {#if items.length === 0}
+        <h1>Sorry nothing here yet.</h1>
+    {/if}
     <Products {items} {currentPage} />
 {:catch error}
     <p>Please reload page, or go back to the <a href="/">home page</a></p>

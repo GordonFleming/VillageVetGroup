@@ -8,7 +8,7 @@
         currentPage = value;
     }) 
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?animals_in=3&_sort=name:ASC&_limit=200';
+    const API_URL = 'https://villagevet.herokuapp.com/products?animals_in=6&_sort=name:ASC&_limit=100';
     let items = [];
 
     onMount(async () => {
@@ -42,15 +42,6 @@
         }
     });
 </script>
-
-<h1>Birds of a Feather</h1>
-
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page">Bird</li>
-    </ol>
-</nav>
 
 {#await fetch(API_URL)}
     <div class="d-flex justify-content-center mt-5">
