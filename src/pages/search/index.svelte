@@ -3,13 +3,17 @@
     import Products from '../_components/Products.svelte';
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
-    import { currentNumPage } from '../store.js';
+    import { currentNumPage, searchVal } from '../store.js';
     let currentPage;
     currentNumPage.subscribe(value => {
         currentPage = value;
     }) 
 
-    let search = "";
+    let search;
+    searchVal.subscribe(value => {
+            search = value;
+    })
+
     let loading = false;
 
     const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=700&name_contains=';
@@ -42,21 +46,38 @@
             error = e
         }
         
-        currentNumPage.set(1);
+        formSubmitted(e);
     });
 
-	async function formSubmitted(event) {
+    
+    function waitforme(milisec) { 
+        return new Promise(resolve => { 
+            setTimeout(() => { resolve('') }, milisec); 
+        }) 
+    }
+
+	async function formSubmitted(event) {   
+        searchVal.set(search)
         event.preventDefault();
         loading = true;
+        await waitforme(1000);
         const url = `${API_URL}${search}`;
 		const response = await fetch(url);
         const json = await response.json();
-        console.log(json);
+        //console.log(json);
         items = json.map(product => product);
-        items = items; // Needed to complete one last refresh on the search's latest request
         loading = false;
+
+        if((items.length / 16) < currentPage){
+            currentNumPage.set(1);
+        }
     }
-    
+
+    function resetSearch(){
+        search = "";
+        searchVal.set(search);
+        formSubmitted(e);
+    }
 </script>
 
 <nav aria-label="breadcrumb">
@@ -67,9 +88,10 @@
 </nav>
 
 <div class="container mt-4 mb-5">
-    <div id="search">
-        <input type="text" placeholder="Instant search" class="form-control me-2" bind:value={search} on:keyup={formSubmitted}>
-    </div>
+    <form on:submit|preventDefault={formSubmitted} id="search" class="input-group">
+        <input id="search-input" type="text" placeholder="Instant search" class="form-control me-2" bind:value={search} on:keyup={formSubmitted}>
+        <button on:click={resetSearch} class="btn bg-transparent" style="margin-left: -60px; z-index: 100;" type="reset"><i class="fa fa-times"></i></button>
+    </form>
 </div>
 
 {#await fetch(API_URL)}
@@ -82,7 +104,7 @@
     {#if items && items.length > 0}
         <Products {items} {currentPage} />
     {:else if loading === false & search !== ""}
-        <h2 transition:fade="{{ duration: 1000 }}">Sorry, nothing matches your search for: "{search}" - no results found.</h2>
+        <h2 transition:fade="{{ delay: 2000, duration: 1000 }}">Sorry, nothing matches your search for: "{search}" - no results found.</h2>
     {/if}
 {:catch error}
     <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
