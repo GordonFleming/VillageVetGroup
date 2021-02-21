@@ -42,13 +42,11 @@
             }).then(checkStatus)
         .then(parseJSON);
             items = res
+            formSubmitted();
         } catch (e) {
             error = e
         }
-        
-        formSubmitted(e);
     });
-
     
     function waitforme(milisec) { 
         return new Promise(resolve => { 
@@ -56,11 +54,10 @@
         }) 
     }
 
-	async function formSubmitted(event) {   
+	async function formSubmitted() {   
         searchVal.set(search)
-        event.preventDefault();
         loading = true;
-        await waitforme(1000);
+        await waitforme(400);
         const url = `${API_URL}${search}`;
 		const response = await fetch(url);
         const json = await response.json();
@@ -76,7 +73,6 @@
     function resetSearch(){
         search = "";
         searchVal.set(search);
-        formSubmitted(e);
     }
 </script>
 

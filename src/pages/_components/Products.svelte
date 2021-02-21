@@ -1,8 +1,30 @@
 <script>
+    import { onMount } from 'svelte';
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fly } from 'svelte/transition';
     import { paginate, LightPaginationNav } from 'svelte-paginate';
-    import { currentNumPage } from '../store.js';
+    import { currentNumPage, scrollProduct } from '../store.js';
+    
+    let scrollPosID = "";
+    scrollProduct.subscribe(value => {
+        scrollPosID = value;
+    }) 
+
+    function waitforme(milisec) { 
+        return new Promise(resolve => { 
+            setTimeout(() => { resolve('') }, milisec); 
+        }) 
+    }
+
+	onMount(async () => {
+        await(fetch("https://villagevet.herokuapp.com/products?_limit=700"));
+        await waitforme(200);
+        var productScroll = document.getElementById(scrollPosID);
+        if(scrollPosID){
+            productScroll.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+	});
+
     // currentNumPage.subscribe(value => {
     //     currentPage = value;
     // })
@@ -36,9 +58,9 @@
                         {#if product.name}
                             {#if product.img !== null}
                                 <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
-                                    <div class="card" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
+                                    <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
                                         <div class="product_block align-self-center">
-                                            <a href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>
+                                            <a on:click={scrollPosID = product.id, console.log(scrollPosID), scrollProduct.set(scrollPosID)} href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title">{product.name.toLowerCase().replace("and", "&")}</h5> 
@@ -62,6 +84,9 @@
                                 {console.log("Error")}
                             {/if}
                         {/if}
+                    <!-- This block is true while items are 0, in other words while svelte loops through the numerous products -->
+                    {:else} 
+                        <center><h2>loading...</h2></center>
                     {/each}
                 </div>
 
