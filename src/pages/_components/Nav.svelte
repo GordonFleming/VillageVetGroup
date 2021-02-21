@@ -38,7 +38,7 @@
                     </li>
                 </ul>
                 <div class="ml-5 align-items-center d-md-flex d-block flex-row mx-md-auto">
-                    <a id="search-nav" class="nav-link" aria-current="page" href="/search"><i class="fas fa-search"></i> Seach</a>
+                    <a id="search-nav" class="nav-link" aria-current="page" href="/search"><i class="fas fa-search"></i> Search</a>
                 </div>
 
                 <form class="row row-cols-lg-auto g-3 align-items-center">
