@@ -56,34 +56,38 @@
                 <div class="row align-items-center justify-content-center mb-5">
                     {#each paginatedItems as product}
                         {#if product.name}
-                            {#if product.img !== null}
-                                <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
-                                    <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
-                                        <div class="product_block align-self-center">
-                                            <a on:click={scrollPosID = product.id, console.log(scrollPosID), scrollProduct.set(scrollPosID)} href="/products/{product.id}"><img src="{product.img[0].name}" class="card-img-top" alt="product_image"></a>
-                                        </div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">{product.name.toLowerCase().replace("and", "&")}</h5> 
-                                            {#if product.options === true}
-                                                <p class="card-price pt-2">R {product.additional[0].price}.00</p>
-                                                <ul id="weights">
-                                                    {#each product.additional as add}
-                                                        <li>{add.weight}{add.symbol}</li>
-                                                    {/each}
-                                                </ul>
+                            <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
+                                <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
+                                    <div class="product_block align-self-center">
+                                        <a on:click={scrollPosID = product.id, console.log(scrollPosID), scrollProduct.set(scrollPosID)} href="/products/{product.id}">
+                                            {#if product.img[0] === undefined}
+                                                <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="card-img-top" alt="product_image">
                                             {:else}
-                                                <p class="card-price pt-2">R {product.price}.00</p>
-                                                {#if product.singleweight !== null}
-                                                    <p class="card-text">{product.singleweight} {product.symbol}</p>
-                                                {/if}
+                                                <img src="{product.img[0].name}" class="card-img-top" alt="product_image">
                                             {/if}
-                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{product.name.toLowerCase().replace("and", "&")}</h5> 
+                                        {#if product.options === true}
+                                            <p class="card-price pt-2">R {product.additional[0].price}.00</p>
+                                            <ul id="weights">
+                                                {#each product.additional as add}
+                                                    <li>{add.weight}{add.symbol}</li>
+                                                {/each}
+                                            </ul>
+                                        {:else}
+                                            <p class="card-price pt-2">R {product.price}.00</p>
+                                            {#if product.singleweight !== null}
+                                                <p class="card-text">{product.singleweight} {product.symbol}</p>
+                                            {/if}
+                                        {/if}
                                     </div>
                                 </div>
-                            {:else}
-                                {console.log("Error")}
-                            {/if}
-                        {/if}
+                            </div>
+                        {:else}
+                            {console.log("Error")}
+                        {/if}                     
                     <!-- This block is true while items are 0, in other words while svelte loops through the numerous products -->
                     {:else} 
                         <center><h2>loading...</h2></center>

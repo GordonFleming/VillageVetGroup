@@ -50,7 +50,7 @@
         
                 <ul class="list-unstyled mt-4">
                     <li>
-                        <p>Monday - Friday: 9h00 - 19h30</p>
+                        <p>Monday - Friday: 9h00 - 18h00</p>
                     </li>
                     <li>
                         <p>Saturday: 9h00 - 17h00</p>

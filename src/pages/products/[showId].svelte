@@ -98,7 +98,11 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 p-md-3">
                     <div class="product_block">
-                        <img src="{product.img[0].name}" class="img-fluid" alt="product_image">
+                        {#if product.img[0] === undefined}
+                            <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="img-fluid" alt="product_image">
+                        {:else}
+                            <img src="{product.img[0].name}" class="img-fluid" alt="product_image">
+                        {/if}
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -146,41 +150,84 @@
                     <!-- data-item-custom1-type="readonly"
                     data-item-custom1-value=" -->
                     <!-- {product.additional[0].weight}{product.additional[0].symbol}|{product.additional[1].weight}{product.additional[1].symbol}[+{product.additional[1].price-product.additional[0].price}] -->
-                    {#if selected && product.options === true}
-                        {#key selected}
-                        <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                            data-item-id="{product.id+selected.price}"
-                            data-item-price="{selected.price}"
+                    
+                    {#if product.img[0] === undefined}
+                        {#if selected && product.options === true}
+                            {#key selected}
+                            <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+                                data-item-id="{product.id+selected.price}"
+                                data-item-price="{selected.price}"
+                                data-item-url="/products/{product.id}"   
+                                data-item-name="{product.name}"
+                                data-item-description="{product.description}"
+                                data-item-image="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg"
+                                data-item-custom1-name="Weight"
+                                data-item-custom1-type="readonly"
+                                data-item-custom1-value="{selected.weight+selected.symbol}"> 
+                                Add to bowl: {selected.weight}{selected.symbol} option
+                            </button>
+                            {/key}
+                            {#if visible}
+                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                            {/if}
+                        {:else}
+                            <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+                            data-item-id="{product.id}"
+                            data-item-price="{product.price}"
+                            data-item-url="/products/{product.id}"   
+                            data-item-name="{product.name}"
+                            data-item-description="{product.description}"
+                            data-item-image="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg"
+                            data-item-custom1-name="Weight:"
+                            data-item-custom1-type="readonly"
+                            data-item-custom1-value="{product.singleweight}{product.symbol}">
+                            Add to bowl
+                            </button>
+                            {#if visible}
+                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                            {/if}
+                        {/if}
+
+                    {:else}
+
+                        {#if selected && product.options === true}
+                            {#key selected}
+                            <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+                                data-item-id="{product.id+selected.price}"
+                                data-item-price="{selected.price}"
+                                data-item-url="/products/{product.id}"   
+                                data-item-name="{product.name}"
+                                data-item-description="{product.description}"
+                                data-item-image="{product.img[0].name}"
+                                data-item-custom1-name="Weight"
+                                data-item-custom1-type="readonly"
+                                data-item-custom1-value="{selected.weight+selected.symbol}"> 
+                                Add to bowl: {selected.weight}{selected.symbol} option
+                            </button>
+                            {/key}
+                            {#if visible}
+                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                            {/if}
+                        {:else}
+                            <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+                            data-item-id="{product.id}"
+                            data-item-price="{product.price}"
                             data-item-url="/products/{product.id}"   
                             data-item-name="{product.name}"
                             data-item-description="{product.description}"
                             data-item-image="{product.img[0].name}"
-                            data-item-custom1-name="Weight"
+                            data-item-custom1-name="Weight:"
                             data-item-custom1-type="readonly"
-                            data-item-custom1-value="{selected.weight+selected.symbol}"> 
-                            Add to bowl: {selected.weight}{selected.symbol} option
-                        </button>
-                        {/key}
-                        {#if visible}
-                            <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                        {/if}
-                    {:else}
-                        <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                        data-item-id="{product.id}"
-                        data-item-price="{product.price}"
-                        data-item-url="/products/{product.id}"   
-                        data-item-name="{product.name}"
-                        data-item-description="{product.description}"
-                        data-item-image="{product.img[0].name}"
-                        data-item-custom1-name="Weight:"
-                        data-item-custom1-type="readonly"
-                        data-item-custom1-value="{product.singleweight}{product.symbol}">
-                        Add to bowl
-                        </button>
-                        {#if visible}
-                            <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                        {/if}
+                            data-item-custom1-value="{product.singleweight}{product.symbol}">
+                            Add to bowl
+                            </button>
+                            {#if visible}
+                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                            {/if}
+                        {/if}                      
+
                     {/if}
+
                     <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                 </div>
             </div>
