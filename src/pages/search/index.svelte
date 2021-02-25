@@ -14,7 +14,7 @@
             search = value;
     })
 
-    let loading = false;
+    let loading = true;
 
     const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=700&name_contains=';
     let items = [];
@@ -47,7 +47,7 @@
             error = e
         }
     });
-    
+
     function waitforme(milisec) { 
         return new Promise(resolve => { 
             setTimeout(() => { resolve('') }, milisec); 
@@ -99,8 +99,10 @@
 {:then}
     {#if items && items.length > 0}
         <Products {items} {currentPage} />
-    {:else if loading === false & search !== ""}
-        <h2 transition:fade="{{ delay: 2000, duration: 1000 }}">Sorry, nothing matches your search for: "{search}" - no results found.</h2>
+    {:else if loading === true}
+        <center><h1>Loading...</h1></center>
+    {:else if search !== "" && items.length == 0 && loading === false}
+        <h2 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found.</h2>
     {/if}
 {:catch error}
     <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
