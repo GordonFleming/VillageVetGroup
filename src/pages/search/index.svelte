@@ -4,6 +4,8 @@
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
     import { currentNumPage, searchVal } from '../store.js';
+    import qs from 'qs';
+
     let currentPage;
     currentNumPage.subscribe(value => {
         currentPage = value;
@@ -16,7 +18,17 @@
 
     let loading = true;
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=700&name_contains=';
+    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=500&';
+    $: query = qs.stringify({
+        _where: {
+            _or: [
+                [{ name_contains: search }],
+                [{ description:  search }],
+                [{ 'brand.name_contains': search }],
+            ],
+        },
+    });
+
     let items = [];
 
     onMount(async () => {
@@ -58,7 +70,7 @@
         searchVal.set(search)
         loading = true;
         await waitforme(400);
-        const url = `${API_URL}${search}`;
+        const url = `${API_URL}${query}`;
 		const response = await fetch(url);
         const json = await response.json();
         //console.log(json);

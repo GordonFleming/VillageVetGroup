@@ -4,8 +4,8 @@
     import Carousel from '@beyonk/svelte-carousel'
     import AnimalBlocks from './_components/AnimalBlocks.svelte'
     import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
-    metatags.title = 'Village Vet Shop'
-    metatags.description = 'e-commerce store for the Village Vet Shop'
+    metatags.title = 'Village Vetshop'
+    metatags.description = 'e-commerce store for the Village Vetshop'
 </script>
 
 <div class="container mt-5 text-center">
@@ -48,6 +48,9 @@
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1612603590/Brands/Banners/Purl_Range_gmacm5.webp" alt="banner_img"/>
+            </div>
+            <div class="slide-content">
+                <img class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613127595/petfood/ACANA/ACANA/ACANA_heritage-banner01-350_nmziq5.webp" alt="banner_img"/>
             </div>
             <span class="control" slot="right-control">
                 <ChevronRightIcon size="3x" />
@@ -93,7 +96,7 @@
             <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1612431539/Brands/Brands%20logo%27s/ultra_pet_uwt7mc.webp" alt="UltraPet"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1612431585/Brands/Brands%20logo%27s/Iams_yizhpc.webp" alt="IAMS"/>
+            <img id="brand" src="https://res.cloudinary.com/splyce/image/upload/v1614677843/Brands/Brands%20logo%27s/iams_rhpjvp.webp" alt="IAMS"/>
         </div>
     </Carousel></div>
 </div>
