@@ -172,7 +172,7 @@
                             {/if}
                         {:else}
                             <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                            data-item-id="{product.id}"
+                            data-item-id="{product.id+product.price}"
                             data-item-price="{product.price+product.price}"
                             data-item-url="/products/{product.id}"   
                             data-item-name="{product.name}"
