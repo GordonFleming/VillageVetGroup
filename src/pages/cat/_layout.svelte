@@ -21,13 +21,13 @@
                       <a class="nav-link" href="/cat/playing">Playing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cat/care">Care</a>
+                        <a class="nav-link" href="/cat/caring">Caring</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cat/home">Home</a>
+                        <a class="nav-link" href="/cat/sleeping">Sleeping</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/cat/walk">Walk</a>
+                        <a class="nav-link" href="/cat/walking">Walking</a>
                     </li>
                 </ul>
             </div>

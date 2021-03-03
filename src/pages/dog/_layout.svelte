@@ -21,13 +21,13 @@
                       <a class="nav-link" href="/dog/playing">Playing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dog/care">Care</a>
+                        <a class="nav-link" href="/dog/caring">Caring</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dog/home">Home</a>
+                        <a class="nav-link" href="/dog/sleeping">Sleeping</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dog/walk">Walk</a>
+                        <a class="nav-link" href="/dog/walking">Walking</a>
                     </li>
                 </ul>
             </div>
