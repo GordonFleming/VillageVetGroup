@@ -163,7 +163,9 @@
                                 data-item-image="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg"
                                 data-item-custom1-name="Weight"
                                 data-item-custom1-type="readonly"
-                                data-item-custom1-value="{selected.weight+selected.symbol}"> 
+                                data-item-custom1-value="{selected.weight+selected.symbol}"
+                                data-item-custom2-name="Any additional information?"
+                                data-item-custom2-type="textarea">
                                 Add to bowl: {selected.weight}{selected.symbol} option
                             </button>
                             {/key}
@@ -180,7 +182,9 @@
                             data-item-image="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg"
                             data-item-custom1-name="Weight:"
                             data-item-custom1-type="readonly"
-                            data-item-custom1-value="{product.singleweight}{product.symbol}">
+                            data-item-custom1-value="{product.singleweight}{product.symbol}"
+                            data-item-custom2-name="Any additional information?"
+                            data-item-custom2-type="textarea">
                             Add to bowl
                             </button>
                             {#if visible}
@@ -201,7 +205,9 @@
                                 data-item-image="{product.img[0].name}"
                                 data-item-custom1-name="Weight"
                                 data-item-custom1-type="readonly"
-                                data-item-custom1-value="{selected.weight+selected.symbol}"> 
+                                data-item-custom1-value="{selected.weight+selected.symbol}"
+                                data-item-custom2-name="Any additional information?"
+                                data-item-custom2-type="textarea">
                                 Add to bowl: {selected.weight}{selected.symbol} option
                             </button>
                             {/key}
@@ -218,7 +224,9 @@
                             data-item-image="{product.img[0].name}"
                             data-item-custom1-name="Weight:"
                             data-item-custom1-type="readonly"
-                            data-item-custom1-value="{product.singleweight}{product.symbol}">
+                            data-item-custom1-value="{product.singleweight}{product.symbol}"
+                            data-item-custom2-name="Any additional information?"
+                            data-item-custom2-type="textarea">
                             Add to bowl
                             </button>
                             {#if visible}

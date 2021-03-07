@@ -5,7 +5,7 @@
     import AnimalBlocks from './_components/AnimalBlocks.svelte'
     import { ChevronLeftIcon, ChevronRightIcon } from 'svelte-feather-icons'
     metatags.title = 'Village Vetshop'
-    metatags.description = 'e-commerce store for the Village Vetshop'
+    metatags.description = 'E-commerce store for the Village Vetshop, The Wedge Shopping Centre'
 </script>
 
 <div class="container mt-5 text-center">
