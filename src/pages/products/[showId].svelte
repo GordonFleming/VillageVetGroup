@@ -17,6 +17,9 @@
             setTimeout($ready, 500)
         });
     }
+
+
+
     function backFalse(){
         visible = false;
     }
@@ -25,50 +28,6 @@
         setTimeout(backFalse, 2000)
     }
 </script>
-
-<style>
-    h2{
-        font-family: 'Indie Flower', cursive;
-        font-size: 2.5rem;
-    }
-    select{
-        width: 8rem;
-    }
-    i{
-        padding: 1rem;
-        cursor: pointer;
-    }
-    p{
-        font-size: 1.05rem;
-    }
-    .breadcrumb-item{
-        text-transform: capitalize;
-    }
-    .card-text{
-        text-align: left;
-        font-size: 1.3rem;
-    }
-    .btn-secondary{
-        background-color: #FDD277;
-        color: black;
-    }    
-    @media only screen and (max-width: 600px) {
-        .product_block{
-            width: 90vw;
-            height: auto;
-            display:block;
-            margin:auto;
-        }
-    }
-    @media only screen and (min-width: 600px) {
-        .product_block{
-            width: 25vw;
-            height: auto;
-            display:block;
-            margin:auto;
-        }
-    }
-</style>
 
 <i on:click={() => window.history.back()} class="fas fa-arrow-left fa-2x" ></i>
 
@@ -97,11 +56,11 @@
         {#if product.id}
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 p-md-3">
-                    <div class="product_block">
+                    <div class="text-center">
                         {#if product.img[0] === undefined}
                             <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="img-fluid" alt="product_image">
                         {:else}
-                            <img src="{product.img[0].name}" class="img-fluid" alt="product_image">
+                            <img style="height: 50vh; width: auto;" src="{product.img[0].name}" class="img-fluid" alt="product_image">
                         {/if}
                     </div>
                 </div>
@@ -114,7 +73,11 @@
                         <div class="row mt-4"> 
                             {#each product.additional as add, i}
                             <div class="col">
-                                {add.weight}{product.additional[i].symbol}
+                                {#if add.weight !== null}
+                                    {add.weight}{product.additional[i].symbol}
+                                {:else}
+                                    {add.size}
+                                {/if}
                             </div>
                             {/each}
                         </div>
@@ -129,9 +92,13 @@
                         <div class="input-group mt-4">
                             <select class="custom-select" id="selected" bind:value={selected}>
                                 {#each product.additional as add, i}
-                                <option value={add}>
-                                    {add.weight}{product.additional[i].symbol}
-                                </option>
+                                    <option value={add}>
+                                        {#if add.weight !== null}
+                                            {add.weight}{product.additional[i].symbol}
+                                        {:else}
+                                            {add.size}
+                                        {/if}
+                                    </option>
                                 {/each}
                             </select>
                             <div class="input-group-append">
@@ -153,7 +120,6 @@
                     
                     {#if product.img[0] === undefined}
                         {#if selected && product.options === true}
-                            {#key selected}
                             <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
                                 data-item-id="{product.id+selected.price}"
                                 data-item-price="{selected.price}"
@@ -166,11 +132,14 @@
                                 data-item-custom1-value="{selected.weight+selected.symbol}"
                                 data-item-custom2-name="Any additional information?"
                                 data-item-custom2-type="textarea">
-                                Add to bowl: {selected.weight}{selected.symbol} option
+                                {#if selected.weight !== null}
+                                    Add to bowl: {selected.weight}{selected.symbol} option
+                                {:else}
+                                    Add to bowl: {selected.size} option
+                                {/if}
                             </button>
-                            {/key}
                             {#if visible}
-                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
                             {/if}
                         {:else}
                             <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
@@ -180,7 +149,7 @@
                             data-item-name="{product.name}"
                             data-item-description="{product.description}"
                             data-item-image="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg"
-                            data-item-custom1-name="Weight:"
+                            data-item-custom1-name="Weight / Size:"
                             data-item-custom1-type="readonly"
                             data-item-custom1-value="{product.singleweight}{product.symbol}"
                             data-item-custom2-name="Any additional information?"
@@ -188,14 +157,13 @@
                             Add to bowl
                             </button>
                             {#if visible}
-                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
                             {/if}
                         {/if}
 
                     {:else}
 
                         {#if selected && product.options === true}
-                            {#key selected}
                             <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
                                 data-item-id="{product.id+selected.price}"
                                 data-item-price="{selected.price}"
@@ -208,11 +176,14 @@
                                 data-item-custom1-value="{selected.weight+selected.symbol}"
                                 data-item-custom2-name="Any additional information?"
                                 data-item-custom2-type="textarea">
-                                Add to bowl: {selected.weight}{selected.symbol} option
+                                {#if selected.weight !== null}
+                                    Add to bowl: {selected.weight}{selected.symbol} option
+                                {:else}
+                                    Add to bowl: {selected.size} option
+                                {/if}
                             </button>
-                            {/key}
                             {#if visible}
-                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
                             {/if}
                         {:else}
                             <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
@@ -222,7 +193,7 @@
                             data-item-name="{product.name}"
                             data-item-description="{product.description}"
                             data-item-image="{product.img[0].name}"
-                            data-item-custom1-name="Weight:"
+                            data-item-custom1-name="Weight / Size:"
                             data-item-custom1-type="readonly"
                             data-item-custom1-value="{product.singleweight}{product.symbol}"
                             data-item-custom2-name="Any additional information?"
@@ -230,7 +201,7 @@
                             Add to bowl
                             </button>
                             {#if visible}
-                                <p transition:fade={{duration:1000}} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
                             {/if}
                         {/if}                      
 
@@ -246,3 +217,32 @@
         <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
     {/await}
 </div>
+
+<style>
+    h2{
+        font-family: 'Indie Flower', cursive;
+        font-size: 2.5rem;
+    }
+    select{
+        width: 8rem;
+    }
+    i{
+        padding: 1rem;
+        cursor: pointer;
+    }
+    p{
+        font-size: 1.05rem;
+    }
+    .breadcrumb-item{
+        text-transform: capitalize;
+    }
+    .card-text{
+        text-align: left;
+        font-size: 1.3rem;
+    }
+    .btn-secondary{
+        background-color: #FDD277;
+        color: black;
+    }    
+
+</style>

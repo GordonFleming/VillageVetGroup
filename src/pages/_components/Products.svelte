@@ -17,7 +17,7 @@
     }
 
 	onMount(async () => {
-        await(fetch("https://villagevet.herokuapp.com/products?_limit=700"));
+        await(fetch("https://villagevet.herokuapp.com/products?_limit=800"));
         await waitforme(200);
         var productScroll = document.getElementById(scrollPosID);
         if(scrollPosID){
@@ -58,12 +58,12 @@
                         {#if product.name}
                             <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
                                 <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
-                                    <div class="product_block align-self-center">
+                                    <div class="align-self-center">
                                         <a on:click={scrollPosID = product.id, console.log(scrollPosID), scrollProduct.set(scrollPosID)} href="/products/{product.id}">
                                             {#if product.img[0] === undefined}
                                                 <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="card-img-top" alt="product_image">
                                             {:else}
-                                                <img src="{product.img[0].name}" class="card-img-top" alt="product_image">
+                                                <img style="height: 220px; width: auto; max-width: 320px;" src="{product.img[0].name}" class="card-img-top" alt="product_image">
                                             {/if}
                                         </a>
                                     </div>
@@ -73,7 +73,11 @@
                                             <p class="card-price pt-2">R {product.additional[0].price}.00</p>
                                             <ul id="weights">
                                                 {#each product.additional as add}
-                                                    <li>{add.weight}{add.symbol}</li>
+                                                    {#if add.weight !== null}
+                                                        <li>{add.weight}{add.symbol}</li>
+                                                    {:else}
+                                                        <li>{add.size}</li>
+                                                    {/if}
                                                 {/each}
                                             </ul>
                                         {:else}
@@ -122,18 +126,8 @@
             padding: 0;
             margin-left: 0;
         }
-        .product_block{
-            width: 30vw;
-            height: auto;
-        }
         .pagination :global(.pagination-nav){
             margin-left: 1rem;
-        }
-    }
-    @media only screen and (min-width: 600px) {
-        .product_block{
-            width: 8vw;
-            height: auto;
         }
     }
     .pagination :global(.option.number){
