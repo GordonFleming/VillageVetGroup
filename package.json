@@ -62,6 +62,7 @@
     "algoliasearch": "^4.8.4",
     "qs": "^6.9.6",
     "svelte-algolia": "^0.1.6",
-    "svelte-loading-spinners": "^0.1.4"
+    "svelte-loading-spinners": "^0.1.4",
+    "svelte-markdown": "^0.1.4"
   }
 }

@@ -2,9 +2,11 @@
     import { ready, url, params } from "@roxi/routify";
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
+    import SvelteMarkdown from 'svelte-markdown'
 
     let product = {};
     let selected;
+    let source;
 
     let visible = false;
 
@@ -15,6 +17,9 @@
         .then(json => {
             product = json;
             setTimeout($ready, 500)
+            if(product.description !== null){
+                source = product.description;
+            }
         });
     }
 
@@ -67,7 +72,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <h2>{product.name.toLowerCase()}</h2>
                     {#if product.description !== null}
-                        <p>{product.description}</p>
+                        <SvelteMarkdown { source } />
                     {/if}
                     {#if product.options === true}
                         <div class="row mt-4"> 
