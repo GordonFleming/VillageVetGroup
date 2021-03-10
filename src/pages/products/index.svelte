@@ -8,7 +8,7 @@
         currentPage = value;
     })
 
-    let urlApi = "https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=700";
+    let urlApi = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=-1';
 
     let items = [];
 

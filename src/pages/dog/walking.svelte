@@ -8,7 +8,7 @@
         currentPage = value;
     }) 
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?product_types_in=13&animals_in=1&_sort=name:ASC&_limit=200';
+    const API_URL = 'https://villagevet.herokuapp.com/products?product_types_in=13&animals_in=1&_sort=name:ASC&_limit=-1';
     let items = [];
 
     onMount(async () => {

@@ -60,7 +60,7 @@
                         {#if product.img[0] === undefined}
                             <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="img-fluid" alt="product_image">
                         {:else}
-                            <img style="height: 50vh; width: auto;" src="{product.img[0].name}" class="img-fluid" alt="product_image">
+                            <img style="height: 45vh; width: auto;" src="{product.img[0].name}" class="img-fluid" alt="product_image">
                         {/if}
                     </div>
                 </div>

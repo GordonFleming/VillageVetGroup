@@ -9,7 +9,7 @@
 </script>
 
 <div class="container mt-5 text-center">
-    <!-- <h1 style="color:red;">Website in development, watch this space!</h1><br><br> -->
+    <h1 style="color:red;">Website in development, watch this space!</h1><br><br>
     <h2>Let us provide your pet with</h2>
     <h1>‘Total care, for life’</h1>
     <AnimalBlocks />

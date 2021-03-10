@@ -4,12 +4,12 @@
 
 <style>
     img{
-        transition: all .3s ease-out;
+        transition: all .2s ease-out;
     }
     img:hover{
         opacity: 0.7;
         transform: scale(1.1);
-        transition: 0.6s;
+        transition: 0.4s;
     }
     a{
         color: black;

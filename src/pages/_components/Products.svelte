@@ -34,8 +34,6 @@
     let pageSize = 16;
     $: paginatedItems = paginate({ items, pageSize, currentPage });
 
-    $: console.log(items.length/pageSize + "   " + currentPage);
-
     function updatePageNum(){
         currentNumPage.set(currentPage);
     }
@@ -56,14 +54,14 @@
                 <div class="row align-items-center justify-content-center mb-5">
                     {#each paginatedItems as product}
                         {#if product.name}
-                            <div class="col-lg-3 col-md-3 col-sm-12 align-self-center">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 align-self-center">
                                 <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
                                     <div class="align-self-center">
                                         <a on:click={scrollPosID = product.id, console.log(scrollPosID), scrollProduct.set(scrollPosID)} href="/products/{product.id}">
                                             {#if product.img[0] === undefined}
                                                 <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="card-img-top" alt="product_image">
                                             {:else}
-                                                <img style="height: 220px; width: auto; max-width: 320px;" src="{product.img[0].name}" class="card-img-top" alt="product_image">
+                                                <img style="height: 220px; width: auto; max-width: 280px;" src="{product.img[0].name}" class="card-img-top" alt="product_image">
                                             {/if}
                                         </a>
                                     </div>

@@ -18,7 +18,7 @@
 
     let loading = true;
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=500&';
+    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=160&';
     $: query = qs.stringify({
         _where: {
             _or: [
