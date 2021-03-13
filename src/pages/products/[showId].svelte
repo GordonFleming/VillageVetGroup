@@ -76,6 +76,22 @@
                     {#if product.description !== null}
                         <SvelteMarkdown { source } />
                     {/if}
+
+                    {#if product.ColoursOptions !== null && product.ColoursOptions.length > 0}
+                        <div class="input-group mt-4">
+                            <select class="custom-select" id="colours" bind:value={colour}>
+                                {#each product.ColoursOptions as colour}
+                                    <option style="text-transform: capitalize;" value={colour}>
+                                        {colour.name}
+                                    </option>
+                                {/each}
+                            </select>
+                            <div class="input-group-append">
+                                <label class="input-group-text" for="inputGroupSelect02">Colours</label>
+                            </div>
+                        </div>
+                    {/if}
+
                     {#if product.options === true}
                         <div class="row mt-4"> 
                             {#each product.additional as add, i}
@@ -120,21 +136,6 @@
                         {#if product.singleweight !== null}
                             <p class="card-text">{product.singleweight} {product.symbol}</p>
                         {/if}
-                    {/if}
-
-                    {#if product.ColoursOptions !== null}
-                        <div class="input-group mt-4">
-                            <select class="custom-select" id="colours" bind:value={colour}>
-                                {#each product.ColoursOptions as colour}
-                                    <option style="text-transform: capitalize;" value={colour}>
-                                        {colour.name}
-                                    </option>
-                                {/each}
-                            </select>
-                            <div class="input-group-append">
-                                <label class="input-group-text" for="inputGroupSelect02">Colours</label>
-                            </div>
-                        </div>
                     {/if}
                     
                     {#if product.img[0] === undefined}
