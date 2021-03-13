@@ -17,10 +17,10 @@
     }
 
 	onMount(async () => {
-        await(fetch("https://villagevet.herokuapp.com/products?_limit=800"));
+        await(fetch("https://villagevet.herokuapp.com/products?_limit=-1"));
         await waitforme(200);
         var productScroll = document.getElementById(scrollPosID);
-        if(scrollPosID){
+        if(scrollPosID && productScroll.scrollIntoView !== null){
             productScroll.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 	});
@@ -45,7 +45,7 @@
     {#if error !== null}
         {error}
     {:else}
-        {#await fetch("https://villagevet.herokuapp.com/products?_limit=700")}
+        {#await fetch("https://villagevet.herokuapp.com/products?_limit=-1")}
             <div class="d-flex justify-content-center mt-5">
                 <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
             </div>

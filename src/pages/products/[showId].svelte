@@ -7,25 +7,39 @@
     let product = {};
     let selected;
     let colour;
-
     let source;
-
     let visible = false;
+    let img;
+    let sizeWeight;
+    let loaded = false;
 
     $: updateShow($params.showId);
     async function updateShow(id) {
         fetch(`https://villagevet.herokuapp.com/products/${id}`, { 'x-routify-valid-for': 3600})
         .then(response => response.json())
-        .then(json => {
-            product = json;
-            setTimeout($ready, 500)
-            if(product.description !== null){
-                source = product.description;
-            }
+            .then(json => {
+                product = json;
+                setTimeout($ready, 500)
+                if(product.description !== null){
+                    source = product.description;
+                }
+                // Checks for various buttons
+                loaded = true;
+                if(product.img[0] === undefined){
+                    img = "https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg";
+                }else{
+                    img = product.img[0].name;
+                }
         });
     }
 
-
+    $: if(selected){
+            if(selected.size !== null){
+                sizeWeight = selected.size;
+            }else{
+                sizeWeight = selected.weight+selected.symbol;
+            }
+        }
 
     function backFalse(){
         visible = false;
@@ -34,6 +48,7 @@
         visible = true;
         setTimeout(backFalse, 2000)
     }
+
 </script>
 
 <i on:click={() => window.history.back()} class="fas fa-arrow-left fa-2x" ></i>
@@ -55,7 +70,7 @@
 </nav>
 
 <div class="container-fluid mt-5 pt-2" id="product">
-    {#await fetch("https://villagevet.herokuapp.com/products/")}
+    {#await loaded}
         <div class="d-flex justify-content-center">
             <SyncLoader size="300" color="#FDD177" unit="px" duration="0.6s" />
         </div>
@@ -64,11 +79,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 p-md-3">
                     <div class="text-center">
-                        {#if product.img[0] === undefined}
-                            <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="img-fluid" alt="product_image">
-                        {:else}
-                            <img style="height: 45vh; width: auto;" src="{product.img[0].name}" class="img-fluid" alt="product_image">
-                        {/if}
+                        <img style="height: 45vh; width: auto;" src={img} class="img-fluid" alt="product_image">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -77,7 +88,7 @@
                         <SvelteMarkdown { source } />
                     {/if}
 
-                    {#if product.ColoursOptions !== null && product.ColoursOptions.length > 0}
+                    {#if product.ColoursOptions.length > 0}
                         <div class="input-group mt-4">
                             <select class="custom-select" id="colours" bind:value={colour}>
                                 {#each product.ColoursOptions as colour}
@@ -94,14 +105,14 @@
 
                     {#if product.options === true}
                         <div class="row mt-4"> 
-                            {#each product.additional as add, i}
-                            <div class="col">
-                                {#if add.weight !== null}
-                                    {add.weight}{product.additional[i].symbol}
-                                {:else}
-                                    {add.size}
-                                {/if}
-                            </div>
+                            {#each product.additional as add}
+                                <div class="col">
+                                    {#if add.weight !== null}
+                                        {add.weight}{add.symbol}
+                                    {:else}
+                                        {add.size}
+                                    {/if}
+                                </div>
                             {/each}
                         </div>
                         <div class="row"> 
@@ -114,10 +125,10 @@
 
                         <div class="input-group mt-4">
                             <select class="custom-select" id="selected" bind:value={selected}>
-                                {#each product.additional as add, i}
+                                {#each product.additional as add}
                                     <option value={add}>
                                         {#if add.weight !== null}
-                                            {add.weight}{product.additional[i].symbol}
+                                            {add.weight}{add.symbol}
                                         {:else}
                                             {add.size}
                                         {/if}
@@ -137,143 +148,90 @@
                             <p class="card-text">{product.singleweight} {product.symbol}</p>
                         {/if}
                     {/if}
-                    
-                    {#if product.img[0] === undefined}
-                        {#if selected && product.options === true}
-                            <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                                data-item-id="{product.id+selected.price}"
-                                data-item-price="{selected.price}"
-                                data-item-url="/products/{product.id}"   
-                                data-item-name="{product.name}"
-                                data-item-description="{product.description}"
-                                data-item-image="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg"
-                                data-item-custom1-name="Weight"
-                                data-item-custom1-type="readonly"
-                                data-item-custom1-value="{selected.weight+selected.symbol}"
-                                data-item-custom2-name="Any additional information?"
-                                data-item-custom2-type="textarea">
-                                {#if selected.weight !== null}
-                                    Add to bowl: {selected.weight}{selected.symbol} option
-                                {:else}
-                                    Add to bowl: {selected.size} option
-                                {/if}
-                            </button>
-                            {#if visible}
-                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                            {/if}
-                        {:else}
-                            <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+
+                    <!-- Colour: True, Options: False -->
+                    {#if product.ColoursOptions.length > 0 && product.options === false && colour}
+                        <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
                             data-item-id="{product.id+product.price}"
-                            data-item-price="{product.price+product.price}"
+                            data-item-price="{product.price}"
                             data-item-url="/products/{product.id}"   
                             data-item-name="{product.name}"
                             data-item-description="{product.description}"
-                            data-item-image="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg"
+                            data-item-image="{img}"
+                            data-item-custom1-name="Weight / Size:"
+                            data-item-custom1-type="readonly"
+                            data-item-custom1-value="{product.singleweight}{product.symbol}"
+                            data-item-custom3-name="Colour"
+                            data-item-custom3-type="readonly"
+                            data-item-custom3-value="{colour.name}"
+                            data-item-custom2-name="Any additional information?"
+                            data-item-custom2-type="textarea">
+                            Add to bowl
+                        </button>
+                        {#if visible}
+                            <p transition:fade={{ duration:800 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                        {/if}
+                    <!-- Colour: False, Options: True -->
+                    {:else if selected && product.options === true && product.ColoursOptions.length === 0}
+                        <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+                            data-item-id="{product.id+selected.price}"
+                            data-item-price="{selected.price}"
+                            data-item-url="/products/{product.id}"   
+                            data-item-name="{product.name}"
+                            data-item-description="{product.description}"
+                            data-item-image="{img}"
+                            data-item-custom1-name="Weight / Size"
+                            data-item-custom1-type="readonly"
+                            data-item-custom1-value="{sizeWeight}"
+                            data-item-custom2-name="Any additional information?"
+                            data-item-custom2-type="textarea">
+                            Add to bowl: {sizeWeight} option
+                        </button>
+                        {#if visible}
+                            <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                        {/if}
+                    <!-- Colour: True, Options: True -->
+                    {:else if product.ColoursOptions.length > 0 && selected && product.options === true && colour}
+                        <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+                            data-item-id="{product.id+selected.price}"
+                            data-item-price="{selected.price}"
+                            data-item-url="/products/{product.id}"   
+                            data-item-name="{product.name}"
+                            data-item-description="{product.description}"
+                            data-item-image="{img}"
+                            data-item-custom1-name="Weight / Size"
+                            data-item-custom1-type="readonly"
+                            data-item-custom1-value="{sizeWeight}"
+                            data-item-custom3-name="Colour"
+                            data-item-custom3-type="readonly"
+                            data-item-custom3-value="{colour.name}"
+                            data-item-custom2-name="Any additional information?"
+                            data-item-custom2-type="textarea">
+                            Add to bowl: {sizeWeight} option
+                        </button>
+                        {#if visible}
+                            <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                        {/if}
+                    <!-- Default -->
+                    {:else}
+                        <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
+                            data-item-id="{product.id+product.price}"
+                            data-item-price="{product.price}"
+                            data-item-url="/products/{product.id}"   
+                            data-item-name="{product.name}"
+                            data-item-description="{product.description}"
+                            data-item-image="{img}"
                             data-item-custom1-name="Weight / Size:"
                             data-item-custom1-type="readonly"
                             data-item-custom1-value="{product.singleweight}{product.symbol}"
                             data-item-custom2-name="Any additional information?"
                             data-item-custom2-type="textarea">
                             Add to bowl
-                            </button>
-                            {#if visible}
-                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                            {/if}
+                        </button>
+                        {#if visible}
+                            <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
                         {/if}
-
-                    {:else}
-                        <!-- Colour: True, Options: False -->
-                        {#if product.ColoursOptions !== null && product.options === false && colour}
-                            <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                                data-item-id="{product.id+product.price}"
-                                data-item-price="{product.price}"
-                                data-item-url="/products/{product.id}"   
-                                data-item-name="{product.name}"
-                                data-item-description="{product.description}"
-                                data-item-image="{product.img[0].name}"
-                                data-item-custom1-name="Weight / Size:"
-                                data-item-custom1-type="readonly"
-                                data-item-custom1-value="{product.singleweight}{product.symbol}"
-                                data-item-custom3-name="Colour"
-                                data-item-custom3-type="readonly"
-                                data-item-custom3-value="{colour.name}"
-                                data-item-custom2-name="Any additional information?"
-                                data-item-custom2-type="textarea">
-                                Add to bowl
-                            </button>
-                            {#if visible}
-                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                            {/if}
-                        <!-- Colour: False, Options: True -->
-                        {:else if selected && product.options === true}
-                            <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                                data-item-id="{product.id+selected.price}"
-                                data-item-price="{selected.price}"
-                                data-item-url="/products/{product.id}"   
-                                data-item-name="{product.name}"
-                                data-item-description="{product.description}"
-                                data-item-image="{product.img[0].name}"
-                                data-item-custom1-name="Weight"
-                                data-item-custom1-type="readonly"
-                                data-item-custom1-value="{selected.weight+selected.symbol}"
-                                data-item-custom2-name="Any additional information?"
-                                data-item-custom2-type="textarea">
-                                {#if selected.weight !== null}
-                                    Add to bowl: {selected.weight}{selected.symbol} option
-                                {:else}
-                                    Add to bowl: {selected.size} option
-                                {/if}
-                            </button>
-                            {#if visible}
-                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                            {/if}
-                        <!-- Colour: True, Options: True -->
-                        {:else if selected && product.options === true && product.ColoursOptions !== null && colour}
-                            <button in:fade on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                                data-item-id="{product.id+selected.price}"
-                                data-item-price="{selected.price}"
-                                data-item-url="/products/{product.id}"   
-                                data-item-name="{product.name}"
-                                data-item-description="{product.description}"
-                                data-item-image="{product.img[0].name}"
-                                data-item-custom1-name="Weight"
-                                data-item-custom1-type="readonly"
-                                data-item-custom1-value="{selected.weight+selected.symbol}"
-                                data-item-custom3-name="Colour"
-                                data-item-custom3-type="readonly"
-                                data-item-custom3-value="{colour.name}"
-                                data-item-custom2-name="Any additional information?"
-                                data-item-custom2-type="textarea">
-                                {#if selected.weight !== null}
-                                    Add to bowl: {selected.weight}{selected.symbol} option
-                                {:else}
-                                    Add to bowl: {selected.size} option
-                                {/if}
-                            </button>
-                            {#if visible}
-                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                            {/if}
-                        {:else}
-                            <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
-                                data-item-id="{product.id+product.price}"
-                                data-item-price="{product.price}"
-                                data-item-url="/products/{product.id}"   
-                                data-item-name="{product.name}"
-                                data-item-description="{product.description}"
-                                data-item-image="{product.img[0].name}"
-                                data-item-custom1-name="Weight / Size:"
-                                data-item-custom1-type="readonly"
-                                data-item-custom1-value="{product.singleweight}{product.symbol}"
-                                data-item-custom2-name="Any additional information?"
-                                data-item-custom2-type="textarea">
-                                Add to bowl
-                            </button>
-                            {#if visible}
-                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
-                            {/if}
-                        {/if}                      
-
-                    {/if}
+                    {/if}                      
 
                     <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                 </div>
@@ -312,5 +270,4 @@
         background-color: #FDD277;
         color: black;
     }
-
 </style>
