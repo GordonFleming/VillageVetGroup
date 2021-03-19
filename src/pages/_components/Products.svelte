@@ -61,20 +61,20 @@
                                             {#if product.img[0] === undefined}
                                                 <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="card-img-top" alt="product_image">
                                             {:else}
-                                                <img style="height: 220px; width: auto; max-width: 280px;" src="{product.img[0].name}" class="card-img-top" alt="product_image">
+                                                <img style="display: block; height: auto; width: auto; max-width: 280px; max-height: 280px;" src="{product.img[0].name}" class="card-img-top" alt="product_image">
                                             {/if}
                                         </a>
                                     </div>
                                     <div class="card-body">
-                                        <h5 class="card-title">{product.name.toLowerCase().replace("and", "&")}</h5> 
+                                        <h5 class="card-title">{product.name.toLowerCase().replace(" and ", "&")}</h5> 
                                         {#if product.options === true}
                                             <p class="card-price pt-2">R {product.additional[0].price}.00</p>
                                             <ul id="weights">
                                                 {#each product.additional as add}
                                                     {#if add.weight !== null}
-                                                        <li>{add.weight}{add.symbol}</li>
+                                                        <li style="display: inline-block;">{add.weight}{add.symbol}</li>
                                                     {:else}
-                                                        <li>{add.size}</li>
+                                                        <li style="display: inline-block;">{add.size}</li>
                                                     {/if}
                                                 {/each}
                                             </ul>

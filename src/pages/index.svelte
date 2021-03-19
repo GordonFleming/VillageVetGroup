@@ -23,9 +23,6 @@
                 <ChevronLeftIcon size="3x" />
             </span>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FMontego_banner_gvy3ia.webp?alt=media&token=a36c4bce-d434-47d9-b6b0-bccdc2c3045c" alt="banner_img"/>
-            </div>
-            <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fdog1_n0yarw.webp?alt=media&token=a04eaa78-79ae-490e-b642-3370d940df9e" alt="banner_img"/>
             </div>
             <div class="slide-content">
@@ -45,9 +42,6 @@
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FScreenshot_59_y8qdzo.webp?alt=media&token=bd937a83-c542-4711-b4a6-cb8391350b76" alt="banner_img"/>
-            </div>
-            <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FBags_O_Wags_Banner_nqxck4.webp?alt=media&token=dff79fd2-3e26-434e-9fcb-7c7063fc35b5" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FPetdent_Range_dentabio_jwsbfe.webp?alt=media&token=6e3a1691-78c9-4e4d-bab6-aaa1997d8e5a" alt="banner_img"/>

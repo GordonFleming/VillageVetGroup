@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 p-md-3">
                     <div class="text-center">
-                        <img style="height: 45vh; width: auto;" src={img} class="img-fluid" alt="product_image">
+                        <img style="display: block; height: auto; width: auto; max-width: 35vw; max-height: 40vh;" src={img} class="img-fluid" alt="product_image">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -106,20 +106,15 @@
                     {#if product.options === true}
                         <div class="row mt-4"> 
                             {#each product.additional as add}
-                                <div class="col">
+                                <div class="col mt-3 mb-3 snipcart-add-item" data-item-name="{product.name}" data-item-id="{product.id+add.price}" data-item-price="{add.price}" data-item-url="/products/{product.id}">
                                     {#if add.weight !== null}
-                                        {add.weight}{add.symbol}
+                                        {add.weight}{add.symbol} <br>
+                                        R{add.price}.00
                                     {:else}
-                                        {add.size}
+                                        {add.size} <br>
+                                        R{add.price}.00
                                     {/if}
                                 </div>
-                            {/each}
-                        </div>
-                        <div class="row"> 
-                            {#each product.additional as add}
-                            <div class="col mt-3 snipcart-add-item" data-item-name="{product.name}" data-item-id="{product.id+add.price}" data-item-price="{add.price}" data-item-url="/products/{product.id}">
-                                R{add.price}.00
-                            </div>
                             {/each}
                         </div>
 

@@ -22,9 +22,10 @@
     $: query = qs.stringify({
         _where: {
             _or: [
-                [{ name_contains: search }],
-                [{ description:  search }],
-                [{ 'brand.name_contains': search }],
+                [{ name_contains: search.trim(" ") }],
+                [{ description:  search.trim(" ") }],
+                [{ 'brand.name_contains': search.trim(" ") }],
+                [{ 'animals.type_contains': search.trim(" ") }],
             ],
         },
     });
@@ -69,6 +70,7 @@
 	async function formSubmitted() {   
         searchVal.set(search)
         loading = true;
+        items = [];
         await waitforme(400);
         const url = `${API_URL}${query}`;
 		const response = await fetch(url);
@@ -114,7 +116,7 @@
     {:else if loading === true}
         <center><h1>Loading...</h1></center>
     {:else if search !== "" && items.length == 0 && loading === false}
-        <h2 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found.</h2>
+        <center><h2 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found.</h2></center>
     {/if}
 {:catch error}
     <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
