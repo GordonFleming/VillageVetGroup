@@ -231,7 +231,7 @@
                     <p class="mt-4"><strong>Delivery calculated at checkout.</strong></p>
                 </div>
             </div>
-        {:else}
+        {:else if (product.id === null || product.id === undefined) && loaded === true}
             <h2 class="mt-5 text-center">No matching product. Go <a href={$url('./')}>back</a></h2>
         {/if}
     {:catch error}
