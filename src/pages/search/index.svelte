@@ -4,6 +4,7 @@
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
     import { currentNumPage, searchVal } from '../store.js';
+    import AnimalBlocks from '../_components/AnimalBlocks.svelte'
     import qs from 'qs';
 
     let currentPage;
@@ -96,6 +97,8 @@
         <li class="breadcrumb-item" aria-current="page">Search</li>
     </ol>
 </nav>
+
+<AnimalBlocks max={150} />
 
 <div class="container mt-4 mb-5">
     <form on:submit|preventDefault={formSubmitted} id="search" class="input-group">

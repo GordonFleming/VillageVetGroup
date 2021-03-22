@@ -1,3 +1,7 @@
+<script>
+
+</script>
+
 <style>
     @media only screen and (min-width: 600px) {
         .bg-covid{
@@ -32,9 +36,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="https://villagevetgroup.co.za/about-us/">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="https://villagevetgroup.co.za/about/">Services</a>
                     </li>
                 </ul>
                 <div class="ml-5 align-items-center d-md-flex d-block flex-row mx-md-auto">

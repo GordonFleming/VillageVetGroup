@@ -10,6 +10,10 @@
         scrollPosID = value;
     }) 
 
+    function scrollUp(){
+        window.scrollTo(0, 250);
+    }
+
     function waitforme(milisec) { 
         return new Promise(resolve => { 
             setTimeout(() => { resolve('') }, milisec); 
@@ -18,7 +22,7 @@
 
 	onMount(async () => {
         await(fetch("https://villagevet.herokuapp.com/products?_limit=-1"));
-        await waitforme(200);
+        await waitforme(500);
         var productScroll = document.getElementById(scrollPosID);
         if(scrollPosID && productScroll.scrollIntoView !== null){
             productScroll.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -105,6 +109,7 @@
                     showStepOptions="{true}"
                     on:setPage="{(e) => currentPage = e.detail.page}"
                     on:setPage="{updatePageNum}"
+                    on:setPage="{scrollUp}"
                     />
                 </div>
                 

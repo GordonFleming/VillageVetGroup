@@ -9,10 +9,11 @@
 </script>
 
 <div class="container mt-5 text-center">
+    <AnimalBlocks max={260} />
     <h1 style="color:red;">Website in development, watch this space!</h1><br><br>
     <h2>Let us provide your pet with</h2>
-    <h1>‘Total care, for life’</h1>
-    <AnimalBlocks />
+    <h1>‘Total Care, for Life’</h1>
+    <h4>We aim to personalise your online shopping experience with us, especially as we will miss seeing you and your pets in our store! Our friendly, well trained and experienced team aim to provide advice, as well as premium veterinary products and accessories to suit your requirements.</h4>
 </div>
 
 <div class="container text-center mt-5">
@@ -115,7 +116,7 @@
         font-family: 'Maven Pro', sans-serif;
     }
     h2{
-        font-family: 'Indie Flower', cursive;
+        font-family: 'Maven Pro', sans-serif;
     }
     h4{
         margin-top: 2rem;

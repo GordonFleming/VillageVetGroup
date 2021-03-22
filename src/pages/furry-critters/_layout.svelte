@@ -33,7 +33,7 @@
                         <a class="nav-link" href="/furry-critters/mouse">Mouse</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/furry-critters/rabbit">Rabbit / Bunny</a>
+                      <a class="nav-link" href="/furry-critters/rabbit">Rabbit</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/furry-critters/rat">Rat</a>

@@ -23,7 +23,10 @@
                         <a class="snipcart-checkout" href="/">View Bowl</a>
                     </li>
                     <li>
-                        <a href="/policies/refund-policy">Returns Policy</a>
+                        <a href="/policies/delivery-policy">Delivery Policy & Charges</a>
+                    </li>
+                    <li>
+                        <a href="/policies/refund-policy">Refund & Refund Policy</a>
                     </li>
                 </ul>
             </div>
@@ -68,6 +71,9 @@
                 <div class="col align-self-center">
                     © 2021 Copyright:
                     <a class="text-dark" href="https://splyce.dev/">Splyce</a>
+                </div>
+                <div class="col align-self-center">
+                    <a style="color: black;" href="/policies">Terms</a>
                 </div>
                 <div class="col align-self-center">
                     <i class="fab fa-cc-mastercard fa-2x"></i>

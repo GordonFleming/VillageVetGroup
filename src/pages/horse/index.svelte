@@ -1,16 +1,14 @@
 <script>
     import { onMount } from 'svelte';
     import Products from '../_components/Products.svelte';
-    import AnimalBlocks from '../_components/AnimalBlocks.svelte'
+    import { SyncLoader } from 'svelte-loading-spinners';
     import { currentNumPage } from '../store.js';
-
     let currentPage;
     currentNumPage.subscribe(value => {
         currentPage = value;
-    })
+    }) 
 
-    let urlApi = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=-1';
-
+    const API_URL = 'https://villagevet.herokuapp.com/products?animals_in=10&_sort=name:ASC&_limit=-1';
     let items = [];
 
     onMount(async () => {
@@ -26,28 +24,31 @@
     const headers = {
         'Content-Type': 'application/json',
     };
+        //{ 'x-routify-valid-for': 3600},
         try {
-            const res = await fetch(urlApi, {
+            const res = await fetch(API_URL, {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json'
             },
             }).then(checkStatus)
         .then(parseJSON);
-            items = res
+            items = res;
         } catch (e) {
             error = e
+        }
+        if((items.length / 16) < currentPage){
+            currentNumPage.set(1);
         }
     });
 </script>
 
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item" aria-current="page">Products</li>
-    </ol>
-</nav>
-
-<AnimalBlocks max={150} />
-
-<Products {items} {currentPage} />
+{#await fetch(API_URL)}
+    <div class="d-flex justify-content-center mt-5">
+        <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
+    </div>
+{:then}
+    <Products {items} {currentPage} />
+{:catch error}
+    <p>Please reload page, or go back to the <a href="/">home page</a></p>
+{/await}
