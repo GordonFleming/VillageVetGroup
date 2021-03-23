@@ -58,14 +58,14 @@
                 <div class="row align-items-center justify-content-center mb-5">
                     {#each paginatedItems as product}
                         {#if product.name}
-                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 align-self-center">
+                            <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 align-self-center">
                                 <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
                                     <div class="align-self-center">
                                         <a on:click={scrollPosID = product.id, console.log(scrollPosID), scrollProduct.set(scrollPosID)} href="/products/{product.id}">
                                             {#if product.img[0] === undefined}
                                                 <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="card-img-top" alt="product_image">
                                             {:else}
-                                                <img style="display: block; height: auto; width: auto; max-width: 280px; max-height: 280px;" src="{product.img[0].name}" class="card-img-top" alt="product_image">
+                                                <img style="display: block; height: auto; width: auto; max-width: 265px; max-height: 265px;" src="{product.img[0].name}" class="card-img-top" alt="product_image">
                                             {/if}
                                         </a>
                                     </div>
