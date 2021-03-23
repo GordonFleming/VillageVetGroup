@@ -145,7 +145,7 @@
                     {/if}
 
                     <!-- Colour: True, Options: False -->
-                    {#if product.ColoursOptions.length > 0 && product.options === false && colour}
+                    {#if product.ColoursOptions.length > 0 && (product.options === false || product.options === null) && colour}
                         <button on:click={handleClick} class="btn btn-secondary snipcart-add-item mt-4"
                             data-item-id="{product.id+product.price}"
                             data-item-price="{product.price}"
