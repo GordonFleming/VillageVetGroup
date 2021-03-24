@@ -11,6 +11,7 @@
     let visible = false;
     let img;
     let sizeWeight;
+    let sizeSingle;
     let loaded = false;
 
     $: updateShow($params.showId);
@@ -40,6 +41,13 @@
                 sizeWeight = selected.weight+selected.symbol;
             }
         }
+
+    $: if(product.singleweight !== null){
+            sizeSingle = product.singleweight + product.symbol;
+        }else{
+            sizeSingle = "standard";
+        }
+
 
     function backFalse(){
         visible = false;
@@ -79,7 +87,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 p-md-3">
                     <div class="text-center">
-                        <img style="display: block; height: auto; width: auto; max-width: 35vw; max-height: 40vh;" src={img} class="img-fluid" alt="product_image">
+                        <img style="display: block; height: auto; width: auto; max-width: auto; max-height: 48vh;" src={img} class="img-fluid" alt="product_image">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -155,7 +163,7 @@
                             data-item-image="{img}"
                             data-item-custom1-name="Weight / Size:"
                             data-item-custom1-type="readonly"
-                            data-item-custom1-value="{product.singleweight}{product.symbol}"
+                            data-item-custom1-value="{sizeSingle}"
                             data-item-custom3-name="Colour"
                             data-item-custom3-type="readonly"
                             data-item-custom3-value="{colour.name}"
@@ -218,7 +226,7 @@
                             data-item-image="{img}"
                             data-item-custom1-name="Weight / Size:"
                             data-item-custom1-type="readonly"
-                            data-item-custom1-value="{product.singleweight}{product.symbol}"
+                            data-item-custom1-value="{sizeSingle}"
                             data-item-custom2-name="Any additional information?"
                             data-item-custom2-type="textarea">
                             Add to bowl
