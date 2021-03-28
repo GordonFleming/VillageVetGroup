@@ -59,7 +59,7 @@
     const subtractOne = (id) => {
         for(let item of cartItems){
             if((item.id+item.price) == id){
-                if(item.units <= 2) disabled = true
+                if(item.units <= 0) disabled = true
                 if(item.units >= 2){
                     item.units--
                 }
