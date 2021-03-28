@@ -1,5 +1,5 @@
 <script>
-
+    import { totalAmount, itemCount } from '../store.js';
 </script>
 
 <style>
@@ -35,25 +35,29 @@
                         <a class="nav-link" aria-current="page" href="/products">All products</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/checkout">Checkout</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="https://villagevetgroup.co.za/about-us/">About</a>
                     </li>
                 </ul>
                 <div class="ml-5 align-items-center d-md-flex d-block flex-row mx-md-auto">
                     <a id="search-nav" class="nav-link" aria-current="page" href="/search"><i class="fas fa-search"></i> Search</a>
                 </div>
-
-                <form class="row row-cols-lg-auto g-3 align-items-center">
-                    <div class="col-12">
-                        <span class="snipcart-total-price"></span>
-                    </div>
-                    <div class="col-12">
-                        <span class="snipcart-items-count"></span>
-                    </div>
-                </form>
-                <button class="snipcart-checkout btn btn-link  nav-item d-flex">
+                {#if $totalAmount > 0}
+                    <form class="row row-cols-lg-auto g-3 align-items-center">
+                        <div class="col-12">
+                            <span>R {$totalAmount}.00</span>
+                        </div>
+                        <div class="col-12">
+                            <span>{$itemCount}</span>
+                        </div>
+                    </form>
+                {/if}
+                <a href="/checkout"><button class="btn btn-link  nav-item d-flex">
                     <img src="https://res.cloudinary.com/splyce/image/upload/c_scale,h_40/v1611664806/logos/dog-food_umda72.png" alt="icon-cart"/>
                     <h6>View Bowl</h6>
-                </button>
+                </button></a>
             </div>
         </div>
     </nav>
