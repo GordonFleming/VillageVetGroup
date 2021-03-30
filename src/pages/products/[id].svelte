@@ -8,6 +8,7 @@
     let product = {};
     let selected;
     let colour;
+    let col;
     let source;
     let visible = false;
     let img;
@@ -22,7 +23,7 @@
         .then(response => response.json())
             .then(json => {
                 product = json;
-                setTimeout($ready, 500)
+                $ready;
                 if(product.description !== null){
                     source = product.description;
                 }
@@ -56,6 +57,12 @@
             sizeSingle = "standard";
         }
 
+    $: if(product.ColoursOptions !== undefined && colour){
+                    col = colour.name
+                }else{
+                    col = ""
+                }
+
     function backFalse(){
         visible = false;
     }
@@ -78,6 +85,7 @@
             size: sizeSingle,
             price: amount,
             img: product.img[0].name,
+            colour: col,
             units: 1
         })
 
@@ -141,7 +149,7 @@
                     {#if product.options === true}
                         <div class="row mt-4"> 
                             {#each product.additional as add}
-                                <div class="col mt-3 mb-3 snipcart-add-item" data-item-name="{product.name}" data-item-id="{product.id+add.price}" data-item-price="{add.price}" data-item-url="/products/{product.id}">
+                                <div class="col mt-3 mb-3">
                                     {#if add.weight !== null}
                                         {add.weight}{add.symbol} <br>
                                         R{add.price}.00
@@ -228,9 +236,5 @@
     .card-text{
         text-align: left;
         font-size: 1.3rem;
-    }
-    .btn-secondary{
-        background-color: #FDD277;
-        color: black;
     }
 </style>

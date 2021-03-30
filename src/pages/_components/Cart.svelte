@@ -7,14 +7,15 @@
         cartItems = value;
     })
 
+    localStorage.setItem("data",cartItems)
+    console.log(localStorage.getItem("data"))
+    let data = localStorage.getItem("data")
+        for(i = 0; i < data.length; i++){
+            console.log(data[i].name)
+        }
+
     $:{ $itemCount = cartItems.length;}
 
-    // $: { cartItems.forEach(calcTotal);
-
-    // function calcTotal(item){
-    //     $totalAmount += item.price*item.units
-    //     $totalAmount = $totalAmount
-    // }}
     var i;
     $:{
         $totalAmount = 0;
@@ -97,6 +98,9 @@
                                             <p class="card-text">{product.size}</p>
                                         {/if}
                                         <p class="card-text">{product.units} units</p>
+                                        {#if product.colour}
+                                            <p class="card-text">{product.colour}</p>
+                                        {/if}
                                 </div>
                             </div>
                             
@@ -111,7 +115,6 @@
                                     +
                                 </button>
                             </div>
-
                         </div>
                     {:else}
                         {console.log("Error")}
@@ -122,7 +125,5 @@
                 {/each}
             </div>
         </div>
-    {:else}
-        <center><h1>Nothing is in your cart yet.</h1></center>
     {/if}
 </main>

@@ -23,9 +23,13 @@
 	onMount(async () => {
         await(fetch("https://villagevet.herokuapp.com/products?_limit=-1"));
         await waitforme(500);
-        var productScroll = document.getElementById(scrollPosID);
-        if(scrollPosID && productScroll.scrollIntoView !== null){
-            productScroll.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        try{
+            var productScroll = document.getElementById(scrollPosID);
+            if(scrollPosID && productScroll.scrollIntoView !== null && productScroll.scrollIntoView !== undefined && productScroll != null){
+                productScroll.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }catch(e){
+            console.log(e)
         }
 	});
 

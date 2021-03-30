@@ -5,7 +5,6 @@
 		const callable = functions.httpsCallable('sendAway');
 		return callable({ num: '5', name: 'Email from Svelte'}).then(console.log);
 	}
-	
 </script>
 <h2>SendGrid Transactional Email with Svelte</h2>
 

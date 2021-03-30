@@ -103,6 +103,35 @@ i:hover{
 
 /* Bootstrap mods */
 
+.btn-secondary{
+    background-color: #FDD277;
+    color: black;
+    box-shadow: none;
+}
+.btn-secondary:hover{
+    background-color: #e0b963;
+    color: black;
+}
+.btn-secondary:active{
+    background-color: #FDD277;
+    color: black;
+    box-shadow: none;
+}
+.btn-secondary:focus{
+    background-color: #FDD277;
+    color: black;
+    box-shadow: none;
+}
+.btn-outline-secondary{
+    background-color: #FDD277;
+    color: black;
+    box-shadow: none;
+}
+.btn-outline-secondary:hover{
+    background-color: #FDD277;
+    color: black;
+    box-shadow: none;
+}
 .card{
     border: none;
 }

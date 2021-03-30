@@ -48,9 +48,6 @@
         <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
     </div>
 {:then}
-    {#if items.length === 0}
-        <h1>Sorry nothing here yet.</h1>
-    {/if}
     <Products {items} {currentPage} />
 {:catch error}
     <p>Please reload page, or go back to the <a href="/">home page</a></p>

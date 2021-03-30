@@ -25,3 +25,27 @@ export const sendAway = functions.https.onCall(async (data, context) =>{
 
   return {success: true};
 });
+
+import * as crypto from "crypto";
+
+const PASSPHRASE = functions.config().passphrase.value;
+
+export const genSig = functions.https.onCall(async (data, context) =>{
+  // Create parameter string
+  let pfOutput = "";
+  for (let key in data) {
+    if (data.hasOwnProperty(key)){
+      if (data[key] !== "") {
+        pfOutput +=`${key}=${encodeURIComponent(data[key].trim()).replace(/%20/g, " + ")}&`
+      }
+    }
+  }
+
+  // Remove last ampersand
+  let getString = pfOutput.slice(0, -1);
+  if (PASSPHRASE !== null) {
+    getString +=`&passphrase=${encodeURIComponent(PASSPHRASE.trim()).replace(/%20/g, "+")}`;
+  }
+
+  return crypto.createHash("md5").update(getString).digest("hex");
+});
