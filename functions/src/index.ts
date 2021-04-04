@@ -31,12 +31,28 @@ import * as crypto from "crypto";
 const PASSPHRASE = functions.config().passphrase.value;
 
 export const genSig = functions.https.onCall(async (data, context) =>{
+    const myData: {[key: string]: string} = {
+        merchant_id: data.merchant_id,
+        merchant_key: data.merchant_key,
+        return_url: data.return_url,
+        cancel_url: data.cancel_url,
+        notify_url: data.notify_url,
+        name_first: data.name_first,
+        email_address: data.email_address,
+        m_payment_id: data.m_payment_id,
+        amount: data.amount,
+        item_name: data.item_name,
+        passphrase: data.passphrase
+    }
+    console.log("This is myData merchant id from this actual function: " + myData.merchant_id);
+    console.log("This is myData name: " + data.name_first);
+    console.log("This is the passphrase: " + PASSPHRASE);
   // Create parameter string
   let pfOutput = "";
-  for (let key in data) {
-    if (data.hasOwnProperty(key)){
-      if (data[key] !== "") {
-        pfOutput +=`${key}=${encodeURIComponent(data[key].trim()).replace(/%20/g, " + ")}&`
+  for (let key in myData) {
+    if (myData.hasOwnProperty(key)){
+      if (myData[key] !== "") {
+        pfOutput +=`${key}=${encodeURIComponent(myData[key].trim()).replace(/%20/g, " + ")}&`
       }
     }
   }

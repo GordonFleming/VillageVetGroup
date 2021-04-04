@@ -1,0 +1,17 @@
+[debug] [2021-03-30T21:42:56.711Z] ----------------------------------------------------------------------
+[debug] [2021-03-30T21:42:56.713Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\flemi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2021-03-30T21:42:56.714Z] CLI Version:   9.7.0
+[debug] [2021-03-30T21:42:56.714Z] Platform:      win32
+[debug] [2021-03-30T21:42:56.714Z] Node Version:  v14.11.0
+[debug] [2021-03-30T21:42:56.715Z] Time:          Tue Mar 30 2021 23:42:56 GMT+0200 (South Africa Standard Time)
+[debug] [2021-03-30T21:42:56.715Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-03-30T21:42:56.722Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-30T21:42:56.723Z] > authorizing via signed-in user
+[debug] [2021-03-30T21:42:56.723Z] [iam] checking project villagevetshop-e2f38 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2021-03-30T21:42:56.725Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-03-30T21:42:56.725Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-30T21:42:57.109Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Tue, 30 Mar 2021 21:42:56 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-30T21:42:57.114Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/villagevetshop-e2f38:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
