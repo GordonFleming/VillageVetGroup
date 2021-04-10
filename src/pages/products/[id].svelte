@@ -66,7 +66,7 @@
     function backFalse(){
         visible = false;
     }
-
+          
     const handleClickNew = () => {
         for(let item of $cart){
             if((item.id+item.price) == (product.id+amount)){
@@ -91,6 +91,10 @@
 
         visible = true;
         setTimeout(backFalse, 2000)
+        
+        cart.subscribe(() => {
+            localStorage.setItem("data", JSON.stringify($cart))
+        });
     }
 </script>
 

@@ -11,12 +11,17 @@ sgMail.setApiKey(API_KEY);
 
 export const sendAway = functions.https.onCall(async (data, context) =>{
   const msg = {
-    to: "flemingrgordon@gmail.com",
-    from: "sales@villagevetshop.com",
+    to: data.mail,
+    from: "noreply@villagevetshop.com",
+    cc: data.ccMail,
     templateId: TEMPLATE_ID,
     dynamic_template_data: {
       num: data.num,
       name: data.name,
+      date: data.date,
+      html: data.html,
+      deliveryFee: data.deliveryFee,
+      total: data.total
     },
   };
   await sgMail.send(msg);
@@ -36,13 +41,12 @@ export const genSig = functions.https.onCall(async (data, context) =>{
         merchant_key: data.merchant_key,
         return_url: data.return_url,
         cancel_url: data.cancel_url,
-        notify_url: data.notify_url,
+        // notify_url: data.notify_url,
         name_first: data.name_first,
         email_address: data.email_address,
         m_payment_id: data.m_payment_id,
         amount: data.amount,
-        item_name: data.item_name,
-        passphrase: data.passphrase
+        item_name: data.item_name
     }
     console.log("This is myData merchant id from this actual function: " + myData.merchant_id);
     console.log("This is myData name: " + data.name_first);
@@ -52,7 +56,7 @@ export const genSig = functions.https.onCall(async (data, context) =>{
   for (let key in myData) {
     if (myData.hasOwnProperty(key)){
       if (myData[key] !== "") {
-        pfOutput +=`${key}=${encodeURIComponent(myData[key].trim()).replace(/%20/g, " + ")}&`
+        pfOutput +=`${key}=${encodeURIComponent(myData[key].trim()).replace(/%20/g, "+")}&`
       }
     }
   }

@@ -3,43 +3,50 @@
     import { cart, itemCount, totalAmount } from '../store.js';
 
     let cartItems;
-    cart.subscribe(value => {
-        cartItems = value;
-    })
-
-    localStorage.setItem("data",cartItems)
-    console.log(localStorage.getItem("data"))
-    let data = localStorage.getItem("data")
-        for(i = 0; i < data.length; i++){
-            console.log(data[i].name)
+    let obj = localStorage.getItem("data");
+    let cartLength;
+    cart.subscribe(() => {
+        if(obj !== null && obj !== undefined){
+            cartItems = JSON.parse(obj);
+            cartLength = cartItems.length;
+        }else{
+            cartLength = 0;
         }
+    });
 
-    $:{ $itemCount = cartItems.length;}
+    $:{ $itemCount = cartLength;}
 
     var i;
     $:{
         $totalAmount = 0;
-        for(i = 0; i < cartItems.length; i++){
-            $totalAmount += cartItems[i].price*cartItems[i].units
+        for(i = 0; i < cartLength; i++){
+            if(cartLength > 0){
+                $totalAmount += cartItems[i].price*cartItems[i].units
+            }else{
+                $totalAmount = 0;
+            }
         }
+        localStorage.setItem("total", $totalAmount);
     }
 
     let disabled = false
 
     const removeItemAll = (id) => {
-        if(cartItems.length == 1){
+        if(cartLength == 1){
             cartItems = []
             cart.set(cartItems)
             console.log(cartItems)
-            $totalAmount = 0
+            localStorage.removeItem("data");
+            cartLength = 0
         }else{
             var i = 0;
             for(let item of cartItems){
                 if ((item.id+item.price) === id) {
-                    item.units = 0
-                    cartItems.splice(i, 1)
                     cart.set(cartItems)
-                    console.log(item)
+                    cart.subscribe(() => {
+                        localStorage.setItem("data", JSON.stringify(cartItems.splice(i, 1)))
+                    });
+                    cartLength--;
                 }
                 i++;
             }
@@ -52,6 +59,9 @@
             if((item.id+item.price) == id){
                 item.units++
                 cartItems = cartItems
+                cart.subscribe(() => {
+                    localStorage.setItem("data", JSON.stringify(cartItems))
+                });
                 $totalAmount = $totalAmount
                 return
             }
@@ -64,6 +74,9 @@
                 if(item.units >= 2){
                     item.units--
                 }
+                cart.subscribe(() => {
+                    localStorage.setItem("data", JSON.stringify(cartItems))
+                });
                 cartItems = cartItems
                 return
             }
@@ -72,7 +85,7 @@
 </script>
 
 <main>
-    {#if cartItems.length > 0}
+    {#if cartLength > 0 && $itemCount > 0}
         <div class="container">
             <div class="row align-items-center justify-content-center mb-3">
                 <h4>Your cart total: R {$totalAmount}.00</h4>

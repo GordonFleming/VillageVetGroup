@@ -1,19 +1,10 @@
 <script>
     import { totalAmount, itemCount } from '../store.js';
+
+    function goCartTo(){
+        location.href = '/checkout';
+    }
 </script>
-
-<style>
-    @media only screen and (min-width: 600px) {
-        .bg-covid{
-            width: 50%;        
-        }
-    }
-    .bg-covid{
-        background-color: #FDD277;
-
-    }
-
-</style>
 
 <div class="container-fluid mt-3">
     <div class="card bg-covid text-black text-center d-block mx-auto">
@@ -54,11 +45,23 @@
                         </div>
                     </form>
                 {/if}
-                <a href="/checkout"><button class="btn btn-link  nav-item d-flex">
+                <button on:click={goCartTo} class="btn btn-link nav-item d-flex">
                     <img src="https://res.cloudinary.com/splyce/image/upload/c_scale,h_40/v1611664806/logos/dog-food_umda72.png" alt="icon-cart"/>
                     <h6>View Bowl</h6>
-                </button></a>
+                </button>
             </div>
         </div>
     </nav>
 </div>
+
+<style>
+    @media only screen and (min-width: 600px) {
+        .bg-covid{
+            width: 50%;        
+        }
+    }
+    .bg-covid{
+        background-color: #FDD277;
+
+    }
+</style>

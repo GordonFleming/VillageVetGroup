@@ -13,5 +13,13 @@
         </div>
     {:else}
         <center><h1>Nothing is in your cart yet.</h1></center>
+        <center><h3>__________</h3></center>
+        <center id="padd"><h2>Why don't you consider adding some yummy treats to your bowl ;)</h2></center>
     {/if}
 </div>
+
+<style>
+    #padd{
+        padding: 3rem;
+    }
+</style>

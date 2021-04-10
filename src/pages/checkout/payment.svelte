@@ -1,57 +1,69 @@
 <script>
-    import { totalAmount, deliveryDetails } from '../store.js';
+    import { totalAmount } from '../store.js';
     import { functions } from '../firebase';
 
-    // console.log("This is the delivery details on the payment page:" + $deliveryDetails.addressOne)
+    let obj = localStorage.getItem("delivery");
+    let deliveryDeets = JSON.parse(obj);
+    let total = parseInt(localStorage.getItem("total"));
 
-    const pfHost = 'sandbox.payfast.co.za';
+    console.log("This is the delivery details on the payment page:" + $totalAmount)
+
+    const pfHost = 'sandbox.payfast.co.za'; //sandbox. or www.
     var value;
-    let sig;
+    let id = Math.floor(Math.random() * 999999).toString()
+    localStorage.setItem("id",id)
+    let itemName = `#${Math.floor(Math.random() * 9999)}`.toString()
+    localStorage.setItem("itemName",itemName)
+    let name = "NA"
+    let email = "NA"
+
+    if(deliveryDeets){
+        if(deliveryDeets.deliver){
+            total += 55;
+            $totalAmount = total;
+        }
+        name = deliveryDeets.name
+        email = deliveryDeets.email
+    }
 
     const myData = [];
     // Merchant details
-    myData["merchant_id"] = "10000100";
-    myData["merchant_key"] = "46f0cd694581a";
-    myData["return_url"] = "https://074528fc3fd2.ngrok.io/return.php";
-    myData["cancel_url"] = "https://074528fc3fd2.ngrok.io/cancel.php";
-    myData["notify_url"] = "https://074528fc3fd2.ngrok.io/notify.php";
+    myData["merchant_id"] = "10022266"; // Sandbox 10022266 - Live 17441814
+    myData["merchant_key"] = "gjscontynwqxz"; //Sandbox gjscontynwqxz - Live 2tnq3f1im49r8
+    myData["return_url"] = "https://4e24a7bfd514.ngrok.io/checkout/confirmation/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
+    myData["cancel_url"] = "https://4e24a7bfd514.ngrok.io/checkout/cancel/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
     // Buyer details
-    myData["name_first"] = "Gordon";
-    myData["name_last"] = "Fleming";
-    myData["email_address"] = "test@test.com";
+    myData["name_first"] = name;
+    myData["email_address"] = email;
     // Transaction details
-    myData["m_payment_id"] = "000001";
-    myData["amount"] = "200.0";
-    myData["item_name"] = "#000001";
-    //myData["passphrase"] = "jY6,28hji382ha7/";
+    myData["m_payment_id"] = id;
+    myData["amount"] = total.toString();
+    myData["item_name"] = itemName;
+    myData["passphrase"] = "ea212wrsffgvD"; //Sandbox  - Live jY6,28hji382ha7/
 
-    // function generateSignature() {
-	// 	const callable = functions.httpsCallable('genSig');
-	// 	return callable({
-    //         merchant_id: myData["merchant_id"],
-    //         merchant_key: myData["merchant_key"],
-    //         return_url: myData["return_url"],
-    //         cancel_url: myData["cancel_url"],
-    //         notify_url: myData["notify_url"],
-    //         name_first: myData["name_first"],
-    //         email_address: myData["email_address"],
-    //         m_payment_id: myData["m_payment_id"],
-    //         amount: myData["amount"],
-    //         item_name: myData["item_name"],
-    //         passphrase: myData["passphrase"]
-    //     }).then(result => {
-    //         sig = result.data
-    //         console.log("this is the result: " + result.data)
-    //     }).then(console.log)
-	// }
+    // Live
 
-    //generateSignature()
-    // myData["signature"] = generateSignature(myData);
+    function generateSignature() {
+		const callable = functions.httpsCallable('genSig');
+		return callable({
+            merchant_id: myData["merchant_id"],
+            merchant_key: myData["merchant_key"],
+            return_url: myData["return_url"],
+            cancel_url: myData["cancel_url"],
+            // notify_url: myData["notify_url"],
+            name_first: myData["name_first"],
+            email_address: myData["email_address"],
+            m_payment_id: myData["m_payment_id"],
+            amount: myData["amount"],
+            item_name: myData["item_name"]
+        }).then(result => {
+            console.log("this is the result: " + result.data)
+            // Generate signature
+            myData["signature"] = result.data
+        })
+	}
 
-    // Generate signature
-    console.log("This is sig: " + sig)
-    myData["signature"] = "df036bc0caa74c793a270f86ede8039e";
-    // console.log("This is my data sig: " + myData["signature"])
+    generateSignature()
 
     let form = `<form action="https://${pfHost}/eng/process" method="post">`;
     for (let key in myData) {
@@ -59,24 +71,20 @@
             value = myData[key];
             if (value !== "") {
             form +=`<input name="${key}" type="hidden" value="${value.trim()}" />`;
-            console.log("these are the keys " + key)
-            console.log("these are the values " + value.trim())
             }
         }
     }
 
-    form += '<button type="submit" class="btn btn-outline-secondary btn-lg"><img class="img-fluid test" src="https://res.cloudinary.com/splyce/image/upload/v1616693707/PayFast-Logo-Black-Small_lxt7uo.png" alt="payfast" width="100px"></button></form>'
+    form += '<button type="submit" class="btn btn-outline-secondary btn-lg"><img class="img-fluid test" src="https://res.cloudinary.com/splyce/image/upload/v1616693707/PayFast-Logo-Black-Small_lxt7uo.png" alt="payfast" width="130px"></button></form>'
 </script>
 
-<div class="container">
-    <h1 class="mb-5">Select payment type</h1>
-    <!-- <form action="https://sandbox.payfast.co.za​/eng/process" method="post">
-        <input type="hidden" name="merchant_id" value="10000100">
-        <input type="hidden" name="merchant_key" value="46f0cd694581a">
-        <input type="hidden" name="return_url" value="https://41acb2d8a6e1.ngrok.io/checkout/confirmation">
-        <input type="hidden" name="cancel_url" value="https://41acb2d8a6e1.ngrok.io/checkout/cancel">
-        <input type="hidden" name="notify_url" value="https://41acb2d8a6e1.ngrok.io/checkout/notify">
-        <input type="hidden" name="amount" value={$totalAmount}>
-        <input type="hidden" name="item_name" value="#000001"> -->
-    {@html form}
+<div class="container text-center">
+    {#if total && deliveryDeets}
+        <h2 class="mb-5 pb-5">Continue with payment through PayFast's secure gateway</h2>
+        {@html form}
+        <h6 class="mt-5 pt-5">More payment options will become available in the future...</h6>
+        <small>The website is still relatively new, and we would appreciate if you experienced any bugs to please report them: <a href="/bugs">Report a bug</a></small>
+    {:else}
+        <h1>Sorry, you need to select a product first!</h1>
+    {/if}
 </div>

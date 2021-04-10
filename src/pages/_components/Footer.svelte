@@ -76,6 +76,9 @@
                     <a style="color: black;" href="/policies">Terms</a>
                 </div>
                 <div class="col align-self-center">
+                    <a style="color: black;" href="/bugs">Report a Bug</a>
+                </div>
+                <div class="col align-self-center">
                     <img class="img-fluid test" src="https://res.cloudinary.com/splyce/image/upload/v1616693707/PayFast-Logo-Black-Small_lxt7uo.png" alt="payfast" width="100px">
                     <i class="fab fa-cc-mastercard fa-2x"></i>
                     <i class="fab fa-cc-visa fa-2x"></i>
