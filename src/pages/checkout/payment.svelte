@@ -30,8 +30,8 @@
     // Merchant details
     myData["merchant_id"] = "10022266"; // Sandbox 10022266 - Live 17441814
     myData["merchant_key"] = "gjscontynwqxz"; //Sandbox gjscontynwqxz - Live 2tnq3f1im49r8
-    myData["return_url"] = "https://4e24a7bfd514.ngrok.io/checkout/confirmation/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
-    myData["cancel_url"] = "https://4e24a7bfd514.ngrok.io/checkout/cancel/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
+    myData["return_url"] = "https://a83821589429.ngrok.io/checkout/confirmation/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
+    myData["cancel_url"] = "https://a83821589429.ngrok.io/checkout/cancel/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
     // Buyer details
     myData["name_first"] = name;
     myData["email_address"] = email;
@@ -84,7 +84,7 @@
         {@html form}
         <h6 class="mt-5 pt-5">More payment options will become available in the future...</h6>
         <small>The website is still relatively new, and we would appreciate if you experienced any bugs to please report them: <a href="/bugs">Report a bug</a></small>
-    {:else}
+    {:else if !total && !deliveryDeets}
         <h1>Sorry, you need to select a product first!</h1>
     {/if}
 </div>

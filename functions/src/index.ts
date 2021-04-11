@@ -20,6 +20,7 @@ export const sendAway = functions.https.onCall(async (data, context) =>{
       name: data.name,
       date: data.date,
       html: data.html,
+      deliveryHTML: data.deliveryHTML,
       deliveryFee: data.deliveryFee,
       total: data.total
     },
