@@ -7,7 +7,7 @@
 </script>
 
 <div class="container-fluid mt-3">
-    <div class="card bg-covid text-black text-center d-block mx-auto">
+    <div class="text-black text-center d-block mx-auto">
         <a href="https://sacoronavirus.co.za" target="_blank" style="color:inherit;">Stay informed! Visit the SA Department of Health's website for COVID-19 updates: www.sacoronavirus.co.za</a>
     </div>
     <div class="text-center"><img src="https://res.cloudinary.com/splyce/image/upload/v1612031206/logos/cropped-new-banner12_latest_evsfwj.png" alt="Banner" class="img-fluid"></div>
@@ -55,13 +55,5 @@
 </div>
 
 <style>
-    @media only screen and (min-width: 600px) {
-        .bg-covid{
-            width: 50%;        
-        }
-    }
-    .bg-covid{
-        background-color: #FDD277;
 
-    }
 </style>

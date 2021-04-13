@@ -6,6 +6,8 @@
     let name
     let addressOne , addressTwo 
     let code
+    let phone
+    let extra
     let total
 
     let deliveryDeets;
@@ -22,28 +24,36 @@
         $deliveryDetails = {
                             email: email,
                             name: name,
+                            phone: phone,
                             addressOne: addressOne,
                             addressTwo: addressTwo,
                             suburb: "Sandton",
                             zip: code,
+                            extra: extra,
                             deliver: true
                         }
         if(deliveryDeets && email == ""){
             email = deliveryDeets.email;
             name = deliveryDeets.name;
+            phone = deliveryDeets.phone;
             addressOne = deliveryDeets.addressOne;
             addressTwo = deliveryDeets.addressTwo;
             code = deliveryDeets.zip;
+            extra = deliveryDeets.extra;
         }
     }else{
         $deliveryDetails = {
                             email: email,
+                            phone: phone,
                             name: name,
+                            extra: extra,
                             deliver: false
                         }
         if(deliveryDeets && email == ""){
             email = deliveryDeets.email;
             name = deliveryDeets.name;
+            phone = deliveryDeets.phone;
+            extra = deliveryDeets.extra;
         }
     }
 
@@ -55,10 +65,9 @@
 </script>
 
 <div class="container">
-    <h1>Delivery</h1>
-    <h4>Collect</h4>
+    <h1 class="mb-4">Collection / Delivery</h1>
     <button type="button" class="btn btn-outline-secondary btn-lg" on:click={() => deliver=false}>Collect</button>
-    <button type="button" class="btn btn-outline-secondary btn-lg" on:click={() => deliver=true}>Delivery</button>
+    <button type="button" style="margin-left: 1rem;" class="btn btn-outline-secondary btn-lg" on:click={() => deliver=true}>Delivery</button>
     {#if deliver}
         <h4 class="mt-5">Deliver</h4>
         <form action="/checkout/payment">
@@ -73,8 +82,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="autocomplete">Address 1 - <strong>Sandton Area Only</strong></label>
-                <input bind:value={addressOne} type="text" class="form-control" id="autocomplete" placeholder="Enter your address" required>
+                <label for="autocomplete">Phone number</label>
+                <input style="width:200px" bind:value={phone} type="tel" class="form-control" id="autocomplete" placeholder="Phone num" required>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress1">Address 1 - <strong>Sandton Area Only</strong></label>
+                <input bind:value={addressOne} type="text" class="form-control" id="inputAddress1" placeholder="Enter your address" required>
             </div>
             <div class="form-group">
                 <label for="inputAddress2">Address 2</label>
@@ -89,6 +102,10 @@
                     <label for="inputZip">Zip</label>
                     <input bind:value={code} type="text" class="form-control" id="inputZip" required>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="msg">Important extra details about your order?</label>
+                <textarea style="width:600px" bind:value={extra} id="msg" name="message" class="form-control" rows="4" placeholder="Other possible colour options..."></textarea>
             </div>
             <button on:click={submitAddress} type="submit" class="form-group btn btn-secondary">Proceed</button>
             <p>This will add an additional <strong>R55</strong> to your total.</p>
@@ -105,6 +122,14 @@
                     <label for="name">Name</label>
                     <input bind:value={name} type="text" class="form-control" id="name" placeholder="your name" required>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="autocomplete">Phone number</label>
+                <input style="width:200px" bind:value={phone} type="tel" class="form-control" id="autocomplete" placeholder="Phone num" required>
+            </div>
+            <div class="form-group">
+                <label for="msg">Please tell us what time you plan to collect your order</label>
+                <input style="width:600px" bind:value={extra} id="msg" name="message" type="text" class="form-control" required>
             </div>
             <button on:click={submitAddress} type="submit" class="form-group btn btn-secondary">Proceed</button>
         </form>

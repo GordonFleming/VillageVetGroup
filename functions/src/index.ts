@@ -21,6 +21,7 @@ export const sendAway = functions.https.onCall(async (data, context) =>{
       date: data.date,
       html: data.html,
       deliveryHTML: data.deliveryHTML,
+      extra: data.extra,
       deliveryFee: data.deliveryFee,
       total: data.total
     },
