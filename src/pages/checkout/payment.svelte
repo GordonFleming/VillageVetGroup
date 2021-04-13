@@ -30,8 +30,8 @@
     // Merchant details
     myData["merchant_id"] = "10022266"; // Sandbox 10022266 - Live 17441814
     myData["merchant_key"] = "gjscontynwqxz"; //Sandbox gjscontynwqxz - Live 2tnq3f1im49r8
-    myData["return_url"] = "https://a83821589429.ngrok.io/checkout/confirmation/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
-    myData["cancel_url"] = "https://a83821589429.ngrok.io/checkout/cancel/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
+    myData["return_url"] = "https://villagevetshop.com/checkout/confirmation/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
+    myData["cancel_url"] = "https://villagevetshop.com/checkout/cancel/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
     // Buyer details
     myData["name_first"] = name;
     myData["email_address"] = email;
