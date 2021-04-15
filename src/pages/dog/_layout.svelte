@@ -4,9 +4,6 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
-        <div class="col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center">
-            <Animals />
-        </div>
         <div class="col-lg-10 col-md-10 col-sm-12">
             <h1>Dogz Busniz</h1>
             <div class="row mb-5">
@@ -32,6 +29,9 @@
                 </ul>
             </div>
             <slot />
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center">
+            <Animals />
         </div>
     </div>
 </div>

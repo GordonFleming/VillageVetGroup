@@ -4,12 +4,12 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-12">
+            <h1 class="mb-5">Horse</h1>
+            <slot />
+        </div>
         <div class="col-lg-2 col-md-2 col-sm-12 d-flex justify-content-center">
             <Animals />
-        </div>
-        <div class="col-lg-10 col-md-10 col-sm-12">
-            <h1>Horse</h1>
-            <slot />
         </div>
     </div>
 </div>
