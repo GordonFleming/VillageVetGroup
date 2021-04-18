@@ -57,7 +57,9 @@
         for(let item of cartItems){
             if(item.units >= 2) disabled = false
             if((item.id+item.price) == id){
-                item.units++
+                if(item.units < item.stock){
+                    item.units++
+                }
                 cartItems = cartItems
                 cart.subscribe(() => {
                     localStorage.setItem("data", JSON.stringify(cartItems))

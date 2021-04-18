@@ -82,7 +82,7 @@
 
     function sendEmail() {
         const callable = functions.httpsCallable('sendAway');
-        return callable({mail: mail, ccMail: 'gordonfleming@pm.me', num: num, name: name, date: date, html: html, deliveryHTML: deliveryHTML, extra: extra, deliveryFee: deliveryFee, total: total}).then(console.log);
+        return callable({mail: mail, ccMail: 'villagevetshop04@gmail.com', num: num, name: name, date: date, html: html, deliveryHTML: deliveryHTML, extra: extra, deliveryFee: deliveryFee, total: total}).then(console.log);
     }
 
     sendEmail()

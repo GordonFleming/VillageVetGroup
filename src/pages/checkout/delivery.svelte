@@ -128,7 +128,7 @@
                 <input style="width:200px" bind:value={phone} type="tel" class="form-control" id="autocomplete" placeholder="Phone num" required>
             </div>
             <div class="form-group">
-                <label for="msg">Please tell us what time you plan to collect your order</label>
+                <label for="msg">Please tell us what time and day you plan to collect your order</label>
                 <input style="width:600px" bind:value={extra} id="msg" name="message" type="text" class="form-control" required>
             </div>
             <button on:click={submitAddress} type="submit" class="form-group btn btn-secondary">Proceed</button>

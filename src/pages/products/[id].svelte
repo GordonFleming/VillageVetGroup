@@ -16,6 +16,7 @@
     let sizeSingle;
     let loaded = false;
     let amount;
+    let stock
 
     $: updateShow($params.id);
     async function updateShow(id) {
@@ -27,28 +28,31 @@
                 if(product.description !== null){
                     source = product.description;
                 }
-                // Checks for various buttons
                 loaded = true;
                 if(product.img[0] === undefined){
                     img = "https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg";
                 }else{
                     img = product.img[0].name;
                 }
+                if(product.AllStock[0].quantity !== undefined){
+                    stock = product.AllStock[0].quantity
+                }else{
+                    stock = 1
+                }
         });
     }
 
     $: if(selected){
+            amount = selected.price
+            stock = selected.stock
             if(selected.size !== null){
                 sizeWeight = selected.size;
             }else{
                 sizeWeight = selected.weight+selected.symbol;
             }
-        }
-
-    $:  if(selected){
-            amount = selected.price
         }else{
             amount = product.price
+            stock = stock
         }
 
     $: if(product.singleweight !== null){
@@ -86,6 +90,7 @@
             price: amount,
             img: product.img[0].name,
             colour: col,
+            stock: stock,
             units: 1
         })
 
@@ -103,7 +108,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href={$url('./')}>Products</a></li>
+        <li class="breadcrumb-item"><a href="javascript:history.back()">Products</a></li>
         <li class="breadcrumb-item active" aria-current="page">
             {#await fetch("https://villagevet.herokuapp.com/products/")}
                 loading...
@@ -143,10 +148,11 @@
                                         {colour.name}
                                     </option>
                                 {/each}
-                            </select>
+                            </select>                            
                             <div class="input-group-append">
                                 <label class="input-group-text" for="inputGroupSelect02">Colours</label>
                             </div>
+                            <small><strong>Please place one or two alternative colour options in the additional field at checkout</strong></small>
                         </div>
                     {/if}
 
@@ -167,7 +173,7 @@
 
                         <div class="input-group mt-4">
                             <select class="custom-select" id="selected" bind:value={selected}>
-                                {#each product.additional as add}
+                                {#each product.additional as add, i}
                                     <option value={add}>
                                         {#if add.weight !== null}
                                             {add.weight}{add.symbol}
@@ -175,15 +181,16 @@
                                             {add.size}
                                         {/if}
                                     </option>
+                                    {add.stock=product.AllStock[i].quantity}
                                 {/each}
                             </select>
                             <div class="input-group-append">
                                 <label class="input-group-text" for="inputGroupSelect02">Options</label>
                             </div>
                         </div>
-                    {#if selected}
-                        <h1 class="mt-4">R{selected.price}</h1>
-                    {/if}
+                        {#if selected}
+                            <h1 class="mt-4">R{selected.price}</h1>
+                        {/if}
                     {:else}
                         <h4 class="mt-4 mb-4">R{product.price}</h4>
                         {#if product.singleweight !== null}
@@ -192,19 +199,35 @@
                     {/if}
 
                     {#if selected && product.options === true && product.ColoursOptions.length === 0}
-                        <button on:click={handleClickNew} class="btn btn-secondary mt-4">
-                            Add to bowl {sizeWeight} option
-                        </button>
-                        {#if visible}
-                            <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                        {#if selected.stock == 0}
+                            <button class="btn btn-secondary mt-4" disabled>
+                                Out of stock!
+                            </button>
+                            <br>
+                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us about availability</strong><i class="far fa-envelope fa-2x"></i></a>
+                        {:else}
+                            <button on:click={handleClickNew} class="btn btn-secondary mt-4">
+                                Add to bowl {sizeWeight} option
+                            </button>
+                            {#if visible}
+                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                            {/if}
                         {/if}
                     <!-- Default -->
                     {:else}
-                        <button on:click={handleClickNew} class="btn btn-secondary mt-4">
-                            Add to bowl
-                        </button>
-                        {#if visible}
-                            <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                        {#if product.AllStock[0].quantity == 0}
+                            <button class="btn btn-secondary mt-4" disabled>
+                                Out of stock!
+                            </button>
+                            <br>
+                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us about availability</strong><i class="far fa-envelope fa-2x"></i></a>
+                        {:else}
+                            <button on:click={handleClickNew} class="btn btn-secondary mt-4">
+                                Add to bowl
+                            </button>
+                            {#if visible}
+                                <p transition:fade={{ duration:1000 }} style="color:green;">Added <i style="color:green;" class="fas fa-check"></i></p>
+                            {/if}
                         {/if}
                     {/if}
 
