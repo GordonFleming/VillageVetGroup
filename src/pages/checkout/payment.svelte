@@ -5,6 +5,7 @@
     let obj = localStorage.getItem("delivery");
     let deliveryDeets = JSON.parse(obj);
     let total = parseInt(localStorage.getItem("total"));
+    let loaded = false;
 
     console.log("This is the delivery details on the payment page:" + $totalAmount)
 
@@ -60,6 +61,7 @@
             console.log("this is the result: " + result.data)
             // Generate signature
             myData["signature"] = result.data
+            loaded = true
         })
 	}
 
@@ -79,7 +81,7 @@
 </script>
 
 <div class="container text-center">
-    {#await myData["signature"]}
+    {#await loaded}
         <h2>Loading...</h2>
     {:then} 
         {#if total && deliveryDeets}
