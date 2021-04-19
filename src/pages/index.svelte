@@ -10,7 +10,7 @@
 
 <div class="container mt-5 text-center">
     <AnimalBlocks max={200} />
-    <h1 style="color:red;">Website in development, watch this space!</h1><br><br>
+    <!-- <h1 style="color:red;">Website in development, watch this space!</h1><br><br> -->
     <h2>Let us provide your pet with</h2>
     <h1>‘Total Care, for Life’</h1>
 </div>
@@ -53,7 +53,7 @@
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FACANA_heritage-banner01-350_nmziq5.webp?alt=media&token=d6e52226-e469-48c0-a0be-98e78085c5ce" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Faaron-katz-s5zL-YuasvM-unsplash.webp?alt=media&token=830a70a9-0774-4909-b142-7ea0b84ab94f" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fjack-catalano-6aY_0S-epZQ-unsplash.webp?alt=media&token=b1fdb8ad-6543-49e6-a9ca-a70b11a01498" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FPetdent_Range_dentabio_jwsbfe.webp?alt=media&token=6e3a1691-78c9-4e4d-bab6-aaa1997d8e5a" alt="banner_img"/>
@@ -65,7 +65,7 @@
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FPurl_Range_gmacm5.webp?alt=media&token=be0d4f22-7bfe-4cfa-9813-c6e45fffc9cf" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fjack-catalano-6aY_0S-epZQ-unsplash.webp?alt=media&token=b1fdb8ad-6543-49e6-a9ca-a70b11a01498" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Faaron-katz-s5zL-YuasvM-unsplash.webp?alt=media&token=830a70a9-0774-4909-b142-7ea0b84ab94f" alt="banner_img"/>
             </div>
             <!-- <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FACANA_heritage-banner01-350_nmziq5.webp?alt=media&token=d6e52226-e469-48c0-a0be-98e78085c5ce" alt="banner_img"/>

@@ -90,7 +90,7 @@
     {#if cartLength > 0 && $itemCount > 0}
         <div class="container">
             <div class="row align-items-center justify-content-center mb-3">
-                <h4>Your cart total: R {$totalAmount}.00</h4>
+                <h4>Your bowl total: R {$totalAmount}.00</h4>
                 {#each cartItems as product}
                     {#if product.name}
                         <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 align-self-center">

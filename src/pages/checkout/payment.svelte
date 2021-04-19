@@ -8,7 +8,7 @@
 
     console.log("This is the delivery details on the payment page:" + $totalAmount)
 
-    const pfHost = 'sandbox.payfast.co.za'; //sandbox. or www.
+    const pfHost = 'www.payfast.co.za'; //sandbox. or www.
     var value;
     let id = Math.floor(Math.random() * 999999).toString()
     localStorage.setItem("id",id)
@@ -28,8 +28,8 @@
 
     const myData = [];
     // Merchant details
-    myData["merchant_id"] = "10022266"; // Sandbox 10022266 - Live 17441814
-    myData["merchant_key"] = "gjscontynwqxz"; //Sandbox gjscontynwqxz - Live 2tnq3f1im49r8
+    myData["merchant_id"] = "17441814"; // Sandbox 10022266 - Live 17441814
+    myData["merchant_key"] = "2tnq3f1im49r8"; //Sandbox gjscontynwqxz - Live 2tnq3f1im49r8
     myData["return_url"] = "https://villagevetshop.com/checkout/confirmation/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
     myData["cancel_url"] = "https://villagevetshop.com/checkout/cancel/"; // Sandbox use Ngrok https://....ngrok.io - Live https://villagevetshop.com
     // Buyer details
@@ -39,7 +39,7 @@
     myData["m_payment_id"] = id;
     myData["amount"] = total.toString();
     myData["item_name"] = itemName;
-    myData["passphrase"] = "ea212wrsffgvD"; //Sandbox  - Live jY6,28hji382ha7/
+    myData["passphrase"] = "jY6,28hji382ha7/"; //Sandbox ea212wrsffgvD - Live jY6,28hji382ha7/
 
     // Live
 
@@ -79,12 +79,16 @@
 </script>
 
 <div class="container text-center">
-    {#if total && deliveryDeets}
-        <h2 class="mb-5 pb-5">Continue with payment through PayFast's secure gateway</h2>
-        {@html form}
-        <h6 class="mt-5 pt-5">More payment options will become available in the future...</h6>
-        <small>The website is still relatively new, and we would appreciate if you experienced any bugs to please report them: <a href="/bugs">Report a bug</a></small>
-    {:else if !total && !deliveryDeets}
-        <h1>Sorry, you need to select a product first!</h1>
-    {/if}
+    {#await myData["signature"]}
+        <h2>Loading...</h2>
+    {:then} 
+        {#if total && deliveryDeets}
+            <h2 class="mb-5 pb-5">Continue with payment through PayFast's secure gateway</h2>
+            {@html form}
+            <h6 class="mt-5 pt-5">More payment options will become available in the future...</h6>
+            <small>The website is still relatively new, and we would appreciate if you experienced any bugs to please report them: <a href="/bugs">Report a bug</a></small>
+        {:else if !total && !deliveryDeets}
+            <h1>Sorry, you need to select a product first!</h1>
+        {/if}
+    {/await}
 </div>

@@ -43,10 +43,12 @@
         }
     }
 
-    let html = `<table style='table-layout: fixed; width: 650px'><colgroup><col style='width: 60px'><col style='width: 400px'>
+    let html = `<table style='table-layout: fixed; width: 600px; border-collapse: collapse;'><colgroup><col style='width: 60px'><col style='width: 350px'>
                     <col style='width: 120px'>
                     <col style='width: 70px'>
-                    </colgroup>`;
+                    </colgroup>
+                    <thead style="font-size: 1.08em;"><th style="text-align: left; padding-bottom: 0.5rem; border-bottom: 1px solid black;">ID</th> <th style="text-align: left; padding-bottom: 0.5rem; border-bottom: 1px solid black;">Name</th> <th style="text-align: left; padding-bottom: 0.5rem; border-bottom: 1px solid black;">Units</th> <th style="text-align: left; padding-bottom: 0.5rem; border-bottom: 1px solid black;">Price</th></thead>
+                    <tr><td style="padding-top: 1em;"></td></tr>`;
 
     for (var i = 0; i < cartItems.length; i++){
         if (cartItems[i].colour){
@@ -59,30 +61,30 @@
                 <td>${cartItems[i].id}</td>
                 <td>${cartItems[i].name}<br>${cartItems[i].weight}<br>${colour}</td>
                 <td>${cartItems[i].units}</td>
-                <td>${cartItems[i].price}</td>
+                <td style="text-align: right;">${cartItems[i].price}</td>
                 </tr>`;
         }else if (cartItems[i].size && cartItems[i].size != "standard"){
             html += `<tr>
                 <td>${cartItems[i].id}</td>
                 <td>${cartItems[i].name}<br>${cartItems[i].size}<br>${colour}</td>
                 <td>${cartItems[i].units}</td>
-                <td>${cartItems[i].price}</td>
+                <td style="text-align: right;">${cartItems[i].price}</td>
                 </tr>`;
         }else {
             html += `<tr>
                 <td>${cartItems[i].id}</td>
                 <td>${cartItems[i].name}<br>${colour}</td>
                 <td>${cartItems[i].units}</td>
-                <td>${cartItems[i].price}</td>
+                <td style="text-align: right;">${cartItems[i].price}</td>
                 </tr>`;
         }
     }              
 
     html += '</table>';
-
+    //villagevetshop04@gmail.com
     function sendEmail() {
         const callable = functions.httpsCallable('sendAway');
-        return callable({mail: mail, ccMail: 'villagevetshop04@gmail.com', num: num, name: name, date: date, html: html, deliveryHTML: deliveryHTML, extra: extra, deliveryFee: deliveryFee, total: total}).then(console.log);
+        return callable({mail: mail, ccMail: 'gordonfleming@pm.me', num: num, name: name, date: date, html: html, deliveryHTML: deliveryHTML, extra: extra, deliveryFee: deliveryFee, total: total}).then(console.log);
     }
 
     sendEmail()
