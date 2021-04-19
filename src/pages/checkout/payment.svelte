@@ -5,7 +5,6 @@
     let obj = localStorage.getItem("delivery");
     let deliveryDeets = JSON.parse(obj);
     let total = parseInt(localStorage.getItem("total"));
-    let loaded = false;
 
     console.log("This is the delivery details on the payment page:" + $totalAmount)
 
@@ -61,7 +60,6 @@
             console.log("this is the result: " + result.data)
             // Generate signature
             myData["signature"] = result.data
-            loaded = true
         })
 	}
 
@@ -78,10 +76,16 @@
     }
 
     form += '<button type="submit" class="btn btn-outline-secondary btn-lg"><img class="img-fluid test" src="https://res.cloudinary.com/splyce/image/upload/v1616693707/PayFast-Logo-Black-Small_lxt7uo.png" alt="payfast" width="130px"></button></form>'
+
+    function waitforme(milisec) { 
+        return new Promise(resolve => { 
+            setTimeout(() => { resolve('') }, milisec); 
+        }) 
+    }
 </script>
 
 <div class="container text-center">
-    {#await loaded}
+    {#await waitforme(300)}
         <h2>Loading...</h2>
     {:then} 
         {#if total && deliveryDeets}
