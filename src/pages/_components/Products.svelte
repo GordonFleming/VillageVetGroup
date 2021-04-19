@@ -22,7 +22,7 @@
 
 	onMount(async () => {
         await(fetch("https://villagevet.herokuapp.com/products?_limit=-1"));
-        await waitforme(500);
+        await waitforme(400);
         try{
             var productScroll = document.getElementById(scrollPosID);
             if(scrollPosID && productScroll.scrollIntoView !== null && productScroll.scrollIntoView !== undefined && productScroll != null){

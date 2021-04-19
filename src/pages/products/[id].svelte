@@ -34,10 +34,10 @@
                 }else{
                     img = product.img[0].name;
                 }
-                if(product.AllStock[0].quantity !== undefined){
-                    stock = product.AllStock[0].quantity
+                if(product.AllStock[0] === undefined){
+                    stock = 0
                 }else{
-                    stock = 1
+                    stock = product.AllStock[0].quantity
                 }
         });
     }
@@ -181,7 +181,11 @@
                                             {add.size}
                                         {/if}
                                     </option>
-                                    {add.stock=product.AllStock[i].quantity}
+                                    {#if product.AllStock[0] !== undefined}
+                                        {add.stock=product.AllStock[i].quantity}
+                                    {:else}
+                                        {add.stock=1}
+                                    {/if}
                                 {/each}
                             </select>
                             <div class="input-group-append">
@@ -215,7 +219,7 @@
                         {/if}
                     <!-- Default -->
                     {:else}
-                        {#if product.AllStock[0].quantity == 0}
+                        {#if stock == 0}
                             <button class="btn btn-secondary mt-4" disabled>
                                 Out of stock!
                             </button>
