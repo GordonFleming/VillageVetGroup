@@ -21,7 +21,7 @@
                 <a href="/checkout/delivery"><button type="button" class="mt-5 btn btn-secondary btn-lg">Continue to Checkout</button></a>
             </div>
         {:else if $itemCount == 0}
-            <center><h1>Nothing is in your cart yet.</h1></center>
+            <center><h1>Nothing is in your bowl yet.</h1></center>
             <center><h3>__________</h3></center>
             <center id="padd"><h2>Why don't you consider adding some yummy treats to your bowl ;)</h2></center>
         {/if}
