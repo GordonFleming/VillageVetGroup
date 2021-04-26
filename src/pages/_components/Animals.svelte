@@ -72,11 +72,11 @@
                     <a href="/{animal.type.toLowerCase()}"><li class="list-group-item" data-bs-toggle="collapse" data-bs-target="#{animal.type}" aria-expanded="false" aria-controls="{animal.type}">{animal.type}</li></a>
                 {/if}
                 <div class="collapse" id="{animal.type}">
-                    <div class="card card-body">
+                    <!-- <div class="card card-body">
                         {#each animal.product_types as type}
                             <p>{type.name}</p>
                         {/each}
-                    </div>
+                    </div> -->
                 </div>
             {/each}
         </ul>

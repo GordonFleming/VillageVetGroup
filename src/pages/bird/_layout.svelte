@@ -1,9 +1,9 @@
 <script>
     import Animals from '../_components/Animals.svelte'
 </script>
-
 <div class="container-fluid mt-5">
     <div class="row">
+        <i on:click={() => window.history.back()} class="fas fa-arrow-left fa-2x" ></i>
         <div class="col-lg-10 col-md-10 col-sm-12">
             <h1 class="mb-5">Birds of a Feather</h1>
             <!-- <div class="row mb-4">

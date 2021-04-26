@@ -16,7 +16,7 @@
     let sizeSingle;
     let loaded = false;
     let amount;
-    let stock
+    let stock;
 
     $: updateShow($params.id);
     async function updateShow(id) {
@@ -181,10 +181,10 @@
                                             {add.size}
                                         {/if}
                                     </option>
-                                    {#if product.AllStock[0] !== undefined}
-                                        {add.stock=product.AllStock[i].quantity}
-                                    {:else}
+                                    {#if product.AllStock[i] === undefined}
                                         {add.stock=1}
+                                    {:else}
+                                        {add.stock=product.AllStock[i].quantity}
                                     {/if}
                                 {/each}
                             </select>
@@ -208,7 +208,7 @@
                                 Out of stock!
                             </button>
                             <br>
-                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us about availability</strong><i class="far fa-envelope fa-2x"></i></a>
+                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us to check availability or order this product</strong><i class="far fa-envelope fa-2x"></i></a>
                         {:else}
                             <button on:click={handleClickNew} class="btn btn-secondary mt-4">
                                 Add to bowl {sizeWeight} option
@@ -224,7 +224,7 @@
                                 Out of stock!
                             </button>
                             <br>
-                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us about availability</strong><i class="far fa-envelope fa-2x"></i></a>
+                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us to check availability or order this product</strong><i class="far fa-envelope fa-2x"></i></a>
                         {:else}
                             <button on:click={handleClickNew} class="btn btn-secondary mt-4">
                                 Add to bowl

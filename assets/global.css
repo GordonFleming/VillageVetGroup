@@ -189,3 +189,7 @@ i:hover{
     box-shadow: 2px 5px 2px;
     color: rgb(73, 71, 71);
 }
+.fa-arrow-left{
+    cursor: pointer;
+    padding-bottom: 1rem;
+}

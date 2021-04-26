@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     import Products from '../_components/Products.svelte';
-    import { SyncLoader } from 'svelte-loading-spinners';
     import { currentNumPage } from '../store.js';
     let currentPage;
     currentNumPage.subscribe(value => {
@@ -43,15 +42,4 @@
     });
 </script>
 
-{#await fetch(API_URL)}
-    <div class="d-flex justify-content-center mt-5">
-        <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
-    </div>
-{:then}
-    {#if items.length === 0}
-        <h1>Sorry nothing here yet.</h1>
-    {/if}
-    <Products {items} {currentPage} />
-{:catch error}
-    <p>Please reload page, or go back to the <a href="/">home page</a></p>
-{/await}
+<Products {items} {currentPage} />

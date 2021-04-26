@@ -19,7 +19,7 @@
     }
 </style>
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 justify-content-center mt-3 mb-4">
+<div class="row row-cols-3 row-cols-sm-3 row-cols-md-5 justify-content-center mt-3 mb-4">
     <div class="col d-flex justify-content-center">
         <a href="/dog">
             <!-- <h1>Dogs Busniz</h1> -->

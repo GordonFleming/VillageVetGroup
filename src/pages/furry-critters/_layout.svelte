@@ -4,6 +4,7 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
+        <i on:click={() => window.history.back()} class="fas fa-arrow-left fa-2x" ></i>
         <div class="col-lg-10 col-md-10 col-sm-12">
             <h1>Furry Critters</h1>
             <div class="row mb-5">
@@ -13,9 +14,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/furry-critters/chinchilla">Chinchilla</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/furry-critters/gerbil">Gerbil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/furry-critters/guinea-pig">Guinea-pig</a>

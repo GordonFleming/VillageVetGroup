@@ -1,4 +1,4 @@
-<footer class="text-center text-lg-start mt-5">
+<footer class="text-center text-lg-start mt-4">
     <div class="container p-4">
         <div class="row text-center">
             <div class="col-lg-3 col-md-3 mb-4 mb-md-0">
@@ -87,10 +87,16 @@
             </div>
         </div>
     </div>
+    <div class="corona text-black text-center d-block mx-auto">
+        <a href="https://sacoronavirus.co.za" target="_blank" style="color:inherit;">Stay informed! Visit the SA Department of Health's website for COVID-19 updates: www.sacoronavirus.co.za</a>
+    </div>
 </footer> 
 
 <style>
     .test{
         align-items: center;
+    }
+    .corona{
+        background-color: #af9f7f;
     }
 </style>

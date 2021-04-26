@@ -3,6 +3,7 @@
 </script>
 
 <div class="container-fluid mt-5">
+    <i on:click={() => window.history.back()} class="fas fa-arrow-left fa-2x" ></i>
     <div class="row">
         <div class="col-lg-10 col-md-10 col-sm-12">
             <h1 class="mb-5">Horse</h1>

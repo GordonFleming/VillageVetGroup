@@ -91,14 +91,14 @@
     }
 </script>
 
+<i on:click={() => window.history.back()} class="fas fa-arrow-left fa-2x" ></i>
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item" aria-current="page">Search</li>
     </ol>
 </nav>
-
-<AnimalBlocks max={150} />
 
 <div class="container mt-4 mb-5">
     <form on:submit|preventDefault={formSubmitted} id="search" class="input-group">
@@ -107,11 +107,11 @@
     </form>
 </div>
 
-{#await fetch(API_URL)}
+{#await loading}
     {#if loading}
-    <div class="d-flex justify-content-center mt-5">
-        <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
-    </div>
+        <div class="d-flex justify-content-center mt-5">
+            <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
+        </div>
     {/if}
 {:then}
     {#if items && items.length > 0}
@@ -124,3 +124,7 @@
 {:catch error}
     <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
 {/await}
+
+<div class="mt-5">
+    <AnimalBlocks max={150} />
+</div>

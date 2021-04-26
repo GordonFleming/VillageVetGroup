@@ -1,14 +1,13 @@
 <script>
     import { onMount } from 'svelte';
     import Products from '../_components/Products.svelte';
-    import { SyncLoader } from 'svelte-loading-spinners';
     import { currentNumPage } from '../store.js';
     let currentPage;
     currentNumPage.subscribe(value => {
         currentPage = value;
     }) 
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?product_types_in=41&product_types_in=5&product_types_in=18&product_types_in=26&product_types_in=4&product_types_in=67&product_types_in=19&product_types_in=51&animals_in=2&_sort=name:ASC&_limit=-1';
+    const API_URL = 'https://villagevet.herokuapp.com/products?product_types_in=41&product_types_in=5&product_types_in=18&product_types_in=26&product_types_in=4&product_types_in=39&product_types_in=67&product_types_in=19&product_types_in=51&animals_in=2&_sort=name:ASC&_limit=-1';
     let items = [];
 
     onMount(async () => {
@@ -43,12 +42,4 @@
     });
 </script>
 
-{#await fetch(API_URL)}
-    <div class="d-flex justify-content-center mt-5">
-        <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
-    </div>
-{:then}
-    <Products {items} {currentPage} />
-{:catch error}
-    <p>Please reload page, or go back to the <a href="/">home page</a></p>
-{/await}
+<Products {items} {currentPage} />
