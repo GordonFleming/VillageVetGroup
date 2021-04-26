@@ -21,7 +21,7 @@
     }
 
     onMount(async () => {
-        await waitforme(500);
+        await waitforme(1400);
         try{
             var productScroll = document.getElementById(scrollPosID);
             if(scrollPosID && productScroll.scrollIntoView !== null && productScroll.scrollIntoView !== undefined && productScroll != null){
