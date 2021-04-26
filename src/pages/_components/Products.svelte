@@ -1,12 +1,36 @@
 <script>
+    import { onMount } from 'svelte';
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fly } from 'svelte/transition';
     import { paginate, LightPaginationNav } from 'svelte-paginate';
-    import { currentNumPage } from '../store.js';
+    import { currentNumPage, scrollProduct } from '../store.js';
+
+    let scrollPosID = "";
+    scrollProduct.subscribe(value => {
+        scrollPosID = value;
+    }) 
 
     function scrollUp(){
         window.scrollTo(0, 250);
     }
+
+    function waitforme(milisec) { 
+        return new Promise(resolve => { 
+            setTimeout(() => { resolve('') }, milisec); 
+        }) 
+    }
+
+    onMount(async () => {
+        await waitforme(500);
+        try{
+            var productScroll = document.getElementById(scrollPosID);
+            if(scrollPosID && productScroll.scrollIntoView !== null && productScroll.scrollIntoView !== undefined && productScroll != null){
+                productScroll.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }catch(e){
+            console.log(e)
+        }
+	});
 
     // currentNumPage.subscribe(value => {
     //     currentPage = value;
@@ -35,7 +59,7 @@
                         <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 align-self-center">
                             <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
                                 <div class="align-self-center">
-                                    <a href="/products/{product.id}">
+                                    <a on:click={scrollPosID = product.id, scrollProduct.set(scrollPosID)} href="/products/{product.id}">
                                         {#if product.img[0] === undefined}
                                             <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="card-img-top" alt="product_image">
                                         {:else}

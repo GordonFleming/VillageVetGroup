@@ -119,7 +119,7 @@
     {:else if loading === true}
         <center><h1>Loading...</h1></center>
     {:else if search !== "" && items.length == 0 && loading === false}
-        <center><h2 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found.</h2></center>
+        <center><h3 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found. Try using other keywords or search for the brand...</h3></center>
     {/if}
 {:catch error}
     <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>

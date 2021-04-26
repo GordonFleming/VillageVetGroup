@@ -18,6 +18,8 @@
     let amount;
     let stock;
 
+    window.scrollTo(0, 0);
+
     $: updateShow($params.id);
     async function updateShow(id) {
         fetch(`https://villagevet.herokuapp.com/products/${id}`, { 'x-routify-valid-for': 3600})
@@ -110,7 +112,7 @@
         <li class="breadcrumb-item"><a href="/">Home</a></li>
         <li class="breadcrumb-item"><a href="javascript:history.back()">Products</a></li>
         <li class="breadcrumb-item active" aria-current="page">
-            {#await fetch("https://villagevet.herokuapp.com/products/")}
+            {#await loaded}
                 loading...
             {:then} 
                 {#if product.name}

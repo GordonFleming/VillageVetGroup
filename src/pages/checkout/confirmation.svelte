@@ -58,21 +58,21 @@
         }
         if (cartItems[i].weight){
             html += `<tr>
-                <td>${cartItems[i].id}</td>
+                <td valign="top">${cartItems[i].id}</td>
                 <td>${cartItems[i].name}<br>${cartItems[i].weight}<br>${colour}</td>
                 <td>${cartItems[i].units}</td>
                 <td style="text-align: right;">${cartItems[i].price}</td>
                 </tr>`;
         }else if (cartItems[i].size && cartItems[i].size != "standard"){
             html += `<tr>
-                <td>${cartItems[i].id}</td>
+                <td valign="top">${cartItems[i].id}</td>
                 <td>${cartItems[i].name}<br>${cartItems[i].size}<br>${colour}</td>
                 <td>${cartItems[i].units}</td>
                 <td style="text-align: right;">${cartItems[i].price}</td>
                 </tr>`;
         }else {
             html += `<tr>
-                <td>${cartItems[i].id}</td>
+                <td valign="top">${cartItems[i].id}</td>
                 <td>${cartItems[i].name}<br>${colour}</td>
                 <td>${cartItems[i].units}</td>
                 <td style="text-align: right;">${cartItems[i].price}</td>
