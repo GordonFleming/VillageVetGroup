@@ -19,7 +19,7 @@
 
     let loading = true;
 
-    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=160&';
+    const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=64&';
     $: query = qs.stringify({
         _where: {
             _or: [
@@ -72,14 +72,12 @@
         searchVal.set(search)
         loading = true;
         items = [];
-        await waitforme(400);
         const url = `${API_URL}${query}`;
 		const response = await fetch(url);
         const json = await response.json();
         //console.log(json);
         items = json.map(product => product);
         loading = false;
-
         if((items.length / 16) < currentPage){
             currentNumPage.set(1);
         }
@@ -107,23 +105,13 @@
     </form>
 </div>
 
-{#await loading}
-    {#if loading}
-        <div class="d-flex justify-content-center mt-5">
-            <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
-        </div>
-    {/if}
-{:then}
-    {#if items && items.length > 0}
-        <Products {items} {currentPage} />
-    {:else if loading === true}
-        <center><h1>Loading...</h1></center>
-    {:else if search !== "" && items.length == 0 && loading === false}
-        <center><h3 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found. Try using other keywords or search for the brand...</h3></center>
-    {/if}
-{:catch error}
-    <p>Please reload page, or go back to the <a href="/">home page</a> error:{error.message}</p>
-{/await}
+{#if items && items.length > 0}
+    <Products {items} {currentPage} />
+{:else if loading === true}
+    <center><h1>Loading...</h1></center>
+{:else if search !== "" && items.length == 0 && loading === false}
+    <center><h3 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found. Try using other keywords or search for the brand...</h3></center>
+{/if}
 
 <div class="mt-5">
     <AnimalBlocks max={150} />
