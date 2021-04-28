@@ -23,31 +23,31 @@
     <div class="col d-flex justify-content-center">
         <a href="/dog">
             <!-- <h1>Dogs Busniz</h1> -->
-            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Dogs_Busniz_wlof3z.webp" alt="">
+            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1619643107/logos/Revised_Dogs_Busniz_uk0kej.webp" alt="">
         </a>
     </div>
     <div class="col d-flex justify-content-center">
         <a href="/cat">
             <!-- <h1>Cats Whiskers</h1> -->
-            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Cats_Whiskas_rpqavv.webp" alt="">
+            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1619643107/logos/Revised_Cats_Whiskas_a1bjdo.webp" alt="">
         </a>
     </div>
     <div class="col d-flex justify-content-center">
         <a href="/fish">
             <!-- <h1>Fishy Fin</h1> -->
-            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Fishy_Fin_hoqcyq.webp" alt="">
+            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1619643107/logos/Revised_Fishy_Fin_dbeuxa.webp" alt="">
         </a>
     </div>
     <div class="col d-flex justify-content-center">
         <a href="/bird">
             <!-- <h1>Birds of a Feather</h1> -->
-            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591589/logos/Revised_Birds_of_a_Feather_uatkin.webp" alt="">
+            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1619643107/logos/Revised_Birds_of_a_Feather_hxh8bp.webp" alt="">
         </a>
     </div>
     <div class="col d-flex justify-content-center">
         <a href="/furry-critters">
             <!-- <h1>Hairy Critters</h1> -->
-            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1613591590/logos/Revised_Furry_Critters_hhblsm.webp" alt="">
+            <img style="width: {max}px;" class="img-fluid" src="https://res.cloudinary.com/splyce/image/upload/v1619643107/logos/Revised_Furry_Critters_ixl0d1.webp" alt="">
         </a>
     </div>
 </div>

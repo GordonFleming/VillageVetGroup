@@ -44,7 +44,7 @@
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fdog1_n0yarw.webp?alt=media&token=a04eaa78-79ae-490e-b642-3370d940df9e" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FUltrum_Range_jwg8mc.webp?alt=media&token=f063c07b-7393-4193-8af7-14c44a731208" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FUltrum_Range_jwg8mc.webp?alt=media&token=a5f2c8b3-eace-431c-8a0d-e25850732756" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fcat1_loyurj.webp?alt=media&token=c4853304-f52a-49db-8b03-76530d508f67" alt="banner_img"/>
