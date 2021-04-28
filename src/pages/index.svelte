@@ -23,19 +23,19 @@
                 <ChevronLeftIcon size="3x" />
             </span>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fbonnie-kittle-MUcxe_wDurE-unsplash.webp?alt=media&token=458c802c-aba8-4367-8000-d0c0b3ba612b" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fbonnie-kittle-MUcxe_wDurE-unsplash.webp?alt=media&token=77a0c916-18f7-4871-b0e0-628244ed9aa8" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FCanine_Perfect_Weight_Small___Mini_604255_604257_BUTT_szmpio.webp?alt=media&token=3b5bc1c2-e308-4c91-8ab5-22689eb7dea3" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fkyle-smith-SIZ66vF4FKA-unsplash.webp?alt=media&token=7b00dfea-2f7f-4f5e-8521-bd94bdee91ce" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fkyle-smith-SIZ66vF4FKA-unsplash.webp?alt=media&token=a274f17a-daa0-4aa0-b8f5-2b8112f72110" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Ffrontline_combination_all_BI_nnalok.webp?alt=media&token=22220b61-a8fa-49bc-8773-3680f144a400" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Ffrontline_combination_all_BI_nnalok.webp?alt=media&token=71e7e335-0e82-4e66-abf1-4a41b7d0d437" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Famy-baugess-MNju0A6EeE0-unsplash.webp?alt=media&token=99221009-9304-4035-bf8f-2c772a9f2c3d" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Famy-baugess-MNju0A6EeE0-unsplash.webp?alt=media&token=1c2e7751-c00a-4319-abf2-1dcfc96479c3" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2F004_packshot_cjxebz.webp?alt=media&token=46f8d735-9a1d-4cba-a95f-db19f4a6ff08" alt="banner_img"/>
@@ -53,19 +53,19 @@
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FACANA_heritage-banner01-350_nmziq5.webp?alt=media&token=d6e52226-e469-48c0-a0be-98e78085c5ce" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fjack-catalano-6aY_0S-epZQ-unsplash.webp?alt=media&token=b1fdb8ad-6543-49e6-a9ca-a70b11a01498" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Fjack-catalano-6aY_0S-epZQ-unsplash.webp?alt=media&token=ca30b7c8-0d86-4760-ad3d-07057f10d549" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FPetdent_Range_dentabio_jwsbfe.webp?alt=media&token=6e3a1691-78c9-4e4d-bab6-aaa1997d8e5a" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Frachel-hisko-rEM3cK8F1pk-unsplash.webp?alt=media&token=dea9f73a-1f7d-444a-97d4-fb73a0a8f560" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Frachel-hisko-rEM3cK8F1pk-unsplash.webp?alt=media&token=f6b10f3b-e5ae-4f68-8692-295ae053552c" alt="banner_img"/>
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FPurl_Range_gmacm5.webp?alt=media&token=be0d4f22-7bfe-4cfa-9813-c6e45fffc9cf" alt="banner_img"/>
             </div>
             <div class="slide-content">
-                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Faaron-katz-s5zL-YuasvM-unsplash.webp?alt=media&token=830a70a9-0774-4909-b142-7ea0b84ab94f" alt="banner_img"/>
+                <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2Faaron-katz-s5zL-YuasvM-unsplash.webp?alt=media&token=ff1a2bc5-f517-4657-8770-6126765747de" alt="banner_img"/>
             </div>
             <!-- <div class="slide-content">
                 <img class="img-fluid" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Banners%2FACANA_heritage-banner01-350_nmziq5.webp?alt=media&token=d6e52226-e469-48c0-a0be-98e78085c5ce" alt="banner_img"/>
