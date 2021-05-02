@@ -31,6 +31,7 @@
 
     let disabled = false
 
+
     const removeItemAll = (id) => {
         if(cartLength == 1){
             cartItems = []
@@ -42,9 +43,10 @@
             var i = 0;
             for(let item of cartItems){
                 if ((item.id+item.price) === id) {
-                    cart.set(cartItems)
+                    cart.set(cartItems);
+                    cartItems.splice(i, 1);
                     cart.subscribe(() => {
-                        localStorage.setItem("data", JSON.stringify(cartItems.splice(i, 1)))
+                        localStorage.setItem("data", JSON.stringify(cartItems));
                     });
                     cartLength--;
                 }
@@ -69,19 +71,17 @@
             }
         }
     }
-    const subtractOne = (id) => {
+    const subtractOne = () => {
         for(let item of cartItems){
-            if((item.id+item.price) == id){
-                if(item.units <= 0) disabled = true
-                if(item.units >= 2){
-                    item.units--
-                }
-                cart.subscribe(() => {
-                    localStorage.setItem("data", JSON.stringify(cartItems))
-                });
-                cartItems = cartItems
-                return
+            if(item.units <= 0) disabled = true
+            if(item.units >= 2){
+                item.units--
             }
+            cart.subscribe(() => {
+                localStorage.setItem("data", JSON.stringify(cartItems))
+            });
+            cartItems = cartItems
+            return
         }
     }
 </script>
