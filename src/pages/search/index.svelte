@@ -4,6 +4,7 @@
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fade } from 'svelte/transition';
     import { currentNumPage, searchVal } from '../store.js';
+    import axios from 'axios';
     import AnimalBlocks from '../_components/AnimalBlocks.svelte'
     import qs from 'qs';
 
@@ -17,7 +18,7 @@
             search = value;
     })
 
-    let loading = false;
+    let loading = true;
 
     const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=64&';
     $: query = qs.stringify({
@@ -34,29 +35,9 @@
     let items = [];
 
     onMount(async () => {
-        const parseJSON = (resp) => (resp.json ? resp.json() : resp);
-        const checkStatus = (resp) => {
-        if (resp.status >= 200 && resp.status < 300) {
-        return resp;
-        }
-        return parseJSON(resp).then((resp) => {
-        throw resp;
-        });
-    };
-    const headers = {
-        'Content-Type': 'application/json',
-    };
-        //{ 'x-routify-valid-for': 3600},
         try {
-            const res = await fetch(API_URL, {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            }).then(checkStatus)
-        .then(parseJSON);
-            items = res
-            formSubmitted();
+            const res = await axios.get(API_URL);
+            items = res.data
         } catch (e) {
             error = e
         }
@@ -67,9 +48,8 @@
         searchVal.set(search)
         loading = true;
         const url = `${API_URL}${query}`;
-		const response = await fetch(url);
-        const json = await response.json();
-        //console.log(json);
+        const res =  await axios.get(url);
+        const json = res.data
         items = json.map(product => product);
         items = items;
         loading = false;
@@ -101,18 +81,12 @@
 </div>
 
 {#if items && items.length > 0}
-    {#await loading}
-        <div class="d-flex justify-content-center">
-            <SyncLoader size="300" color="#FDD177" unit="px" duration="0.6s" />
-        </div>
-    {:then} 
-        <Products {items} {currentPage} />
-    {/await}
-{:else if loading === true}
+    <Products {items} {currentPage} />
+{:else if loading}
     <div class="d-flex justify-content-center">
         <SyncLoader size="300" color="#FDD177" unit="px" duration="0.6s" />
     </div>
-{:else if search !== "" && items.length == 0 && loading === false}
+{:else if search !== "" && items.length == 0}
     <center><h3 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found. Try using other keywords or search for the brand...</h3></center>
 {/if}
 
