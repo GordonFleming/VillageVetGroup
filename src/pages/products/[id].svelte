@@ -4,6 +4,7 @@
     import { fade } from 'svelte/transition';
     import SvelteMarkdown from 'svelte-markdown'
     import { cart } from '../store.js';
+    import axios from 'axios';
 
     let product = {};
     let selected;
@@ -22,25 +23,23 @@
 
     $: updateShow($params.id);
     async function updateShow(id) {
-        fetch(`https://villagevet.herokuapp.com/products/${id}`, { 'x-routify-valid-for': 3600})
-        .then(response => response.json())
-            .then(json => {
-                product = json;
-                $ready;
-                if(product.description !== null){
-                    source = product.description;
-                }
-                loaded = true;
-                if(product.img[0] === undefined){
-                    img = "https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg";
-                }else{
-                    img = product.img[0].name;
-                }
-                if(product.AllStock[0] === undefined){
-                    stock = 0
-                }else{
-                    stock = product.AllStock[0].quantity
-                }
+        axios.get(`https://villagevet.herokuapp.com/products/${id}`).then(response => {
+            product = response.data;
+            $ready;
+            if(product.description !== null){
+                source = product.description;
+            }
+            loaded = true;
+            if(product.img[0] === undefined){
+                img = "https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg";
+            }else{
+                img = product.img[0].name;
+            }
+            if(product.AllStock[0] === undefined){
+                stock = 0
+            }else{
+                stock = product.AllStock[0].quantity
+            }
         });
     }
 
@@ -195,7 +194,10 @@
                             </div>
                         </div>
                         {#if selected}
-                            <h1 class="mt-4">R{selected.price}</h1>
+                            {#key selected.price}
+                                <h1 class="mt-4">R{selected.price}</h1>
+                            {/key}
+                            
                         {/if}
                     {:else}
                         <h4 class="mt-4 mb-4">R{product.price}</h4>
@@ -210,7 +212,7 @@
                                 Out of stock!
                             </button>
                             <br>
-                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us to check availability or order this product</strong><i class="far fa-envelope fa-2x"></i></a>
+                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark"><strong>Contact us to check availability or order this product</strong><i class="far fa-envelope fa-2x"></i></a>
                         {:else}
                             <button on:click={handleClickNew} class="btn btn-secondary mt-4">
                                 Add to bowl {sizeWeight} option
@@ -226,7 +228,7 @@
                                 Out of stock!
                             </button>
                             <br>
-                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark contact-footer"><strong>Contact us to check availability or order this product</strong><i class="far fa-envelope fa-2x"></i></a>
+                            <a href="mailto:villagevetshop04@gmail.com" class="text-dark"><strong>Contact us to check availability or order this product</strong><i class="far fa-envelope fa-2x"></i></a>
                         {:else}
                             <button on:click={handleClickNew} class="btn btn-secondary mt-4">
                                 Add to bowl

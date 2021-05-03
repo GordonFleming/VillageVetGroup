@@ -10,10 +10,6 @@
         scrollPosID = value;
     }) 
 
-    function scrollUp(){
-        window.scrollTo(0, 250);
-    }
-
     function waitforme(milisec) { 
         return new Promise(resolve => { 
             setTimeout(() => { resolve('') }, milisec); 
@@ -109,7 +105,7 @@
                 showStepOptions="{true}"
                 on:setPage="{(e) => currentPage = e.detail.page}"
                 on:setPage="{updatePageNum}"
-                on:setPage="{scrollUp}"
+                on:setPage="{() => window.scrollTo(0, 250)}"
                 />
             </div>               
         </div>

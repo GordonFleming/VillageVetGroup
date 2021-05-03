@@ -1,37 +1,19 @@
 <script>
     import { onMount } from 'svelte';
     import { url } from '@roxi/routify'
+    import axios from 'axios';
+
     let animals = [];
     let error = null
 
     onMount(async () => {
-        const parseJSON = (resp) => (resp.json ? resp.json() : resp);
-        const checkStatus = (resp) => {
-        if (resp.status >= 200 && resp.status < 300) {
-        return resp;
-        }
-        return parseJSON(resp).then((resp) => {
-        throw resp;
-        });
-    };
-    const headers = {
-        'Content-Type': 'application/json',
-    };
-
         try {
-            const res = await fetch("https://villagevet.herokuapp.com/animals", {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            }).then(checkStatus)
-        .then(parseJSON);
-            animals = res
+            const res = await axios.get("https://villagevet.herokuapp.com/animals");
+            animals = res.data
         } catch (e) {
             error = e
         }
     });
-    console.log($url())
 </script>
 
 <style>

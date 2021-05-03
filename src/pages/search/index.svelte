@@ -17,7 +17,7 @@
             search = value;
     })
 
-    let loading = true;
+    let loading = false;
 
     const API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=64&';
     $: query = qs.stringify({
@@ -62,21 +62,16 @@
         }
     });
 
-    function waitforme(milisec) { 
-        return new Promise(resolve => { 
-            setTimeout(() => { resolve('') }, milisec); 
-        }) 
-    }
-
 	async function formSubmitted() {   
+        items = [];
         searchVal.set(search)
         loading = true;
-        items = [];
         const url = `${API_URL}${query}`;
 		const response = await fetch(url);
         const json = await response.json();
         //console.log(json);
         items = json.map(product => product);
+        items = items;
         loading = false;
         if((items.length / 16) < currentPage){
             currentNumPage.set(1);
@@ -106,9 +101,17 @@
 </div>
 
 {#if items && items.length > 0}
-    <Products {items} {currentPage} />
+    {#await loading}
+        <div class="d-flex justify-content-center">
+            <SyncLoader size="300" color="#FDD177" unit="px" duration="0.6s" />
+        </div>
+    {:then} 
+        <Products {items} {currentPage} />
+    {/await}
 {:else if loading === true}
-    <center><h1>Loading...</h1></center>
+    <div class="d-flex justify-content-center">
+        <SyncLoader size="300" color="#FDD177" unit="px" duration="0.6s" />
+    </div>
 {:else if search !== "" && items.length == 0 && loading === false}
     <center><h3 transition:fade>Sorry, nothing matches your search for: "{search}" - no results found. Try using other keywords or search for the brand...</h3></center>
 {/if}
