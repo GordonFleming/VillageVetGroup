@@ -194,10 +194,7 @@
                             </div>
                         </div>
                         {#if selected}
-                            {#key selected.price}
-                                <h1 class="mt-4">R{selected.price}</h1>
-                            {/key}
-                            
+                            <h1 class="mt-4">R{selected.price}</h1>
                         {/if}
                     {:else}
                         <h4 class="mt-4 mb-4">R{product.price}</h4>

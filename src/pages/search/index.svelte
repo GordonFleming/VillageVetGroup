@@ -15,7 +15,7 @@
 
     let search;
     searchVal.subscribe(value => {
-            search = value;
+        search = value;
     })
 
     let loading = true;
@@ -32,26 +32,38 @@
         },
     });
 
-    let items = [];
+    let items;
 
     onMount(async () => {
         try {
             const res = await axios.get(API_URL);
-            items = res.data
+            items = res.data;
+            formSubmitted();
         } catch (e) {
             error = e
         }
     });
 
+    function delay(callback, ms) {
+        var timer = 0;
+        return function() {
+            var context = this, args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+            callback.apply(context, args);
+            }, ms || 0);
+        };
+    }
+
 	async function formSubmitted() {   
-        items = [];
         searchVal.set(search)
         loading = true;
+        items = [];
         const url = `${API_URL}${query}`;
         const res =  await axios.get(url);
-        const json = res.data
-        items = json.map(product => product);
-        items = items;
+        const json = res.data;
+        items = json.map(p => p);
+        search = search;
         loading = false;
         if((items.length / 16) < currentPage){
             currentNumPage.set(1);
@@ -61,6 +73,7 @@
     function resetSearch(){
         search = "";
         searchVal.set(search);
+        formSubmitted()
     }
 </script>
 
@@ -75,7 +88,7 @@
 
 <div class="container mt-4 mb-5">
     <form on:submit|preventDefault={formSubmitted} id="search" class="input-group">
-        <input id="search-input" type="text" placeholder="Instant search" class="form-control me-2" bind:value={search} on:keyup={formSubmitted}>
+        <input id="search-input" type="text" placeholder="Instant search" class="form-control me-2" bind:value={search} on:keyup={delay(function () {formSubmitted()}, 500)}>
         <button on:click={resetSearch} class="btn bg-transparent" style="margin-left: -60px; z-index: 100;" type="reset"><i class="fa fa-times"></i></button>
     </form>
 </div>
