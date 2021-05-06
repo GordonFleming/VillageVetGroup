@@ -3,7 +3,7 @@
     import { SyncLoader } from 'svelte-loading-spinners';
     import { fly } from 'svelte/transition';
     import { paginate, LightPaginationNav } from 'svelte-paginate';
-    import { currentNumPage, scrollProduct } from '../store.js';
+    import { currentNumPage, scrollProduct, prodName } from '../store.js';
 
     let scrollPosID = "";
     scrollProduct.subscribe(value => {
@@ -28,9 +28,6 @@
         }
 	});
 
-    // currentNumPage.subscribe(value => {
-    //     currentPage = value;
-    // })
     export let currentPage;
 
     export let items = [];
@@ -55,7 +52,7 @@
                         <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 align-self-center">
                             <div class="card" id="{product.id}" style="width: auto;" transition:fly="{{ y: 100, duration: 200 }}">
                                 <div class="align-self-center">
-                                    <a on:click={scrollPosID = product.id, scrollProduct.set(scrollPosID)} href="/products/{product.id}">
+                                    <a on:click={scrollPosID = product.id, scrollProduct.set(scrollPosID), prodName.set(product.name)} href="/products/{product.id}">
                                         {#if product.img[0] === undefined}
                                             <img src="https://res.cloudinary.com/splyce/image/upload/v1611859484/petfood/samples/download_2_gzv0sh.jpg" class="card-img-top" alt="product_image">
                                         {:else}

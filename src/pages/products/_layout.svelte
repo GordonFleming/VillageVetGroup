@@ -1,7 +1,7 @@
 <script>
     import { metatags } from '@roxi/routify'
-    metatags.title = 'Village Vet Shop'
-    metatags.description = 'e-commerce store for the Village Vet Shop'
+    metatags.title = 'Village Vetshop'
+    metatags.description = 'All products for all animals'
 </script>
 
 <slot>

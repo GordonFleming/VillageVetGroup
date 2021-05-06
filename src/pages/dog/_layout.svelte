@@ -1,5 +1,8 @@
 <script>
     import Animals from '../_components/Animals.svelte';
+    import { metatags } from '@roxi/routify'
+    metatags.title = 'Dog | Village Vetshop'
+    metatags.description = 'Dog products'
 </script>
 
 <div class="container-fluid mt-5">

@@ -3,38 +3,21 @@
     import Products from '../_components/Products.svelte';
     import AnimalBlocks from '../_components/AnimalBlocks.svelte'
     import { currentNumPage } from '../store.js';
+    import axios from 'axios';
 
     let currentPage;
     currentNumPage.subscribe(value => {
         currentPage = value;
     })
 
-    let urlApi = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=-1';
+    let API_URL = 'https://villagevet.herokuapp.com/products?_sort=name:ASC&_limit=-1';
 
     let items = [];
 
     onMount(async () => {
-        const parseJSON = (resp) => (resp.json ? resp.json() : resp);
-        const checkStatus = (resp) => {
-        if (resp.status >= 200 && resp.status < 300) {
-        return resp;
-        }
-        return parseJSON(resp).then((resp) => {
-        throw resp;
-        });
-    };
-    const headers = {
-        'Content-Type': 'application/json',
-    };
         try {
-            const res = await fetch(urlApi, {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            }).then(checkStatus)
-        .then(parseJSON);
-            items = res
+            const res = await axios.get(API_URL);
+            items = res.data
         } catch (e) {
             error = e
         }

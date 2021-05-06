@@ -5,6 +5,11 @@
     import SvelteMarkdown from 'svelte-markdown'
     import { cart } from '../store.js';
     import axios from 'axios';
+    import { prodName } from '../store.js';
+    import { metatags } from '@roxi/routify'
+
+    metatags.title = $prodName + ' | Village Vetshop'
+    metatags.description = $prodName + ' item listing.'
 
     let product = {};
     let selected;

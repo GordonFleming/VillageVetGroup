@@ -1,5 +1,8 @@
 <script>
     import Animals from '../_components/Animals.svelte'
+    import { metatags } from '@roxi/routify'
+    metatags.title = 'Furry-Critters | Village Vetshop'
+    metatags.description = 'Furry-Critters products: Chinchilla, Guinea-pig, Hamster, Hedgehog, Mouse, Rabbit, Rat'
 </script>
 
 <div class="container-fluid mt-5">
