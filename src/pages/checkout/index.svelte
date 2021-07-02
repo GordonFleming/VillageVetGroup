@@ -1,6 +1,9 @@
 <script>
     import Cart from '../_components/Cart.svelte';
     import { itemCount } from '../store.js';
+    import { metatags } from '@roxi/routify'
+    metatags.title = 'Bowl | Village Vetshop'
+    metatags.description = 'Bowl full of your products!'
 
     function waitforme(milisec) { 
         return new Promise(resolve => { 

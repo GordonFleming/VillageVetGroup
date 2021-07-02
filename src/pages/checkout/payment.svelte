@@ -1,6 +1,9 @@
 <script>
     import { totalAmount } from '../store.js';
     import { functions } from '../firebase';
+    import { metatags } from '@roxi/routify'
+    metatags.title = 'Payment | Village Vetshop'
+    metatags.description = 'Payment for your products'
 
     let obj = localStorage.getItem("delivery");
     let deliveryDeets = JSON.parse(obj);

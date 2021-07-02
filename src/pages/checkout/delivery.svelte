@@ -1,5 +1,8 @@
 <script>
     import { deliveryDetails } from '../store.js';
+    import { metatags } from '@roxi/routify'
+    metatags.title = 'Delivery | Village Vetshop'
+    metatags.description = 'Select your delivery options'
 
     let deliver
     let email

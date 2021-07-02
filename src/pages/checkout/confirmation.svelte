@@ -1,5 +1,8 @@
 <script>
 	import { functions } from '../firebase';
+    import { metatags } from '@roxi/routify'
+    metatags.title = 'Confirmation | Village Vetshop'
+    metatags.description = 'Confirmation of your purchase'
 
     let currentDate = new Date();
     let cDay = currentDate.getDate();
