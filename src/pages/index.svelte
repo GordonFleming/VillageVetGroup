@@ -80,37 +80,37 @@
     <!-- Brands -->
     <div id="brands"><Carousel autoplay={3600} perPage={{1300:4, 1000: 3, 500: 2 }}>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Fvetschoice_shur9o.webp?alt=media&token=ea09a985-056b-4e81-b8c7-62d5f3044a0d" alt="vets choice"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/Orijen_logo_bvxkqf.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL09yaWplbl9sb2dvX2J2eGtxZi53ZWJwIiwiaWF0IjoxNjI1MjQxODE4LCJleHAiOjE5NDA2MDE4MTh9.wB3RLln7ptxLjaroBWJT_TPaJx-aRM6kLbN-4TIuZOw" alt="vets choice"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Fmontego_nooweq.webp?alt=media&token=f72ecffd-0ca4-4691-984a-b066e196a2ca" alt="montego"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/acana_frxcjj.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL2FjYW5hX2ZyeGNqai53ZWJwIiwiaWF0IjoxNjI1MjQxODI2LCJleHAiOjE5NDA2MDE4MjZ9.KReXE0u9lGuE_ghG8xkfgJYqRpULdxfK94GSr-DEEDo" alt="montego"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Fweruva_ie2iep.webp?alt=media&token=dc1a05ef-f132-4aea-863b-4858063b9fef" alt="weruva"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/eukanuba_kzfgww.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL2V1a2FudWJhX2t6Zmd3dy53ZWJwIiwiaWF0IjoxNjI1MjQxODM1LCJleHAiOjE5NDA2MDE4MzV9.1EaoPWlHamldc0saHEJSP5xh6fB7wX3-n3Y_EMgnmPo" alt="weruva"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Feukanuba_kzfgww.webp?alt=media&token=bbb6cd5c-1d37-4378-a312-e0774600d659" alt="Eukanuba"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/hills_cjzyug.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL2hpbGxzX2Nqenl1Zy53ZWJwIiwiaWF0IjoxNjI1MjQxODQ3LCJleHAiOjE5NDA2MDE4NDd9.izKQI1BFw3N_w8M2hy9pwwaZL1cAUM4clMJu3DeiMv8" alt="Eukanuba"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Facana_frxcjj.webp?alt=media&token=5d9435d7-273e-49d9-80a5-2c5bd2ec0851" alt="acana"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/iams_rhpjvp.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL2lhbXNfcmhwanZwLndlYnAiLCJpYXQiOjE2MjUyNDE4NTksImV4cCI6MTk0MDYwMTg1OX0.BMcOvmIMAAxagetpF06jWEMW2yVm61rXViH_uWeTlms" alt="acana"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Fnexgaurd_jkqais.webp?alt=media&token=e53a6a65-d768-48d7-acce-3092c33abcee" alt="nexgaurd"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/montego_nooweq.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL21vbnRlZ29fbm9vd2VxLndlYnAiLCJpYXQiOjE2MjUyNDE4NjgsImV4cCI6MTk0MDYwMTg2OH0.Dbp6qu2oJCbIKuw1c4SljIWrmVUBAniQJpHUjacynuQ" alt="nexgaurd"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Froyalcanin_jrk3gw.webp?alt=media&token=4b1016a4-48cf-4e99-a490-9429d52c32db" alt="royalcanin"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/nexgaurd_jkqais.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL25leGdhdXJkX2prcWFpcy53ZWJwIiwiaWF0IjoxNjI1MjQxODc1LCJleHAiOjE5NDA2MDE4NzV9.hWfXgYsZM1nUX4Ezf8u-ZLKpPXjer-UoG-9FnIJ2uSs" alt="royalcanin"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Fhills_cjzyug.webp?alt=media&token=045faaa7-31d3-4669-8417-52176c0d522b" alt="hills"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/royalcanin_jrk3gw.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL3JveWFsY2FuaW5fanJrM2d3LndlYnAiLCJpYXQiOjE2MjUyNDE4ODMsImV4cCI6MTk0MDYwMTg4M30.RnsXlodx48TBgdIJpyRJJlF8VYfRvAzSIptAWoY_y9A" alt="hills"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2FOrijen_logo_bvxkqf.webp?alt=media&token=ff888566-ab8a-429a-a6b1-9efd17959657" alt="Orijen"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/ultra_pet_uwt7mc.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL3VsdHJhX3BldF91d3Q3bWMud2VicCIsImlhdCI6MTYyNTI0MTg5MiwiZXhwIjoxOTQwNjAxODkyfQ.rUY2OADrNQ42Vo4Nf73l9S6-tyaEiriGW1MdZTDdPSI" alt="Orijen"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Fultra_pet_uwt7mc.webp?alt=media&token=dd27ae55-0ef8-47ce-9188-4b197bb5d49a" alt="UltraPet"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/vetschoice_shur9o.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL3ZldHNjaG9pY2Vfc2h1cjlvLndlYnAiLCJpYXQiOjE2MjUyNDE5MDAsImV4cCI6MTk0MDYwMTkwMH0.xF6gDZU4Q4z3B9Azg8KRE5v9Wl2T-I0y_St2sbceZh4" alt="UltraPet"/>
         </div>
         <div class="slide-content">
-            <img id="brand" src="https://firebasestorage.googleapis.com/v0/b/villagevetshop-e2f38.appspot.com/o/Logos%2Fiams_rhpjvp.webp?alt=media&token=3a626f22-9e4e-4b3a-9bee-6d3427af44da" alt="IAMS"/>
+            <img id="brand" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/logos/weruva_ie2iep.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2xvZ29zL3dlcnV2YV9pZTJpZXAud2VicCIsImlhdCI6MTYyNTI0MTkwNywiZXhwIjoxOTQwNjAxOTA3fQ.QsgChJPJB_e_KSYtDIP4vxbB_-qrsy9OAYV_FmQABj8" alt="IAMS"/>
         </div>
     </Carousel></div>
 </div>
