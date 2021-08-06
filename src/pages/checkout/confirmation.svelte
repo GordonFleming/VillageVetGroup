@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from 'svelte';
 	import { functions } from '../firebase';
     import { metatags } from '@roxi/routify'
     metatags.title = 'Confirmation | Village Vetshop'
@@ -90,7 +91,7 @@
     }
 
     sendEmail()
-    setTimeout(localStorage.clear(), 200);
+    setTimeout(localStorage.clear(), 1000);
 </script>
 
 <div class="container text-center">

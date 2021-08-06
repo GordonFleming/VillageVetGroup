@@ -46,12 +46,13 @@ export const genSig = functions.https.onCall(async (data, context) =>{
         // notify_url: data.notify_url,
         name_first: data.name_first,
         email_address: data.email_address,
+        cell_number: data.cell_number,
         m_payment_id: data.m_payment_id,
         amount: data.amount,
         item_name: data.item_name
     }
     console.log("This is myData merchant id from this actual function: " + myData.merchant_id);
-    console.log("This is myData name: " + data.name_first);
+    console.log("This is myData name: " + data.name_first + " and this is their phone number: " + data.cell_number);
     console.log("This is the passphrase: " + PASSPHRASE);
   // Create parameter string
   let pfOutput = "";

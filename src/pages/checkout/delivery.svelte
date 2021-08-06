@@ -7,7 +7,7 @@
     let deliver
     let email
     let name
-    let addressOne , addressTwo 
+    let addressOne, addressTwo
     let code
     let phone
     let extra

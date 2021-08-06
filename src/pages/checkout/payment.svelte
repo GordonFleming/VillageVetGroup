@@ -19,6 +19,7 @@
     localStorage.setItem("itemName",itemName)
     let name = "NA"
     let email = "NA"
+    let phone = "NA"
 
     if(deliveryDeets){
         if(deliveryDeets.deliver){
@@ -27,6 +28,7 @@
         }
         name = deliveryDeets.name
         email = deliveryDeets.email
+        phone = deliveryDeets.phone
     }
 
     const myData = [];
@@ -38,6 +40,7 @@
     // Buyer details
     myData["name_first"] = name;
     myData["email_address"] = email;
+    myData["cell_number"] = phone;
     // Transaction details
     myData["m_payment_id"] = id;
     myData["amount"] = total.toString();
@@ -56,6 +59,7 @@
             // notify_url: myData["notify_url"],
             name_first: myData["name_first"],
             email_address: myData["email_address"],
+            cell_number: myData["cell_number"],
             m_payment_id: myData["m_payment_id"],
             amount: myData["amount"],
             item_name: myData["item_name"]
