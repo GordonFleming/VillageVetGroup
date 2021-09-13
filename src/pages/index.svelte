@@ -1,5 +1,4 @@
 <script>
-    //import RoutifyIntro from './example/_components/RoutifyIntro.svelte'
     import { metatags } from '@roxi/routify'
     import Carousel from '@beyonk/svelte-carousel'
     import AnimalBlocks from './_components/AnimalBlocks.svelte'
@@ -43,7 +42,7 @@
             <div class="slide-content">
                 <img class="img-fluid" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/banners/dog1_n0yarw.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2Jhbm5lcnMvZG9nMV9uMHlhcncud2VicCIsImlhdCI6MTYyNTIzOTkyMSwiZXhwIjoxOTQwNTk5OTIxfQ.wWQnC2vp4e-WXqI87S0-sUu9MDlqQrTwSfVmLolHVP0" alt="banner_img"/>
             </div>
-            <div class="slide-content">
+            <!-- <div class="slide-content">
                 <img class="img-fluid" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/banners/Ultrum_Range_jwg8mc.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2Jhbm5lcnMvVWx0cnVtX1JhbmdlX2p3ZzhtYy53ZWJwIiwiaWF0IjoxNjI1MjM5Mjk3LCJleHAiOjE5NDA1OTkyOTd9.ieov1d1h4TExmRzGOBUd4SF3QQtG_p6814wB_ZHT-V0" alt="banner_img"/>
             </div>
             <div class="slide-content">
@@ -66,7 +65,7 @@
             </div>
             <div class="slide-content">
                 <img class="img-fluid" src="https://tirqswyaxhrjnlhdstky.supabase.co/storage/v1/object/sign/villagevet/banners/aaron-katz-s5zL-YuasvM-unsplash.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ2aWxsYWdldmV0L2Jhbm5lcnMvYWFyb24ta2F0ei1zNXpMLVl1YXN2TS11bnNwbGFzaC53ZWJwIiwiaWF0IjoxNjI1MjM5NzAxLCJleHAiOjE5NDA1OTk3MDF9.jbj2a6ZVe5b3HkiNM1mM11vz50Efkg3QQegGAMiwYqo" alt="banner_img"/>
-            </div>
+            </div> -->
             <span class="control" slot="right-control">
                 <ChevronRightIcon size="3x" />
             </span>

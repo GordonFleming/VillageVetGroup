@@ -91,7 +91,7 @@
     }
 
     sendEmail()
-    setTimeout(localStorage.clear(), 1000);
+    setTimeout(localStorage.clear(), 1500);
 </script>
 
 <div class="container text-center">
