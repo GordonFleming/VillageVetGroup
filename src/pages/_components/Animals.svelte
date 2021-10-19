@@ -10,7 +10,7 @@
 
     onMount(async () => {
         try {
-            const res = await axios({
+            await axios({
             url: 'https://villagevet.herokuapp.com/graphql',
             method: 'post',
             data: {
@@ -25,11 +25,9 @@
             }
             }).then((result) => {
                 console.log(result.data)
+                animals = result.data.data.animals
+                console.log("animals:", animals)
             });
-            animals = res.data
-
-
-        console.log(test)
         } catch (e) {
             error = e
         }
