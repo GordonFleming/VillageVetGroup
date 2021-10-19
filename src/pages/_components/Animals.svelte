@@ -10,11 +10,8 @@
 
     onMount(async () => {
         try {
-            const res = await axios.get("https://villagevet.herokuapp.com/animals");
-            animals = res.data
-
-        const test = await axios({
-            url: 'http://localhost:1337/graphql',
+            const res = await axios({
+            url: 'https://villagevet.herokuapp.com/graphql',
             method: 'post',
             data: {
                 query: `
@@ -29,6 +26,8 @@
             }).then((result) => {
                 console.log(result.data)
             });
+            animals = res.data
+
 
         console.log(test)
         } catch (e) {
