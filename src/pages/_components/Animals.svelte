@@ -3,6 +3,8 @@
     import { url } from '@roxi/routify'
     import axios from 'axios';
 
+    
+
     let animals = [];
     let error = null
 
@@ -10,6 +12,25 @@
         try {
             const res = await axios.get("https://villagevet.herokuapp.com/animals");
             animals = res.data
+
+        const test = await axios({
+            url: 'http://localhost:1337/graphql',
+            method: 'post',
+            data: {
+                query: `
+                    query {
+                        animals {
+                            id,
+                            type
+                        }
+                    }
+                `
+            }
+            }).then((result) => {
+                console.log(result.data)
+            });
+
+        console.log(test)
         } catch (e) {
             error = e
         }

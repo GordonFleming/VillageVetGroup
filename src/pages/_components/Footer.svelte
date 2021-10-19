@@ -69,8 +69,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col align-self-center">
-                    © 2021 Copyright:
-                    <a class="text-dark" href="https://splyce.dev/">Splyce</a>
+                    © 2021 Copyright: Village Vetshop
                 </div>
                 <div class="col align-self-center">
                     <a style="color: black;" href="/policies">Terms</a>
@@ -88,7 +87,7 @@
         </div>
     </div>
     <div class="corona text-black text-center d-block mx-auto">
-        <a href="https://sacoronavirus.co.za" target="_blank" style="color:inherit;">Stay informed! Visit the SA Department of Health's website for COVID-19 updates: www.sacoronavirus.co.za</a>
+        <a class="text-dark" href="https://splyce.dev/">Splyce</a>
     </div>
 </footer> 
 
