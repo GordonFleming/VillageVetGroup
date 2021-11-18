@@ -4,17 +4,23 @@
     import { fly } from 'svelte/transition';
     import { paginate, LightPaginationNav } from 'svelte-paginate';
     import { currentNumPage, scrollProduct, prodName } from '../store.js';
+    import { createEventDispatcher } from "svelte";
+
+    const dispatch = createEventDispatcher();
+
     let scrollPosID = "";
     scrollProduct.subscribe(value => {
         scrollPosID = value;
     }) 
+
     function waitforme(milisec) { 
         return new Promise(resolve => { 
             setTimeout(() => { resolve('') }, milisec); 
         }) 
     }
+
     onMount(async () => {
-        await waitforme(1400);
+        await waitforme(800);
         try{
             var productScroll = document.getElementById(scrollPosID);
             if(scrollPosID && productScroll.scrollIntoView !== null && productScroll.scrollIntoView !== undefined && productScroll != null){
@@ -24,13 +30,19 @@
             console.log(e)
         }
 	});
+
     export let currentPage;
+    export let count;
+
     export let items = [];
     let pageSize = 16;
     $: paginatedItems = paginate({ items, pageSize, currentPage });
+
     function updatePageNum(){
+        items = []
         currentNumPage.set(currentPage);
     }
+
     let error = null;
 </script>
 
@@ -88,7 +100,7 @@
 
             <div class="container pagination d-flex justify-content-center">
                 <LightPaginationNav
-                totalItems="{items.length}"
+                totalItems="{count}"
                 pageSize="{pageSize}"
                 currentPage="{currentPage}"
                 limit="{1}"
@@ -96,6 +108,7 @@
                 on:setPage="{(e) => currentPage = e.detail.page}"
                 on:setPage="{updatePageNum}"
                 on:setPage="{() => window.scrollTo(0, 250)}"
+                on:setPage="{() => dispatch('click')}"
                 />
             </div>               
         </div>

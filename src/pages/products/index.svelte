@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import Products from '../_components/Products.svelte';
+    import ProductsPagination from '../_components/ProductsPagination.svelte';
     import AnimalBlocks from '../_components/AnimalBlocks.svelte'
     import { currentNumPage } from '../store.js';
     import axios from 'axios';
@@ -77,7 +77,7 @@
         <SyncLoader size="20" color="#FDD177" unit="vw" duration="0.6s" />
     </div>
 {:else}
-    <Products {items} {currentPage} {count} on:click={fetchItems} />
+    <ProductsPagination {items} {currentPage} {count} on:click={fetchItems} />
 {/if}
 
 <style>
